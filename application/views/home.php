@@ -1,2 +1,2 @@
-<div class="content">
+<div class="section">
 </div>
