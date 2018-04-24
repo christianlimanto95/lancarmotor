@@ -1,7 +1,23 @@
-button {
-	float: left;
+.section-1 {
+    height: auto;
+    position: relative;
 }
 
-input {
-	margin-left: 50px;
+.section-1-image {
+    width: 100vw;
+    height: 47vw;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.section-1-logo {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    background-size: 100%;
+    background-repeat: no-repeat;
 }

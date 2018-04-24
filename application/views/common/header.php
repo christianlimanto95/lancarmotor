@@ -4,31 +4,30 @@
 	
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css"); ?>" />
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css"); ?>" />
-	<?php echo $additional_css; ?>
+    <?php echo $additional_css; ?>
+    <style>
+        @font-face {
+			font-family: helvetica-thin;
+			src: url(<?php echo base_url("assets/fonts/HelveticaNeueLTPro-Cn.woff"); ?>);
+        }
+        
+        @font-face {
+			font-family: helvetica-thin-bold;
+			src: url(<?php echo base_url("assets/fonts/HelveticaNeueLTPro-MdCn.woff"); ?>);
+		}
+    </style>
 </head>
 <body>
-<div class="header">
-    <div class="logo"></div>
+<div class="header<?php echo $header_additional_class; ?>">
+    <div class="logo" style="background-image: url(<?php echo base_url("assets/icons/logo_white.png"); ?>);"></div>
     <div class="header-menu-container">
-        <a href="#" class="header-menu active" >
-            <div class="header-menu-text">HOME</div>
-            <div class="header-menu-line"></div>
-        </a>
-        <a href="#" class="header-menu" >
-            <div class="header-menu-text">SHOP</div>
-            <div class="header-menu-line"></div>
-        </a>
-        <a href="#" class="header-menu" >
-            <div class="header-menu-text">ABOUT</div>
-            <div class="header-menu-line"></div>
-        </a>
-        <a href="#" class="header-menu" >
-            <div class="header-menu-text">CONTACT US</div>
-            <div class="header-menu-line"></div>
-        </a>
+        <a href="#" class="header-menu active" >HOME</a>
+        <a href="#" class="header-menu" >SHOP</a>
+        <a href="#" class="header-menu" >ABOUT</a>
+        <a href="#" class="header-menu" >CONTACT US</a>
     </div>
-    <div class="header-search"></div>
-    <div class="header-cart"></div>
+    <div class="header-search" style="background-image: url(<?php echo base_url("assets/icons/search_icon.png"); ?>);"></div>
+    <div class="header-cart" style="background-image: url(<?php echo base_url("assets/icons/cart_icon.png"); ?>);"></div>
     <div class="header-register">
         <div class="header-login-text">LOGIN</div>
         <div class="header-register-text">REGISTER</div>

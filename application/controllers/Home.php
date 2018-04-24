@@ -12,6 +12,7 @@ class Home extends General_controller {
 	
 	public function index()
 	{
+        parent::set_header_additional_class("transparent");
 		$data = array(
 			"title" => "Lancar Motor"
 		);

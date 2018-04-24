@@ -1,5 +1,5 @@
 * {
-    font-family: copperplate-bold;
+    font-family: helvetica-thin-bold;
     outline: 0;
     margin: 0;
     padding: 0;
@@ -25,6 +25,17 @@ body {
     top: 0;
     left: 0;
     background-color: black;
+    z-index: 1000;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 15px;
+    left: 40px;
 }
 
 .header-menu-container {
@@ -39,39 +50,62 @@ body {
     margin-right: 50px;
     position: relative;
     padding: 0 10px;
+    letter-spacing: 1px;
+}
+
+.header-menu:before {
+    content: "";
+    width: 0;
+    height: 1px;
+    background-color: white;
+    position: absolute;
+    top: 9px;
+    left: 100%;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
 }
 
 .header-menu:nth-last-child(1) {
     margin-right: 0;
 }
 
-.header-menu-line {
-    width: 0;
-    height: 1px;
-    background-color: white;
-    position: absolute;
-    top: 8px;
-    left: 100%;
-    -webkit-transition: all 0.2s;
-    transition: all 0.2s;
-}
-
-.header-menu:hover .header-menu-line {
+.header-menu:hover:before {
     left: 0;
     width: 100%;
     -webkit-transition: width 0.2s;
     transition: width 0.2s;
 }
 
-.header-menu.active .header-menu-line {
+.header-menu.active:before {
     width: 100%;
     left: 0;
+}
+
+.header-search, .header-cart {
+    position: absolute;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.header-search {
+    top: 20px;
+    right: 270px;
+    width: 25px;
+    height: 25px;
+}
+
+.header-cart {
+    top: 18px;
+    right: 210px;
+    width: 30px;
+    height: 30px;
 }
 
 .header-register {
     position: absolute;
     top: 25px;
-    right: 40px;
+    right: 50px;
 }
 
 .header-register-text, .header-login-text {
@@ -81,11 +115,20 @@ body {
 
 .header-register-text {
     margin-right: 20px;
-    color: #BBB;
+    color: #CCC;
 }
 
 .header-login-text {
     color: white;
+}
+
+.header.transparent {
+    background-color: transparent;
+}
+
+.header.transparent .logo {
+    display: none;
+    opacity: 0;
 }
 
 .notification {
