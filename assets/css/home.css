@@ -61,14 +61,14 @@
     width: 70vw;
 }
 
-.section-3-right {
+.section-3-right, .workshop-right {
     float: right;
     width: 29vw;
     padding-right: calc(2vw + 20px);
     padding-left: 2vw;
 }
 
-.section-3-subtitle {
+.section-3-subtitle, .workshop-right-title {
     display: inline-block;
     padding-right: 30px;
     font-family: helvetica-thin;
@@ -78,7 +78,7 @@
     margin-bottom: 20px;
 }
 
-.section-3-subtitle:before {
+.section-3-subtitle:before, .workshop-right-title:before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -89,21 +89,21 @@
 
 .section-4 {
     height: auto;
-    padding: 0 50px;
 }
 
 .subsection {
     overflow-y: auto;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .subsection-title {
     width: 150px;
-    font-size: 14pt;
+    font-size: 16pt;
     font-family: helvetica-thin;
     font-weight: bold;
     position: relative;
     padding-bottom: 5px;
+    margin-left: 50px;
     margin-bottom: 20px;
 }
 
@@ -116,9 +116,13 @@
     background-color: black;
 }
 
+.subsection-item-container, .category-container {
+    margin-left: 75px;
+}
+
 .subsection-item {
-    width: 140px;
-    height: 140px;
+    width: 120px;
+    height: 120px;
     background-size: 100%;
     background-repeat: no-repeat;
     float: left;
@@ -127,4 +131,56 @@
 
 .subsection-item:nth-last-child(1) {
     margin-right: 0;
+}
+
+.item {
+    width: 200px;
+    float: left;
+    margin-right: 20px;
+}
+
+.item-image {
+    width: 200px;
+    height: 200px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+}
+
+.item-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14pt;
+}
+
+.item-price {
+    font-size: 14pt;
+    margin-bottom: 10px;
+}
+
+.item-button {
+    width: 100%;
+    padding: 10px 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 11pt;
+    cursor: pointer;
+}
+
+.btn-add-to-cart {
+    margin-bottom: 10px;
+}
+
+.category-item {
+    text-decoration: none;
+    color: black;
+    width: 110px;
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 10px;
+}
+
+.workshop-image {
+    width: 70vw;
 }

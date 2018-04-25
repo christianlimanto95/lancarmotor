@@ -30,14 +30,89 @@
         <div class="subsection-title">TOP ITEM</div>
         <div class="subsection-item-container">
             <div class="item">
-                <div class="item-image" data-src="<?php echo base_url("assets/images/mitsuboshi.jpg"); ?>"></div>
+                <div class="item-image" data-src="<?php echo base_url("assets/images/busi.jpg"); ?>"></div>
                 <div class="item-name">NGK Busi</div>
                 <div class="item-price">Rp 18.000,-</div>
                 <div class="item-button-container">
-                    <div class="item-button">Add to Cart</div>
-                    <div class="item-button">Buy Now</div>
+                    <div class="item-button btn-add-to-cart">Add to Cart</div>
+                    <div class="item-button btn-buy-now">Buy Now</div>
                 </div>
             </div>
+            <div class="item">
+                <div class="item-image" data-src="<?php echo base_url("assets/images/775563_x800.jpg"); ?>"></div>
+                <div class="item-name">NGK Busi</div>
+                <div class="item-price">Rp 18.000,-</div>
+                <div class="item-button-container">
+                    <div class="item-button btn-add-to-cart">Add to Cart</div>
+                    <div class="item-button btn-buy-now">Buy Now</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-image" data-src="<?php echo base_url("assets/images/busi.jpg"); ?>"></div>
+                <div class="item-name">NGK Busi</div>
+                <div class="item-price">Rp 18.000,-</div>
+                <div class="item-button-container">
+                    <div class="item-button btn-add-to-cart">Add to Cart</div>
+                    <div class="item-button btn-buy-now">Buy Now</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-image" data-src="<?php echo base_url("assets/images/775563_x800.jpg"); ?>"></div>
+                <div class="item-name">NGK Busi</div>
+                <div class="item-price">Rp 18.000,-</div>
+                <div class="item-button-container">
+                    <div class="item-button btn-add-to-cart">Add to Cart</div>
+                    <div class="item-button btn-buy-now">Buy Now</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-image" data-src="<?php echo base_url("assets/images/busi.jpg"); ?>"></div>
+                <div class="item-name">NGK Busi</div>
+                <div class="item-price">Rp 18.000,-</div>
+                <div class="item-button-container">
+                    <div class="item-button btn-add-to-cart">Add to Cart</div>
+                    <div class="item-button btn-buy-now">Buy Now</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="subsection">
+        <div class="subsection-title">CATEGORY</div>
+        <div class="category-container">
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+            <a href="#" class="category-item">CATEGORY 1</a>
+        </div>
+    </div>
+    <div class="subsection">
+        <div class="subsection-title">WORKSHOP</div>
+        <div class="image-container workshop-image-container">
+            <img class="workshop-image" src="<?php echo base_url("assets/images/home_2.jpg"); ?>" data-src="<?php echo base_url("assets/images/home_2.jpg"); ?>" />
+        </div>
+        <div class="workshop-right">
+            <div class="workshop-right-title">GET TO KNOW US</div>
+            <div class="workshop-right-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a nisl cursus, fermentum dolor vel, feugiat mauris. Integer accumsan tempor diam, vel eleifend leo bibendum ut. Donec massa lacus, interdum et ipsum sed, lacinia maximus nisi. Pellentesque et ligula ligula. Nullam urna ipsum, ultricies sed tincidunt in, posuere sit amet magna.</div>
         </div>
     </div>
 </div>
