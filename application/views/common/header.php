@@ -2,8 +2,8 @@
 <head>
 	<title><?php echo $title; ?></title>
 	
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css"); ?>" />
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=1"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=1"); ?>" />
     <?php echo $additional_css; ?>
     <style>
         @font-face {
@@ -21,10 +21,10 @@
 <div class="header<?php echo $header_additional_class; ?>">
     <div class="logo" style="background-image: url(<?php echo base_url("assets/icons/logo_white.png"); ?>);"></div>
     <div class="header-menu-container">
-        <a href="#" class="header-menu active" >HOME</a>
-        <a href="#" class="header-menu" >SHOP</a>
-        <a href="#" class="header-menu" >ABOUT</a>
-        <a href="#" class="header-menu" >CONTACT US</a>
+        <a href="<?php echo base_url(); ?>" class="header-menu<?php echo $header_menu["home"]; ?>" >HOME</a>
+        <a href="<?php echo base_url("shop"); ?>" class="header-menu<?php echo $header_menu["shop"]; ?>" >SHOP</a>
+        <a href="#" class="header-menu<?php echo $header_menu["about"]; ?>" >ABOUT</a>
+        <a href="#" class="header-menu<?php echo $header_menu["contact"]; ?>" >CONTACT US</a>
     </div>
     <div class="header-search" style="background-image: url(<?php echo base_url("assets/icons/search_icon.png"); ?>);"></div>
     <div class="header-cart" style="background-image: url(<?php echo base_url("assets/icons/cart_icon.png"); ?>);"></div>

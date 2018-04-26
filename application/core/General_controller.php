@@ -12,11 +12,21 @@ class General_controller extends CI_Controller
     protected $additional_css = "";
     protected $additional_js = "";
     protected $header_additional_class = "";
+    protected $header_menu = array(
+        "home" => "",
+        "shop" => "",
+        "about" => "",
+        "contact" => ""
+    );
    
     public function __construct()
     {
         parent::__construct();
         $this->load->model('common/General_model');
+    }
+
+    public function set_header_menu_active($menu) {
+        $this->header_menu[$menu] = " active";
     }
 
     public function set_header_additional_class($class_name) {
@@ -40,6 +50,7 @@ class General_controller extends CI_Controller
         $data["additional_css"] = $this->additional_css;
         $data["additional_js"] = $this->additional_js;
         $data["header_additional_class"] = $this->header_additional_class;
+        $data["header_menu"] = $this->header_menu;
         $data["page_name"] = $file;
 		
         $this->load->view('common/header', $data);

@@ -134,14 +134,15 @@
 }
 
 .item {
-    width: 200px;
+    width: 150px;
     float: left;
     margin-right: 20px;
+    margin-bottom: 60px;
 }
 
 .item-image {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     background-size: 100%;
     background-repeat: no-repeat;
     margin-bottom: 10px;
@@ -150,17 +151,15 @@
 .item-name {
     font-weight: bold;
     margin-bottom: 5px;
-    font-size: 14pt;
 }
 
 .item-price {
-    font-size: 14pt;
     margin-bottom: 10px;
 }
 
 .item-button {
     width: 100%;
-    padding: 10px 0;
+    padding: 5px 0;
     background-color: black;
     color: white;
     text-align: center;

@@ -66,6 +66,18 @@ $(function() {
         e.stopPropagation();
     });
 
+    $(document).on("click", ".dialog-close-icon", function() {
+        closeDialog($(this).closest(".dialog"));
+    });
+
+    $(document).on("keydown", function(e) {
+        switch (e.which) {
+            case 27:
+                closeDialog();
+                break;
+        }
+    });
+
     $(document).on("click", function(e) {
         var target = $(e.target);
         if (target.closest(".dropdown-container").length == 0) {
@@ -109,6 +121,19 @@ function initializeDefault() {
     } else {
         isMobile = false;
     }
+}
+
+function showDialog(dialogElement) {
+    dialogElement.addClass("show");
+    dialogElement.trigger("dialogShown");
+}
+
+function closeDialog(element) {
+    if (element == null) {
+        element = $(".dialog");
+    }
+    element.removeClass("show");
+    element.trigger("dialogClosed");
 }
 
 function isNumber(e) {

@@ -1,0 +1,146 @@
+.section {
+    margin-top: 70px;
+    height: auto;
+    min-height: calc(100vh - 70px);
+    position: relative;
+}
+
+.center {
+    width: 100vw;
+    padding: 0 5vw;
+    position: relative;
+    overflow-y: auto;
+}
+
+.section-filter {
+    position: absolute;
+    bottom: 60px;
+    left: 5vw;
+    width: 220px;
+    height: 500px;
+    border: 2px solid black;
+}
+
+.filter-title {
+    background-color: black;
+    color: white;
+    padding: 10px 10px;
+}
+
+.filter-content {
+    padding: 10px;
+    font-size: 10pt;
+}
+
+.filter-item {
+    margin-bottom: 15px;
+}
+
+.filter-label {
+    width: 100px;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+.filter-input {
+    border: 1px solid black;
+    padding: 5px;
+    width: 150px;
+    margin-left: 10px;
+}
+
+.checkbox-outer-container {
+    margin-left: 10px;
+}
+
+.more {
+    text-align: right;
+    font-style: italic;
+    font-size: 9pt;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.section-filter.fixed {
+    position: fixed;
+    top: 90px;
+    left: 5vw;
+}
+
+.section-result {
+    width: calc(90vw - 250px);
+    margin-top: 20px;
+    float: right;
+}
+
+.search-result-text {
+    margin-top: 10px;
+}
+
+.shop-title {
+    width: 150px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 3px;
+    border-bottom: 2px solid black;
+    font-family: helvetica-thin;
+    font-weight: bold;
+}
+
+.item {
+    width: 150px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 60px;
+}
+
+.item-image {
+    width: 150px;
+    height: 150px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+}
+
+.item-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.item-price {
+    margin-bottom: 10px;
+}
+
+.item-button {
+    width: 100%;
+    padding: 5px 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 11pt;
+    cursor: pointer;
+}
+
+.btn-add-to-cart {
+    margin-bottom: 10px;
+}
+
+.dialog-category .dialog-box {
+    width: 700px;
+}
+
+.dialog-category .dialog-content {
+    overflow-y: auto;
+    margin-bottom: 30px;
+}
+
+.dialog-category-checkbox-container {
+    width: 130px;
+    float: left;
+    font-size: 10pt;
+}
+
+.footer {
+    margin-top: 40px;
+}

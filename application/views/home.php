@@ -34,8 +34,8 @@
                 <div class="item-name">NGK Busi</div>
                 <div class="item-price">Rp 18.000,-</div>
                 <div class="item-button-container">
-                    <div class="item-button btn-add-to-cart">Add to Cart</div>
-                    <div class="item-button btn-buy-now">Buy Now</div>
+                    <div class="button item-button btn-add-to-cart">Add to Cart</div>
+                    <div class="button item-button btn-buy-now">Buy Now</div>
                 </div>
             </div>
             <div class="item">
@@ -43,8 +43,8 @@
                 <div class="item-name">NGK Busi</div>
                 <div class="item-price">Rp 18.000,-</div>
                 <div class="item-button-container">
-                    <div class="item-button btn-add-to-cart">Add to Cart</div>
-                    <div class="item-button btn-buy-now">Buy Now</div>
+                    <div class="button item-button btn-add-to-cart">Add to Cart</div>
+                    <div class="button item-button btn-buy-now">Buy Now</div>
                 </div>
             </div>
             <div class="item">
@@ -52,8 +52,8 @@
                 <div class="item-name">NGK Busi</div>
                 <div class="item-price">Rp 18.000,-</div>
                 <div class="item-button-container">
-                    <div class="item-button btn-add-to-cart">Add to Cart</div>
-                    <div class="item-button btn-buy-now">Buy Now</div>
+                    <div class="button item-button btn-add-to-cart">Add to Cart</div>
+                    <div class="button item-button btn-buy-now">Buy Now</div>
                 </div>
             </div>
             <div class="item">
@@ -61,8 +61,8 @@
                 <div class="item-name">NGK Busi</div>
                 <div class="item-price">Rp 18.000,-</div>
                 <div class="item-button-container">
-                    <div class="item-button btn-add-to-cart">Add to Cart</div>
-                    <div class="item-button btn-buy-now">Buy Now</div>
+                    <div class="button item-button btn-add-to-cart">Add to Cart</div>
+                    <div class="button item-button btn-buy-now">Buy Now</div>
                 </div>
             </div>
             <div class="item">
@@ -70,8 +70,26 @@
                 <div class="item-name">NGK Busi</div>
                 <div class="item-price">Rp 18.000,-</div>
                 <div class="item-button-container">
-                    <div class="item-button btn-add-to-cart">Add to Cart</div>
-                    <div class="item-button btn-buy-now">Buy Now</div>
+                    <div class="button item-button btn-add-to-cart">Add to Cart</div>
+                    <div class="button item-button btn-buy-now">Buy Now</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-image" data-src="<?php echo base_url("assets/images/775563_x800.jpg"); ?>"></div>
+                <div class="item-name">NGK Busi</div>
+                <div class="item-price">Rp 18.000,-</div>
+                <div class="item-button-container">
+                    <div class="button item-button btn-add-to-cart">Add to Cart</div>
+                    <div class="button item-button btn-buy-now">Buy Now</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-image" data-src="<?php echo base_url("assets/images/busi.jpg"); ?>"></div>
+                <div class="item-name">NGK Busi</div>
+                <div class="item-price">Rp 18.000,-</div>
+                <div class="item-button-container">
+                    <div class="button item-button btn-add-to-cart">Add to Cart</div>
+                    <div class="button item-button btn-buy-now">Buy Now</div>
                 </div>
             </div>
         </div>
