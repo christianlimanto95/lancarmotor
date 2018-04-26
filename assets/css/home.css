@@ -11,6 +11,10 @@
     background-attachment: fixed;
 }
 
+body.show-cart .section-1-image {
+    background-size: calc(100% - 17px);
+}
+
 .section-1-logo {
     width: 400px;
     height: 400px;
@@ -118,6 +122,7 @@
 
 .subsection-item-container, .category-container {
     margin-left: 75px;
+    overflow-x: hidden;
 }
 
 .subsection-item {

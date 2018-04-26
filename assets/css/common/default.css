@@ -305,6 +305,7 @@ body.show-cart .cart {
 }
 
 .image-container.hide-wrapper:after, :not(img)[data-src]:not([data-wrapper-anim="false"]).hide-wrapper:before {
+    opacity: 0;
     -webkit-animation: 0.2s linear 0s 1 normal forwards running hide-wrapper-anim;
     -moz-animation: 0.2s linear 0s 1 normal forwards running hide-wrapper-anim;
     -ms-animation: 0.2s linear 0s 1 normal forwards running hide-wrapper-anim;
