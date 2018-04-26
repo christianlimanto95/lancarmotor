@@ -2,7 +2,7 @@
 <head>
 	<title><?php echo $title; ?></title>
 	
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=1"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=2"); ?>" />
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=1"); ?>" />
     <?php echo $additional_css; ?>
     <style>
@@ -33,6 +33,49 @@
         <div class="header-register-text">REGISTER</div>
     </div>
 </div>
+<div class="cart">
+    <div class="cart-close-icon">
+        <svg width="30" height="30" viewBox="0 0 50 50">
+            <line x1="10" y1="25" x2="50" y2="25" stroke="black" stroke-width="1" />
+            <line x1="50" y1="25" x2="30" y2="7" stroke="black" stroke-width="1" />
+            <line x1="50" y1="25" x2="30" y2="43" stroke="black" stroke-width="1" />
+        </svg>
+    </div>
+    <div class="cart-title">Your Cart</div>
+    <div class="cart-item-container">
+        <div class="cart-item">
+            <div class="cart-item-delete">
+                <svg width="13" height="13" viewBox="0 0 13 13">
+                    <line x1="0" y1="0" x2="13" y2="13" stroke="black" />
+                    <line x1="13" y1="0" x2="0" y2="13" stroke="black" />
+                </svg>
+            </div>
+            <div class="cart-item-image" data-src="<?php echo base_url("assets/images/775563_x800.jpg"); ?>"></div>
+            <div class="cart-item-text">
+                <div class="cart-item-nama">NGK Busi</div>
+                <div class="cart-item-harga">Rp 57.000,-</div>
+                <div class="cart-item-qty">Qty : 3</div>
+            </div>
+        </div>
+        <div class="cart-item">
+            <div class="cart-item-delete">
+                <svg width="13" height="13" viewBox="0 0 13 13">
+                    <line x1="0" y1="0" x2="13" y2="13" stroke="black" />
+                    <line x1="13" y1="0" x2="0" y2="13" stroke="black" />
+                </svg>
+            </div>
+            <div class="cart-item-image" data-src="<?php echo base_url("assets/images/775563_x800.jpg"); ?>"></div>
+            <div class="cart-item-text">
+                <div class="cart-item-nama">NGK Busi</div>
+                <div class="cart-item-harga">Rp 57.000,-</div>
+                <div class="cart-item-qty">Qty : 3</div>
+            </div>
+        </div>
+    </div>
+    <div class="cart-subtotal"><span class="cart-subtotal-text">SUBTOTAL : </span>Rp 93.000,-</div>
+    <div class="button btn-cart-checkout">CHECKOUT</div>
+</div>
+<div class="dark-background"></div>
 <script>
 var vw = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 var vh = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;

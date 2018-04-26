@@ -66,6 +66,14 @@ $(function() {
         e.stopPropagation();
     });
 
+    $(".header-cart").on("click", function() {
+        $("body").addClass("show-cart");
+    });
+
+    $(".cart-close-icon").on("click", function() {
+        $("body").removeClass("show-cart");
+    });
+
     $(document).on("click", ".dialog-close-icon", function() {
         closeDialog($(this).closest(".dialog"));
     });
