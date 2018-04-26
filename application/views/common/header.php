@@ -34,8 +34,8 @@
     </div>
 </div>
 <script>
-var vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-var vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+var vw = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+var vh = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 if (vw < 1025) {
     isMobile = true;
     if (vw >= 768) {

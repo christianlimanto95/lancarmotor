@@ -109,8 +109,8 @@ $(function() {
 });
 
 function initializeDefault() {
-    vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    vw = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    vh = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     if (vw < 1025) {
         isMobile = true;
         if (vw >= 768) {
@@ -223,7 +223,7 @@ function setScrollAnimFunction() {
         var arrScrollFunctionIndex = arrScrollFunction.length;
         (function(item, threshold, index, delay) {
 			var scrollFunction = function() {
-				if (container.scrollTop() + windowHeight >= threshold) {
+				if (container.scrollTop() + vh >= threshold) {
 					item[0].style.WebkitAnimationDelay = delay + "s";
 					item[0].style.animationDelay = delay + "s";
 					item.addClass("show");
