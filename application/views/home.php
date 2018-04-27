@@ -30,7 +30,7 @@
         <div class="subsection-title">TOP ITEM</div>
         <div class="subsection-item-container">
             <div class="item" data-anim="show-up" data-anim-threshold="self">
-                <div class="item-image" data-src="<?php echo base_url("assets/images/busi.jpg"); ?>"></div>
+                <a href="<?php echo base_url("item-detail/1"); ?>" class="item-image" data-src="<?php echo base_url("assets/images/busi.jpg"); ?>"></a>
                 <div class="item-name">NGK Busi</div>
                 <div class="item-price">Rp 18.000,-</div>
                 <div class="item-button-container">
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="item" data-anim="show-up" data-anim-threshold="self">
-                <div class="item-image" data-src="<?php echo base_url("assets/images/775563_x800.jpg"); ?>"></div>
+                <a href="<?php echo base_url("item-detail/1"); ?>" class="item-image" data-src="<?php echo base_url("assets/images/775563_x800.jpg"); ?>"></a>
                 <div class="item-name">NGK Busi</div>
                 <div class="item-price">Rp 18.000,-</div>
                 <div class="item-button-container">
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="item" data-anim="show-up" data-anim-threshold="self">
-                <div class="item-image" data-src="<?php echo base_url("assets/images/busi.jpg"); ?>"></div>
+                <a href="<?php echo base_url("item-detail/1"); ?>" class="item-image" data-src="<?php echo base_url("assets/images/busi.jpg"); ?>"></a>
                 <div class="item-name">NGK Busi</div>
                 <div class="item-price">Rp 18.000,-</div>
                 <div class="item-button-container">
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="item" data-anim="show-up" data-anim-threshold="self">
-                <div class="item-image" data-src="<?php echo base_url("assets/images/775563_x800.jpg"); ?>"></div>
+                <a href="<?php echo base_url("item-detail/1"); ?>" class="item-image" data-src="<?php echo base_url("assets/images/775563_x800.jpg"); ?>"></a>
                 <div class="item-name">NGK Busi</div>
                 <div class="item-price">Rp 18.000,-</div>
                 <div class="item-button-container">
@@ -66,7 +66,7 @@
                 </div>
             </div>
             <div class="item" data-anim="show-up" data-anim-threshold="self">
-                <div class="item-image" data-src="<?php echo base_url("assets/images/busi.jpg"); ?>"></div>
+                <a href="<?php echo base_url("item-detail/1"); ?>" class="item-image" data-src="<?php echo base_url("assets/images/busi.jpg"); ?>"></a>
                 <div class="item-name">NGK Busi</div>
                 <div class="item-price">Rp 18.000,-</div>
                 <div class="item-button-container">
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="item" data-anim="show-up" data-anim-threshold="self">
-                <div class="item-image" data-src="<?php echo base_url("assets/images/775563_x800.jpg"); ?>"></div>
+                <a href="<?php echo base_url("item-detail/1"); ?>" class="item-image" data-src="<?php echo base_url("assets/images/775563_x800.jpg"); ?>"></a>
                 <div class="item-name">NGK Busi</div>
                 <div class="item-price">Rp 18.000,-</div>
                 <div class="item-button-container">
@@ -84,7 +84,7 @@
                 </div>
             </div>
             <div class="item" data-anim="show-up" data-anim-threshold="self">
-                <div class="item-image" data-src="<?php echo base_url("assets/images/busi.jpg"); ?>"></div>
+                <a href="<?php echo base_url("item-detail/1"); ?>" class="item-image" data-src="<?php echo base_url("assets/images/busi.jpg"); ?>"></a>
                 <div class="item-name">NGK Busi</div>
                 <div class="item-price">Rp 18.000,-</div>
                 <div class="item-button-container">

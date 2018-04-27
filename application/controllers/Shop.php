@@ -18,5 +18,14 @@ class Shop extends General_controller {
 		);
 		
 		parent::view("shop", $data);
-	}
+    }
+    
+    public function item_detail() {
+        parent::set_header_menu_active("shop");
+		$data = array(
+			"title" => "NGK Busi &mdash; Lancar Motor"
+		);
+		
+		parent::view("item_detail", $data);
+    }
 }

@@ -146,6 +146,7 @@ body.show-cart .section-1-image {
 }
 
 .item-image {
+    display: block;
     width: 150px;
     height: 150px;
     background-size: 100%;

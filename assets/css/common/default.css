@@ -379,6 +379,10 @@ body.show-cart .cart {
     z-index: 502;
 }
 
+pre {
+    white-space: pre-wrap;
+}
+
 .section {
     width: 100vw;
     overflow: hidden;
