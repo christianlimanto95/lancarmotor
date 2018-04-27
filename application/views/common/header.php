@@ -2,7 +2,7 @@
 <head>
 	<title><?php echo $title; ?></title>
 	
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=4"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=5"); ?>" />
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=3"); ?>" />
     <?php echo $additional_css; ?>
     <style>
@@ -55,7 +55,7 @@
                 </div>
             </div>
         </div>
-        <div class="header-register-text">REGISTER</div>
+        <a href="<?php echo base_url("register"); ?>" class="header-register-text">REGISTER</a>
     </div>
 </div>
 <div class="cart">

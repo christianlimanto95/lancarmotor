@@ -38,7 +38,7 @@ body.show-cart .dark-background, body.show-login .dark-background {
     display: block;
 }
 
-.checkbox-container {
+.checkbox-container, .radio-container, .button {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -146,6 +146,8 @@ body.show-cart .dark-background, body.show-login .dark-background {
 }
 
 .header-register-text {
+    display: block;
+    text-decoration: none;
     margin-right: 20px;
     color: #CCC;
 }
@@ -185,7 +187,7 @@ body.show-cart .dark-background, body.show-login .dark-background {
 
 .form-label {
     font-size: 11pt;
-    color: #555;
+    color: #777;
     letter-spacing: 0;
 }
 
@@ -252,6 +254,7 @@ input.form-input {
     letter-spacing: 0 !important;
     vertical-align: middle;
     font-size: 11pt;
+    color: #555;
 }
 
 .google-icon {
@@ -273,6 +276,10 @@ body.show-login .login-box {
 
 .header.transparent .logo {
     opacity: 0;
+}
+
+.header.hide {
+    display: none;
 }
 
 .cart {
