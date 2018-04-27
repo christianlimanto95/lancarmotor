@@ -6,7 +6,7 @@
     margin: 30px auto 10px;
 }
 
-.login-redirect {
+.register-redirect {
     display: block;
     text-decoration: none;
     color: #999;
@@ -16,13 +16,13 @@
     margin: 0 auto;
 }
 
-.login-redirect:hover {
+.register-redirect:hover {
     text-decoration: underline;
 }
 
 .section {
     margin-top: 40px;
-    height: 450px;
+    height: 370px;
     text-align: center;
 }
 
@@ -36,13 +36,13 @@
 }
 
 .section-left, .section-right {
-    width: 400px;
+    width: 300px;
     height: 100%;
 }
 
 .register-with-google {
     float: right;
-    margin-top: 190px;
+    margin-top: 160px;
     margin-right: 80px;
     width: 260px;
     padding: 15px;
@@ -81,7 +81,7 @@
 .or-text {
     position: relative;
     padding: 15px 0;
-    margin-top: 200px;
+    margin-top: 160px;
     margin-left: 5px;
     font-size: 11pt;
     color: #AAA;
@@ -89,11 +89,10 @@
 }
 
 .register-box {
+    margin-top: 50px;
     width: 320px;
     height: 450px;
-    border: 1px solid black;
     margin-left: 80px;
-    padding: 20px 30px;
 }
 
 .register-box-title {
@@ -104,6 +103,31 @@
     margin-bottom: 30px;
 }
 
-.btn-register {
+.login-remember-me {
+    overflow-y: auto;
+    margin-bottom: 30px;
+}
+
+.login-remember-me-checkbox-container {
+    font-size: 10pt;
+    float: left;
+}
+
+.login-remember-me-checkbox-container .checkbox {
+    width: 16px;
+    height: 16px;
+}
+
+.login-remember-me-checkbox-container .checkbox:after {
+    top: 2px;
+    left: 2px;
+}
+
+.login-remember-me-checkbox-container .checkbox-text {
+    letter-spacing: 0;
+    margin-left: 0 !important;
+}
+
+.btn-login {
     padding: 10px 0;
 }

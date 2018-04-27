@@ -1,9 +1,18 @@
 <html>
 <head>
 	<title><?php echo $title; ?></title>
-	
+    <link rel="shortcut icon" href="<?php echo base_url("assets/icons/favicon.png"); ?>" />
+    <meta property="og:title" content="<?php echo $title; ?>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="<?php echo base_url("assets/icons/logo.png"); ?>" />
+    <meta property="og:url" content="<?php echo (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>" />
+	<?php if (isset($meta_description)) {
+        echo "<meta name='description' content='" . $meta_description . "' />";
+        echo "<meta name='og:description' content='" . $meta_description . "' />";
+    } ?>
+    
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=5"); ?>" />
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=3"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=5"); ?>" />
     <?php echo $additional_css; ?>
     <style>
         @font-face {
