@@ -71,8 +71,17 @@ $(function() {
         $("body").addClass("show-cart");
     });
 
-    $(".cart-close-icon, .dark-background").on("click", function() {
+    $(".cart-close-icon").on("click", function() {
         $("body").removeClass("show-cart");
+    });
+
+    $(".header-login-text").on("click", function() {
+        $("body").addClass("show-login");
+        $(".input-login-email").focus();
+    });
+
+    $(".dark-background").on("click", function() {
+        $("body").removeClass("show-cart show-login");
     });
 
     $(document).on("click", ".dialog-close-icon", function() {

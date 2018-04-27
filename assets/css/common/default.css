@@ -30,11 +30,11 @@ body.show-cart {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
     display: none;
 }
 
-body.show-cart .dark-background {
+body.show-cart .dark-background, body.show-login .dark-background {
     display: block;
 }
 
@@ -58,6 +58,7 @@ body.show-cart .dark-background {
 }
 
 .logo {
+    display: block;
     width: 45px;
     height: 45px;
     background-size: 100%;
@@ -151,6 +152,119 @@ body.show-cart .dark-background {
 
 .header-login-text {
     color: white;
+    position: relative;
+}
+
+.login-box {
+    position: absolute;
+    width: 300px;
+    top: 45px;
+    right: -20px;
+    background-color: white;
+    display: none;
+    padding: 20px;
+    cursor: default;
+    color: black;
+}
+
+.login-box:before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    right: 30px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid white;
+}
+
+.form-item {
+    margin-bottom: 30px;
+}
+
+.form-label {
+    font-size: 11pt;
+    color: #555;
+    letter-spacing: 0;
+}
+
+input.form-input {
+    border: 0;
+    border-bottom: 1px solid black;
+    padding: 5px 0;
+    font-size: 12pt;
+    width: 100%;
+}
+
+.remember-me-container {
+    overflow-y: auto;
+    margin-bottom: 30px;
+}
+
+.remember-me-checkbox-container {
+    font-size: 10pt;
+    float: left;
+}
+
+.remember-me-checkbox-container .checkbox {
+    width: 16px;
+    height: 16px;
+}
+
+.remember-me-checkbox-container .checkbox:after {
+    top: 2px;
+    left: 2px;
+}
+
+.remember-me-checkbox-container .checkbox-text {
+    letter-spacing: 0;
+    margin-left: 0 !important;
+}
+
+.forgot-password {
+    display: block;
+    color: black;
+    float: right;
+    font-size: 10pt;
+    letter-spacing: 0;
+}
+
+.btn-login {
+    padding: 10px 0 !important;
+}
+
+.login-or {
+    text-align: center;
+    color: #999;
+    margin: 15px 0;
+    font-style: italic;
+}
+
+.btn-login-with-google {
+    border: 1px solid black;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.google-icon, .login-with-google-text {
+    display: inline-block;
+    letter-spacing: 0 !important;
+    vertical-align: middle;
+    font-size: 11pt;
+}
+
+.google-icon {
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-left: 30px;
+    margin-right: 15px;
+}
+
+body.show-login .login-box {
+    display: block;
 }
 
 .header.transparent {
@@ -194,7 +308,7 @@ body.show-cart .cart {
 
 .cart-item-container {
     width: 100%;
-    height: calc(100vh - 180px);
+    height: calc(100vh - 200px);
 }
 
 .cart-item {

@@ -2,8 +2,8 @@
 <head>
 	<title><?php echo $title; ?></title>
 	
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=3"); ?>" />
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=2"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=4"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=3"); ?>" />
     <?php echo $additional_css; ?>
     <style>
         @font-face {
@@ -19,17 +19,42 @@
 </head>
 <body>
 <div class="header<?php echo $header_additional_class; ?>">
-    <div class="logo" style="background-image: url(<?php echo base_url("assets/icons/logo_white.png"); ?>);"></div>
+    <a href="<?php echo base_url(); ?>" class="logo" style="background-image: url(<?php echo base_url("assets/icons/logo_white.png"); ?>);"></a>
     <div class="header-menu-container">
         <a href="<?php echo base_url(); ?>" class="header-menu<?php echo $header_menu["home"]; ?>" >HOME</a>
         <a href="<?php echo base_url("shop"); ?>" class="header-menu<?php echo $header_menu["shop"]; ?>" >SHOP</a>
-        <a href="#" class="header-menu<?php echo $header_menu["about"]; ?>" >ABOUT</a>
+        <a href="<?php echo base_url("about"); ?>" class="header-menu<?php echo $header_menu["about"]; ?>" >ABOUT</a>
         <a href="#" class="header-menu<?php echo $header_menu["contact"]; ?>" >CONTACT US</a>
     </div>
     <div class="header-search" style="background-image: url(<?php echo base_url("assets/icons/search_icon.png"); ?>);"></div>
     <div class="header-cart" style="background-image: url(<?php echo base_url("assets/icons/cart_icon.png"); ?>);"></div>
     <div class="header-register">
-        <div class="header-login-text">LOGIN</div>
+        <div class="header-login-text">
+            LOGIN
+            <div class="login-box">
+                <div class="form-item">
+                    <div class="form-label">Email</div>
+                    <input type="text" class="form-input input-login-email" />
+                </div>
+                <div class="form-item">
+                    <div class="form-label">Password</div>
+                    <input type="password" class="form-input" />
+                </div>
+                <div class="remember-me-container">
+                    <div class='checkbox-container remember-me-checkbox-container' data-name='remember-me' data-value='1'>
+                        <div class='checkbox'></div>
+                        <div class='checkbox-text'>Remember Me</div>
+                    </div>
+                    <a href="#" class="forgot-password">forgot password?</a>
+                </div>
+                <div class="button btn-login">Login</div>
+                <div class="login-or">or</div>
+                <div class="btn-login-with-google">
+                    <div class="google-icon" style="background-image: url(<?php echo base_url("assets/icons/google_g.png"); ?>);"></div>
+                    <div class="login-with-google-text">Masuk dengan Google</div>
+                </div>
+            </div>
+        </div>
         <div class="header-register-text">REGISTER</div>
     </div>
 </div>
