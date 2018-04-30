@@ -1,3 +1,356 @@
+body.preloading {
+    overflow-y: hidden;
+}
+
+body.hide-preloading {
+    overflow-y: auto;
+}
+
+.preloader-background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2000;
+    display: none;
+}
+
+body.preloading .preloader-background {
+    display: block;
+}
+
+.preloader-splitter-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
+}
+
+.preloader-splitter-right {
+    position: absolute;
+    top: 0;
+    left: 50vw;
+    width: 50vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: white;
+}
+
+@-webkit-keyframes preloader-splitter-left-hide {
+    to {
+        --webkit-transform: translateX(-50vw);
+    }
+}
+
+@keyframes preloader-splitter-left-hide {
+    to {
+        -moz-transform: translateX(-50vw);
+        -ms-transform: translateX(-50vw);
+        -o-transform: translateX(-50vw);
+        transform: translateX(-50vw);
+    }
+}
+
+@-webkit-keyframes preloader-splitter-right-hide {
+    to {
+        -webkit-transform: translateX(50vw);
+    }
+}
+
+@keyframes preloader-splitter-right-hide {
+    to {
+        -moz-transform: translateX(50vw);
+        -ms-transform: translateX(50vw);
+        -o-transform: translateX(50vw);
+        transform: translateX(50vw);
+    }
+}
+
+body.hide-preloading .preloader-splitter-left {
+    -webkit-animation: 1s cubic-bezier(.92, .33, 0, 1) 1s 1 normal forwards running preloader-splitter-left-hide;
+    -moz-animation: 1s cubic-bezier(.92, .33, 0, 1) 1s 1 normal forwards running preloader-splitter-left-hide;
+    -ms-animation: 1s cubic-bezier(.92, .33, 0, 1) 1s 1 normal forwards running preloader-splitter-left-hide;
+    -o-animation: 1s cubic-bezier(.92, .33, 0, 1) 1s 1 normal forwards running preloader-splitter-left-hide;
+    animation: 1s cubic-bezier(.92, .33, 0, 1) 1s 1 normal forwards running preloader-splitter-left-hide;
+}
+
+body.hide-preloading .preloader-splitter-right {
+    -webkit-animation: 1s cubic-bezier(.92, .33, 0, 1) 1s 1 normal forwards running preloader-splitter-right-hide;
+    -moz-animation: 1s cubic-bezier(.92, .33, 0, 1) 1s 1 normal forwards running preloader-splitter-right-hide;
+    -ms-animation: 1s cubic-bezier(.92, .33, 0, 1) 1s 1 normal forwards running preloader-splitter-right-hide;
+    -o-animation: 1s cubic-bezier(.92, .33, 0, 1) 1s 1 normal forwards running preloader-splitter-right-hide;
+    animation: 1s cubic-bezier(.92, .33, 0, 1) 1s 1 normal forwards running preloader-splitter-right-hide;
+}
+
+.preloader {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 50%;
+}
+
+.preloader-splitter-left .preloader {
+    right: 0;
+    -webkit-transform: translate(50%, -50%);
+    -moz-transform: translate(50%, -50%);
+    -ms-transform: translate(50%, -50%);
+    -o-transform: translate(50%, -50%);
+    transform: translate(50%, -50%);
+}
+
+.preloader-splitter-right .preloader {
+    left: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+@keyframes rotate-cw-anim {
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate-cw-anim {
+    to {
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rotate-ccw-anim {
+    to {
+        -webkit-transform: rotate(-360deg);
+    }
+}
+
+@keyframes rotate-ccw-anim {
+    to {
+        -moz-transform: rotate(-360deg);
+        -ms-transform: rotate(-360deg);
+        -o-transform: rotate(-360deg);
+        transform: rotate(-360deg);
+    }
+}
+
+.preloader-1 {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 240px;
+    height: 120px;
+    border-top-left-radius: 120px;
+    border-top-right-radius: 120px;    
+    -webkit-transform-origin: 50% 100%;
+    -moz-transform-origin: 50% 100%;
+    -ms-transform-origin: 50% 100%;
+    -o-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+
+    -webkit-animation: 2.3s linear 0s infinite normal none running rotate-ccw-anim;
+    -moz-animation: 2.3s linear 0s infinite normal none running rotate-ccw-anim;
+    -ms-animation: 2.3s linear 0s infinite normal none running rotate-ccw-anim;
+    -o-animation: 2.3s linear 0s infinite normal none running rotate-ccw-anim;
+    animation: 2.3s linear 0s infinite normal none running rotate-ccw-anim;
+}
+
+.preloader-splitter-left .preloader-1 {
+    border: 15px solid white;
+    border-bottom: 0;
+}
+
+.preloader-splitter-right .preloader-1 {
+    border: 15px solid black;
+    border-bottom: 0;
+}
+
+.preloader-2 {
+    
+}
+
+.preloader-3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100px;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    
+    -webkit-transform-origin: 50% 100%;
+    -moz-transform-origin: 50% 100%;
+    -ms-transform-origin: 50% 100%;
+    -o-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    
+    -webkit-animation: 1.2s linear 0s infinite normal none running rotate-cw-anim;
+    -moz-animation: 1.2s linear 0s infinite normal none running rotate-cw-anim;
+    -ms-animation: 1.2s linear 0s infinite normal none running rotate-cw-anim;
+    -o-animation: 1.2s linear 0s infinite normal none running rotate-cw-anim;
+    animation: 1.2s linear 0s infinite normal none running rotate-cw-anim;
+}
+
+.preloader-splitter-left .preloader-3 {
+    border: 6px solid white;
+    border-bottom: 0;
+}
+
+.preloader-splitter-right .preloader-3 {
+    border: 6px solid black;
+    border-bottom: 0;
+}
+
+.preloader-4 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 180px;
+    height: 90px;
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+    
+    -webkit-transform-origin: 50% 100%;
+    -moz-transform-origin: 50% 100%;
+    -ms-transform-origin: 50% 100%;
+    -o-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    
+    -webkit-animation: 1.1s linear 0s infinite normal none running rotate-ccw-anim;
+    -moz-animation: 1.1s linear 0s infinite normal none running rotate-ccw-anim;
+    -ms-animation: 1.1s linear 0s infinite normal none running rotate-ccw-anim;
+    -o-animation: 1.1s linear 0s infinite normal none running rotate-ccw-anim;
+    animation: 1.1s linear 0s infinite normal none running rotate-ccw-anim;
+}
+
+.preloader-splitter-left .preloader-4 {
+    border: 25px solid white;
+    border-bottom: 0;
+}
+
+.preloader-splitter-right .preloader-4 {
+    border: 25px solid black;
+    border-bottom: 0;
+}
+
+.preloader-5 {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    border-radius: 100%;
+    
+    width: 120px;
+    height: 120px;
+}
+
+.preloader-splitter-left .preloader-5 {
+    border: 2px solid white;
+}
+
+.preloader-splitter-right .preloader-5 {
+    border: 2px solid black;
+}
+
+.preloader-6 {
+    position: absolute;
+    top: 48px;
+    left: 48px;
+    width: 104px;
+    height: 104px;
+    border-radius: 100%;
+    
+}
+
+.preloader-splitter-left .preloader-6 {
+    border: 25px solid white;
+}
+
+.preloader-splitter-right .preloader-6 {
+    border: 25px solid black;
+}
+
+.preloader-7 {
+    position: absolute;
+    top: 48px;
+    left: 48px;
+    
+    -webkit-animation: 1.5s linear 0s infinite normal none running rotate-ccw-anim;
+    -moz-animation: 1.5s linear 0s infinite normal none running rotate-ccw-anim;
+    -ms-animation: 1.5s linear 0s infinite normal none running rotate-ccw-anim;
+    -o-animation: 1.5s linear 0s infinite normal none running rotate-ccw-anim;
+    animation: 1.5s linear 0s infinite normal none running rotate-ccw-anim;
+}
+
+.preloader-8 {
+    position: absolute;
+    top: 73px;
+    left: 73px;
+    
+    -webkit-animation: 2s linear 0s infinite normal none running rotate-cw-anim;
+    -moz-animation: 2s linear 0s infinite normal none running rotate-cw-anim;
+    -ms-animation: 2s linear 0s infinite normal none running rotate-cw-anim;
+    -o-animation: 2s linear 0s infinite normal none running rotate-cw-anim;
+    animation: 2s linear 0s infinite normal none running rotate-cw-anim;
+}
+
+.preloader-9 {
+    position: absolute;
+    top: 85px;
+    left: 85px;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+
+.preloader-splitter-left .preloader-9 {
+    border: 2px solid white;
+}
+
+.preloader-splitter-right .preloader-9 {
+    border: 2px solid black;
+}
+
+body.hide-preloading .preloader-1, body.hide-preloading .preloader-2, body.hide-preloading .preloader-3, body.hide-preloading .preloader-4, body.hide-preloading .preloader-7, body.hide-preloading .preloader-8 {
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -ms-animation-play-state: paused;
+    -o-animation-play-state: paused; 
+    animation-play-state: paused;
+}
+
+.preloader-percentage {
+    display: inline-block;
+    position: absolute;
+    top: calc(50% + 150px);
+    font-size: 24pt;
+    font-weight: bold;
+}
+
+.preloader-splitter-left .preloader-percentage {
+    color: white;
+    right: 0;
+    -webkit-transform: translateX(50%);
+    -moz-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    -o-transform: translateX(50%);
+    transform: translateX(50%);
+}
+
+.preloader-splitter-right .preloader-percentage {
+    color: black;
+    left: 0;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
 .section-1 {
     height: auto;
     position: relative;

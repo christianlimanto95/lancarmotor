@@ -12,7 +12,7 @@
     } ?>
     
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=5"); ?>" />
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=6"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=7"); ?>" />
     <?php echo $additional_css; ?>
     <style>
         @font-face {
@@ -26,7 +26,7 @@
 		}
     </style>
 </head>
-<body>
+<body class="preloading">
 <div class="header<?php echo $header_additional_class; ?>">
     <a href="<?php echo base_url(); ?>" class="logo" style="background-image: url(<?php echo base_url("assets/icons/logo_white.png"); ?>);"></a>
     <div class="header-menu-container">
