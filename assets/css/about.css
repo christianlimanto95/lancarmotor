@@ -1,0 +1,38 @@
+.section {
+    margin-top: 70px;
+    height: auto;
+    min-height: calc(100vh - 100px);
+}
+
+.section-title {
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+    font-size: 32pt;
+    letter-spacing: 0;
+    width: 350px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+    font-family: helvetica-thin;
+}
+
+.description {
+    width: 100vw;
+    padding: 0 75px;
+    font-size: 11pt;
+    line-height: 25px;
+    margin-bottom: 30px;
+}
+
+.images {
+    width: 100vw;
+    padding: 0 75px;
+}
+
+.about-image-container {
+    display: inline-block;
+}
+
+.about-image {
+    width: 300px;
+}

@@ -75,7 +75,7 @@ $(function() {
         $("body").removeClass("show-cart");
     });
 
-    $(".header-login-text").on("click", function() {
+    $(".header-login-text-login").on("click", function() {
         $("body").addClass("show-login");
         $(".input-login-email").focus();
     });

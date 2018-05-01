@@ -83,6 +83,7 @@ body.show-cart .dark-background, body.show-login .dark-background {
     margin-right: 50px;
     position: relative;
     padding: 0 10px;
+    font-size: 10pt;
 }
 
 .header-menu:before {
@@ -91,7 +92,7 @@ body.show-cart .dark-background, body.show-login .dark-background {
     height: 1px;
     background-color: white;
     position: absolute;
-    top: 9px;
+    top: 8px;
     left: 100%;
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
@@ -121,17 +122,17 @@ body.show-cart .dark-background, body.show-login .dark-background {
 }
 
 .header-search {
-    top: 20px;
+    top: 23px;
     right: 270px;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
 }
 
 .header-cart {
-    top: 18px;
+    top: 20px;
     right: 210px;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
 }
 
 .header-register {
@@ -143,6 +144,7 @@ body.show-cart .dark-background, body.show-login .dark-background {
 .header-register-text, .header-login-text {
     float: right;
     cursor: pointer;
+    font-size: 10pt;
 }
 
 .header-register-text {
@@ -684,16 +686,20 @@ pre {
     margin-top: 100px;
     margin-bottom: 30px;
     padding: 0 20px;
+    text-align: center;
+}
+
+.footer-section, .footer-section-separator {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .footer-section {
-    float: left;
     color: #777;
-    font-size: 11pt;
+    font-size: 9pt;
 }
 
 .footer-section-separator {
-    float: left;
     width: 1px;
     height: 20px;
     background-color: black;
@@ -704,6 +710,7 @@ pre {
     text-decoration: none;
     color: black;
     margin-right: 10px;
+    font-size: 10pt;
 }
 
 .footer-menu:nth-last-child(1) {
@@ -740,5 +747,50 @@ pre {
 
     .section {
         height: 100vh;
+    }
+}
+
+@media all and (min-width: 1025px) and (max-width: 1199px) {
+    .footer-section {
+        font-size: 7pt;
+    }
+
+    .footer-menu {
+        font-size: 8pt;
+        margin-right: 3px;
+    }
+
+    .footer-menu:nth-last-child(1) {
+        margin-right: 0;
+    }
+
+    .footer-section-separator {
+        margin: 0 5px;
+    }
+}
+
+@media all and (min-width: 1200px) and (max-width: 1280px) {
+    .footer-section-separator {
+        margin: 0 10px;
+    }
+}
+
+@media all and (min-width: 1281px) and (max-width: 1366px) {
+    .footer-section-separator {
+        margin: 0 20px;
+    }
+}
+
+@media all and (min-width: 1367px) {
+    .footer-section {
+        font-size: 10pt;
+    }
+
+    .footer-menu {
+        font-size: 11pt;
+    }
+
+    .footer-section-separator {
+        margin: 0 20px;
     }
 }

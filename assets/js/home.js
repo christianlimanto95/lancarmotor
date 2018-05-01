@@ -31,6 +31,7 @@ function setLoading(threshold) {
             addLoadingPercentage(10, threshold);
         }, Math.floor((Math.random() * 500) + 200));
     } else {
+        $("body").scrollTop(0);
         $("body").addClass("hide-preloading");
         $(".preloader-splitter-left").one("webkitAnimationEnd oanimationend msAnimationEnd animationend", function(e) {
             $("body").removeClass("preloading hide-preloading");

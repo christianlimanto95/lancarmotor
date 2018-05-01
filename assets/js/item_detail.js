@@ -3,6 +3,7 @@ $(function() {
     filter = $(".section-filter");
     filterBottom = 150 + parseInt(filter.height());
     itemContainerBottom = parseInt($(".section-result").offset().top) + parseInt($(".section-result").height());
+    inputOnChange();
 
     $(".more-category").on("click", function() {
         showDialog($(".dialog-category"));
@@ -19,6 +20,26 @@ $(function() {
         filter.addClass("fixed");
         $(window).on("scroll", filterScrollDown);
     }
+    
+    $(".btn-qty-minus").on("click", function() {
+        if (!$(this).hasClass("disabled")) {
+            var value = parseInt($(".input-qty").val());
+            value--;
+            $(".input-qty").val(value);
+
+            inputOnChange();
+        }
+    });
+
+    $(".btn-qty-plus").on("click", function() {
+        if (!$(this).hasClass("disabled")) {
+            var value = parseInt($(".input-qty").val());
+            value++;
+            $(".input-qty").val(value);
+
+            inputOnChange();
+        }
+    });
 
     $(window).on("resize", function() {
         filter = $(".section-filter");
@@ -34,6 +55,15 @@ $(function() {
         }
     });
 });
+
+function inputOnChange() {
+    var value = parseInt($(".input-qty").val());
+    if (value <= 1) {
+        $(".btn-qty-minus").addClass("disabled");
+    } else {
+        $(".btn-qty-minus").removeClass("disabled");
+    }
+}
 
 function filterScrollDown() {
     if (container.scrollTop() + filterBottom >= itemContainerBottom) {

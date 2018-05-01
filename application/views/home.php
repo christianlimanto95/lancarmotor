@@ -1,39 +1,5 @@
 <div class="preloader-background">
     <div class="preloader-splitter-left">
-        <div class="preloader">
-            <div class="preloader-1"></div>
-            <div class="preloader-2"></div>
-            <div class="preloader-3"></div>
-            <div class="preloader-4"></div>
-            <div class="preloader-5"></div>
-            <div class="preloader-6"></div>
-            <div class="preloader-7">
-                <svg width="104" height="104" viewBox="0 0 100 100">
-                    <circle cx="50" cy="12" r="4" fill="black" />
-                    <circle cx="77" cy="24" r="4" fill="black" />
-                    <circle cx="88" cy="50" r="4" fill="black" />
-                    <circle cx="77" cy="76" r="4" fill="black" />
-                    <circle cx="23" cy="24" r="4" fill="black" />
-                    <circle cx="50" cy="88" r="4" fill="black" />
-                    <circle cx="23" cy="76" r="4" fill="black" />
-                    <circle cx="12" cy="50" r="4" fill="black" />
-                </svg>
-            </div>
-            <div class="preloader-8">
-                <svg width="54" height="54" viewBox="0 0 100 100">
-                    <circle cx="50" cy="12" r="4" fill="white" />
-                    <circle cx="77" cy="24" r="4" fill="white" />
-                    <circle cx="88" cy="50" r="4" fill="white" />
-                    <circle cx="77" cy="76" r="4" fill="white" />
-                    <circle cx="23" cy="24" r="4" fill="white" />
-                    <circle cx="50" cy="88" r="4" fill="white" />
-                    <circle cx="23" cy="76" r="4" fill="white" />
-                    <circle cx="12" cy="50" r="4" fill="white" />
-                </svg>
-            </div>
-            <div class="preloader-9"></div>
-        </div>
-        <div class="preloader-percentage">0%</div>
     </div>
     <div class="preloader-splitter-right">
         <div class="preloader">
@@ -70,7 +36,6 @@
             <div class="preloader-9"></div>
         </div>
         <div class="preloader-percentage">0%</div>
-    </div>
     </div>
 </div>
 <div class="section section-1">

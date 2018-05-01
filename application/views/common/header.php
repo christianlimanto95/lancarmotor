@@ -11,8 +11,8 @@
         echo "<meta name='og:description' content='" . $meta_description . "' />";
     } ?>
     
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=5"); ?>" />
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=7"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=6"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=8"); ?>" />
     <?php echo $additional_css; ?>
     <style>
         @font-face {
@@ -39,7 +39,7 @@
     <div class="header-cart" style="background-image: url(<?php echo base_url("assets/icons/cart_icon.png"); ?>);"></div>
     <div class="header-register">
         <div class="header-login-text">
-            LOGIN
+            <div class="header-login-text-login">LOGIN</div>
             <div class="login-box">
                 <div class="form-item">
                     <div class="form-label">Email</div>
