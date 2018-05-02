@@ -11,8 +11,8 @@
         echo "<meta name='og:description' content='" . $meta_description . "' />";
     } ?>
     
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=7"); ?>" />
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=10"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=8"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=11"); ?>" />
     <?php echo $additional_css; ?>
     <style>
         @font-face {

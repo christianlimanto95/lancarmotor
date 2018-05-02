@@ -42,7 +42,7 @@ Silakan transfer ke salah satu rekening di atas sesuai dengan total belanjaan An
                         <line x1="13" y1="0" x2="0" y2="13" stroke="black" />
                     </svg>
                 </div>
-                <div class="shipping-cart-image" data-src="<?php echo base_url("assets/images/775563_x800.jpg"); ?>"></div>
+                <div class="shipping-cart-image" data-src="<?php echo base_url("assets/images/busi.png"); ?>"></div>
                 <div class="shipping-cart-text">
                     <div class="shipping-cart-name">NGK Busi</div>
                     <div class="shipping-cart-price">Rp 57.000,-</div>
@@ -56,7 +56,7 @@ Silakan transfer ke salah satu rekening di atas sesuai dengan total belanjaan An
                         <line x1="13" y1="0" x2="0" y2="13" stroke="black" />
                     </svg>
                 </div>
-                <div class="shipping-cart-image" data-src="<?php echo base_url("assets/images/775563_x800.jpg"); ?>"></div>
+                <div class="shipping-cart-image" data-src="<?php echo base_url("assets/images/busi.png"); ?>"></div>
                 <div class="shipping-cart-text">
                     <div class="shipping-cart-name">NGK Busi</div>
                     <div class="shipping-cart-price">Rp 57.000,-</div>
