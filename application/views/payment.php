@@ -1,24 +1,35 @@
 <div class="section">
     <div class="section-left">
-        <div class="section-title"><strong>SHIPPING</strong> INFORMATION</div>
-        <div class="form-container">
-            <div class="form-item">
-                <div class="form-label">Name</div>
-                <input type="text" class="form-input" />
+        <div class="section-title"><strong>PAYMENT</strong></div>
+        <div class="section-left-detail">
+            <div class="order-code">ORDER CODE : MGT12131</div>
+            <div class="bank-item">
+                <pre>Bank Transfer : 
+
+BCA - Zico Wibowo
+0292 2010 331
+
+Mandiri - Zico Wibowo
+2012 2313 212
+                </pre>
             </div>
-            <div class="form-item">
-                <div class="form-label">Address</div>
-                <input type="text" class="form-input" />
+            <div class="transfer-description">
+                <pre>
+
+Silakan transfer ke salah satu rekening di atas sesuai dengan total belanjaan Anda, dan melakukan konfirmasi pembayaran dengan menyertakan keterangan kode pemesanan Anda agar dapat mempermudah proses pembayaran Anda.</pre>
             </div>
-            <div class="form-item">
-                <div class="form-label">City</div>
-                <input type="text" class="form-input" />
+            <div class="upload-container btn btn-insert-image">
+                <input type="hidden" />
+                <div class="upload-button">
+                    <div class="upload-text">Browse File...</div>
+                </div>
+                <input type="file" class="input-upload" name="input-image" accept="image/*" />
             </div>
-            <div class="form-item">
-                <div class="form-label">Phone Number</div>
-                <input type="text" class="form-input" data-type="number" />
+            <div class="image-preview-container">
+                <div class="btn-delete-image-preview">Remove</div>
+                <img class="image-preview" />
             </div>
-            <div class="button btn-confirm-order">Confirm Order</div>
+            <div class="button btn-confirm-payment">Confirm Payment</div>
             <a href="<?php echo base_url("shop"); ?>" class="return-to-shop" >< Return to Shop</a>
         </div>
     </div>
@@ -67,6 +78,3 @@
         </div>
     </div>
 </div>
-<script>
-var payment_url = "<?php echo base_url("checkout/payment"); ?>";
-</script>

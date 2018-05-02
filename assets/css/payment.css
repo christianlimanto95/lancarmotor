@@ -23,7 +23,7 @@
 .section-title {
     margin-top: 30px;
     margin-left: 50px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     font-size: 32pt;
     letter-spacing: 0;
     width: 450px;
@@ -32,13 +32,88 @@
     font-family: helvetica-thin;
 }
 
-.form-container {
-    width: 350px;
-    margin-left: 100px;
+.section-left-detail {
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
-.btn-confirm-order {
+.order-code {
+    font-size: 18pt;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.bank-item {
+    font-size: 11pt;
+}
+
+.transfer-description {
+    font-size: 11pt;
+    line-height: 20px;
+}
+
+.upload-container {
+    vertical-align: middle;
+    position: relative;
+    width: 150px;
+    height: 40px;
+    border-radius: 2px;
+    margin-top: 50px;
+}
+
+.form-right.image-added .upload-container {
+    display: none;
+}
+
+.upload-button, .input-upload {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.upload-text {
+    width: 100%;
+    padding-top: 10px;
+}
+
+.input-upload {
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.image-preview {
+    max-width: 400px;
+    max-height: 400px;
+    display: block;
+}
+
+.image-preview[src] {
+    margin-top: -50px;
+    position: relative;
+}
+
+.btn-delete-image-preview {
+    z-index: 10;
+    display: none;
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.image-preview-container.image-added .btn-delete-image-preview {
+    display: inline-block;
+    margin-top: -50px;
+}
+
+.btn-confirm-payment {
     width: 200px;
+    margin-top: 20px;
     padding: 10px 0;
 }
 

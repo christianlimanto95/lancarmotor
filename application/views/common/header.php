@@ -12,7 +12,7 @@
     } ?>
     
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=7"); ?>" />
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=9"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=10"); ?>" />
     <?php echo $additional_css; ?>
     <style>
         @font-face {

@@ -17,5 +17,13 @@ class Checkout extends General_controller {
 		);
 		
 		parent::view("shipping_information", $data);
-	}
+    }
+    
+    public function payment() {
+        $data = array(
+			"title" => "Payment &mdash; Lancar Motor"
+		);
+		
+		parent::view("payment", $data);
+    }
 }
