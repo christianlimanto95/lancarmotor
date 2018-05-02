@@ -1,0 +1,41 @@
+.section {
+    margin-top: 70px;
+    height: auto;
+    min-height: calc(100vh - 100px);
+}
+
+.section-title {
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+    font-size: 32pt;
+    letter-spacing: 0;
+    width: 350px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+    font-family: helvetica-thin;
+}
+
+.content {
+    width: 100vw;
+    padding: 0 50px;
+}
+
+.image-container {
+    float: left;
+    display: block;
+}
+
+.maps-image {
+    width: 50vw;
+}
+
+.form-container {
+    float: left;
+    width: 400px;
+    padding-left: 50px;
+}
+
+.btn-submit-contact {
+    width: 150px;
+}

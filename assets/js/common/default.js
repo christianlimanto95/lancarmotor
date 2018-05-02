@@ -75,6 +75,10 @@ $(function() {
         $("body").removeClass("show-cart");
     });
 
+    $(".btn-cart-checkout").on("click", function() {
+        window.location.href = checkout_url;
+    });
+
     $(".header-login-text-login").on("click", function() {
         $("body").addClass("show-login");
         $(".input-login-email").focus();

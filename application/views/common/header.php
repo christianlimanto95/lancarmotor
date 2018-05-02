@@ -11,8 +11,8 @@
         echo "<meta name='og:description' content='" . $meta_description . "' />";
     } ?>
     
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=6"); ?>" />
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=8"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=7"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=9"); ?>" />
     <?php echo $additional_css; ?>
     <style>
         @font-face {
@@ -33,7 +33,7 @@
         <a href="<?php echo base_url(); ?>" class="header-menu<?php echo $header_menu["home"]; ?>" >HOME</a>
         <a href="<?php echo base_url("shop"); ?>" class="header-menu<?php echo $header_menu["shop"]; ?>" >SHOP</a>
         <a href="<?php echo base_url("about"); ?>" class="header-menu<?php echo $header_menu["about"]; ?>" >ABOUT</a>
-        <a href="#" class="header-menu<?php echo $header_menu["contact"]; ?>" >CONTACT US</a>
+        <a href="<?php echo base_url("contact-us"); ?>" class="header-menu<?php echo $header_menu["contact"]; ?>" >CONTACT US</a>
     </div>
     <div class="header-search" style="background-image: url(<?php echo base_url("assets/icons/search_icon.png"); ?>);"></div>
     <div class="header-cart" style="background-image: url(<?php echo base_url("assets/icons/cart_icon.png"); ?>);"></div>
@@ -111,6 +111,7 @@
 </div>
 <div class="dark-background"></div>
 <script>
+var checkout_url = "<?php echo base_url("checkout"); ?>";
 var vw = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 var vh = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 if (vw < 1025) {
