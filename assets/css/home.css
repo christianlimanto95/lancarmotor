@@ -452,6 +452,7 @@ body.hide-preloading .preloader, body.hide-preloading .preloader-percentage {
 
 @media all and (max-width: 767px) {
     .preloader {
+        top: calc(50% - 50px);
         -webkit-transform: translate(-50%, -50%) scale(0.8, 0.8);
         -moz-transform: translate(-50%, -50%) scale(0.8, 0.8);
         -ms-transform: translate(-50%, -50%) scale(0.8, 0.8);
