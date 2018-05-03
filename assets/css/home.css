@@ -286,30 +286,23 @@ body.hide-preloading .preloader, body.hide-preloading .preloader-percentage {
     opacity: 0;
 }
 
-
 .section-1 {
     height: auto;
     position: relative;
 }
 
 .section-1-image {
-    width: 100vw;
-    height: 47vw;
-    background-size: 100%;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-body.show-cart .section-1-image {
-    background-size: calc(100% - 17px);
 }
 
 .section-1-logo {
-    width: 400px;
-    height: 400px;
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -45%);
+    -moz-transform: translate(-50%, -45%);
+    -ms-transform: translate(-50%, -45%);
+    -o-transform: translate(-50%, -45%);
     transform: translate(-50%, -45%);
     background-size: 100%;
     background-repeat: no-repeat;
@@ -323,7 +316,6 @@ body.show-cart .section-1-image {
 }
 
 .section-2-title {
-    font-size: 44pt;
     display: inline-block;
     position: relative;
     margin-bottom: 30px;
@@ -340,9 +332,6 @@ body.show-cart .section-1-image {
 
 .section-2-description {
     width: 100vw;
-    padding: 0 15vw;
-    font-size: 12pt;
-    line-height: 30px;
 }
 
 .section-3 {
@@ -350,27 +339,8 @@ body.show-cart .section-1-image {
     margin-bottom: 100px;
 }
 
-.section-3-image-container, .workshop-image-container {
-    width: 70vw;
-    height: 15vw;
-}
-
-.section-3-image {
-    width: 70vw;
-}
-
-.section-3-right, .workshop-right {
-    float: right;
-    width: 29vw;
-    padding-right: calc(2vw + 20px);
-    padding-left: 2vw;
-}
-
 .section-3-subtitle, .workshop-right-title {
-    display: inline-block;
-    padding-right: 30px;
     font-family: helvetica-thin;
-    font-size: 18pt;
     font-weight: bold;
     position: relative;
     margin-bottom: 20px;
@@ -387,7 +357,6 @@ body.show-cart .section-1-image {
 
 .section-3-description, .workshop-right-description {
     font-size: 11pt;
-    line-height: 20px;
 }
 
 .section-4 {
@@ -399,6 +368,10 @@ body.show-cart .section-1-image {
     margin-bottom: 60px;
 }
 
+.subsection:nth-last-child(1) {
+    margin-bottom: 0;
+}
+
 .subsection-title {
     width: 150px;
     font-size: 16pt;
@@ -406,7 +379,6 @@ body.show-cart .section-1-image {
     font-weight: bold;
     position: relative;
     padding-bottom: 5px;
-    margin-left: 50px;
     margin-bottom: 20px;
 }
 
@@ -420,28 +392,17 @@ body.show-cart .section-1-image {
 }
 
 .subsection-item-container, .category-container {
-    margin-left: 75px;
     overflow-x: hidden;
 }
 
 .subsection-item {
-    width: 120px;
-    height: 120px;
     background-size: 100%;
     background-repeat: no-repeat;
     float: left;
-    margin-right: 40px;
 }
 
 .subsection-item:nth-last-child(1) {
     margin-right: 0;
-}
-
-.item {
-    width: 150px;
-    float: left;
-    margin-right: 20px;
-    margin-bottom: 60px;
 }
 
 .item-image {
@@ -490,11 +451,149 @@ body.show-cart .section-1-image {
 }
 
 @media all and (max-width: 767px) {
+    .section-1-image {
+        width: 100vw;
+        height: 170vw;
+        background-size: auto 100%;
+        background-position: center;
+    }
 
+    .section-1-logo {
+        width: 80vw;
+        height: 80vw;
+    }
+
+    .section-2-title {
+        font-size: 32pt;
+    }
+
+    .section-2-description {
+        padding: 0 5vw;
+        font-size: 11pt;
+        line-height: 25px;
+    }
+
+    .section-3-image-container, .workshop-image-container {
+        margin: 0 5vw 30px;
+    }
+    
+    .section-3-image, .workshop-image {
+        width: 90vw;
+    }
+
+    .section-3-subtitle, .workshop-right-title {
+        width: 90vw;
+        margin: 0 auto;
+        font-size: 18pt;
+    }
+
+    .section-3-description, .workshop-right-description {
+        width: 100vw;
+        padding: 5vw;
+        line-height: 25px;
+    }
+
+    .subsection-title {
+        margin-left: 5vw;
+    }
+
+    .subsection-item-container, .category-container {
+        width: 100vw;
+        padding: 0 5vw;
+    }
+
+    .subsection-item {
+        width: 42vw;
+        height: 42vw;
+        margin-right: 6vw;
+        margin-bottom: 50px;
+    }
+
+    .subsection-item:nth-child(even) {
+        margin-right: 0;
+    }
+
+    .item {
+        width: 42vw;
+        float: left;
+        margin-right: 6vw;
+        margin-bottom: 60px;
+    }
+
+    .item:nth-child(even) {
+        margin-right: 0;
+    }
 }
 
 @media all and (min-width: 768px) {
+    .section-1-image {
+        width: 100vw;
+        height: 47vw;
+        background-size: 100%;
+        background-attachment: fixed;
+    }
 
+    .section-1-logo {
+        width: 400px;
+        height: 400px;
+    }
+
+    .section-2-title {
+        font-size: 44pt;
+    }
+
+    .section-2-description {
+        padding: 0 15vw;
+        font-size: 12pt;
+        line-height: 30px;
+    }
+
+    .section-3-image-container, .workshop-image-container {
+        width: 70vw;
+        height: 15vw;
+    }
+    
+    .section-3-image {
+        width: 70vw;
+    }
+    
+    .section-3-right, .workshop-right {
+        float: right;
+        width: 29vw;
+        padding-right: calc(2vw + 20px);
+        padding-left: 2vw;
+    }
+
+    .section-3-subtitle, .workshop-right-title {
+        display: inline-block;
+        padding-right: 30px;
+        font-size: 18pt;
+    }
+
+    .section-3-description, .workshop-right-description {
+        line-height: 20px;
+    }
+
+    .subsection-title {
+        margin-left: 50px;
+    }
+
+    .subsection-item-container, .category-container {
+        margin-left: 75px;
+    }
+
+    .subsection-item {
+        width: 120px;
+        height: 120px;
+        margin-right: 40px;
+    }
+
+    .item {
+        width: 150px;
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 60px;
+    }
 }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
@@ -502,5 +601,7 @@ body.show-cart .section-1-image {
 }
 
 @media all and (min-width: 1025px) {
-    
+    body.show-cart .section-1-image {
+        background-size: calc(100% - 17px);
+    }
 }

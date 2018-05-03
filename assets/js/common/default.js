@@ -1,6 +1,7 @@
 var arrScrollFunction = [], arrScrollParallaxFunction = [];
 var container = $(window);
 var scrollbarWidth = getScrollbarWidth();
+var menuOpen = false;
 
 $(function() {
     initializeDefault();
@@ -66,6 +67,24 @@ $(function() {
         var dropdownContainer = $(this).parent();
         dropdownContainer.removeClass("show");
         e.stopPropagation();
+    });
+
+    $(".header-menu-icon").on("click", function() {
+        if (menuOpen) {
+            menuOpen = false;
+            $(".menu-icon-line-1").off("webkitAnimationEnd oanimationend msAnimationEnd animationend");
+            $("body").addClass("menu-opened menu-inner-opened").removeClass("menu-opening menu-inner-opening").addClass("menu-closing");
+            $(".menu-icon-line-1").one("webkitAnimationEnd oanimationend msAnimationEnd animationend", function(e) {
+                $("body").removeClass("menu-closing menu-opened menu-inner-opened show-menu fixed");
+            });
+        } else {
+            menuOpen = true;
+            $(".menu-icon-line-1").off("webkitAnimationEnd oanimationend msAnimationEnd animationend");
+            $("body").removeClass().addClass("menu-opening show-menu fixed");
+            $(".menu-icon-line-1").one("webkitAnimationEnd oanimationend msAnimationEnd animationend", function(e) {
+                $("body").addClass("menu-opened menu-inner-opening").removeClass("menu-opening");
+            });
+        }
     });
 
     $(".header-cart").on("click", function() {
@@ -262,27 +281,29 @@ function setScrollAnimFunction() {
 }
 
 function setParallaxImage() {
-    var iLength = arrScrollParallaxFunction.length;
-    for (var i = 0; i < iLength; i++) {
-        container.off("scroll", arrScrollParallaxFunction[i]);
+    if (!isMobile) {
+        var iLength = arrScrollParallaxFunction.length;
+        for (var i = 0; i < iLength; i++) {
+            container.off("scroll", arrScrollParallaxFunction[i]);
+        }
+
+        var animElement = $("[data-parallax-image='true']");
+        var animElementLength = animElement.length;
+        for (var i = 0; i < animElementLength; i++) {
+            var animElementItem = animElement.eq(i);
+            var itemThreshold = animElementItem.offset().top + vh / 2 - parseInt(animElementItem.height());
+
+            var arrScrollFunctionIndex = arrScrollParallaxFunction.length;
+            (function(item, threshold, index) {
+                var scrollFunction = function() {
+                    var selisih = -1 * (threshold - container.scrollTop()) / 3;
+                    item[0].style.marginTop = selisih + "px";
+                };
+                container.on("scroll", scrollFunction);
+                arrScrollFunction.push(scrollFunction);
+            })(animElementItem.find("img"), itemThreshold, arrScrollFunctionIndex);
+        }
     }
-
-    var animElement = $("[data-parallax-image='true']");
-    var animElementLength = animElement.length;
-    for (var i = 0; i < animElementLength; i++) {
-		var animElementItem = animElement.eq(i);
-        var itemThreshold = animElementItem.offset().top + vh / 2 - parseInt(animElementItem.height());
-
-        var arrScrollFunctionIndex = arrScrollParallaxFunction.length;
-        (function(item, threshold, index) {
-			var scrollFunction = function() {
-                var selisih = -1 * (threshold - container.scrollTop()) / 3;
-                item[0].style.marginTop = selisih + "px";
-			};
-			container.on("scroll", scrollFunction);
-			arrScrollFunction.push(scrollFunction);
-        })(animElementItem.find("img"), itemThreshold, arrScrollFunctionIndex);
-	}
 }
 
 function showNotification(text) {

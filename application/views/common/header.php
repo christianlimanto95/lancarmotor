@@ -12,8 +12,8 @@
     } ?>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=9"); ?>" />
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=12"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=10"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=13"); ?>" />
     <?php echo $additional_css; ?>
     <style>
         @font-face {
@@ -37,7 +37,10 @@
         <a href="<?php echo base_url("contact-us"); ?>" class="header-menu<?php echo $header_menu["contact"]; ?>" >CONTACT US</a>
     </div>
     <div class="header-search" style="background-image: url(<?php echo base_url("assets/icons/search_icon.png"); ?>);"></div>
-    <div class="header-cart" style="background-image: url(<?php echo base_url("assets/icons/cart_icon.png"); ?>);"></div>
+    <div class="header-cart">
+        <div class="header-cart-image-white" style="background-image: url(<?php echo base_url("assets/icons/cart_icon.png"); ?>);"></div>
+        <div class="header-cart-image-black" style="background-image: url(<?php echo base_url("assets/icons/cart_icon_black.png"); ?>);"></div>
+    </div>
     <div class="header-register">
         <div class="header-login-text">
             <div class="header-login-text-login">LOGIN</div>
@@ -71,6 +74,14 @@
         <div class="menu-icon-line menu-icon-line-1"></div>
         <div class="menu-icon-line menu-icon-line-2"></div>
         <div class="menu-icon-line menu-icon-line-3"></div>
+    </div>
+</div>
+<div class="menu-mobile-container">
+    <div class="menu-mobile-inner-container">
+        <a href="<?php echo base_url(); ?>" class="header-menu-mobile<?php echo $header_menu["home"]; ?>" >HOME</a>
+        <a href="<?php echo base_url("shop"); ?>" class="header-menu-mobile<?php echo $header_menu["shop"]; ?>" >SHOP</a>
+        <a href="<?php echo base_url("about"); ?>" class="header-menu-mobile<?php echo $header_menu["about"]; ?>" >ABOUT</a>
+        <a href="<?php echo base_url("contact-us"); ?>" class="header-menu-mobile<?php echo $header_menu["contact"]; ?>" >CONTACT US</a>
     </div>
 </div>
 <div class="cart">
