@@ -350,6 +350,11 @@ body.show-cart .section-1-image {
     margin-bottom: 100px;
 }
 
+.section-3-image-container, .workshop-image-container {
+    width: 70vw;
+    height: 15vw;
+}
+
 .section-3-image {
     width: 70vw;
 }
@@ -482,4 +487,20 @@ body.show-cart .section-1-image {
 
 .workshop-image {
     width: 70vw;
+}
+
+@media all and (max-width: 767px) {
+
+}
+
+@media all and (min-width: 768px) {
+
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+@media all and (min-width: 1025px) {
+    
 }

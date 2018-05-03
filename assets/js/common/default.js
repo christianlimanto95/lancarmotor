@@ -1,10 +1,11 @@
-var arrScrollFunction = [];
+var arrScrollFunction = [], arrScrollParallaxFunction = [];
 var container = $(window);
 var scrollbarWidth = getScrollbarWidth();
 
 $(function() {
     initializeDefault();
     setScrollAnimFunction();
+    setParallaxImage();
     container.scroll();
     
     $(document).on("keydown", "input[data-type='number']", function(e) {
@@ -127,6 +128,7 @@ $(function() {
     $(window).resize(function() {
         initializeDefault();
         setScrollAnimFunction();
+        setParallaxImage();
     });
 });
 
@@ -256,6 +258,30 @@ function setScrollAnimFunction() {
 			container.on("scroll", scrollFunction);
 			arrScrollFunction.push(scrollFunction);
         })(animElementItem, itemThreshold, arrScrollFunctionIndex, lastDelay);
+	}
+}
+
+function setParallaxImage() {
+    var iLength = arrScrollParallaxFunction.length;
+    for (var i = 0; i < iLength; i++) {
+        container.off("scroll", arrScrollParallaxFunction[i]);
+    }
+
+    var animElement = $("[data-parallax-image='true']");
+    var animElementLength = animElement.length;
+    for (var i = 0; i < animElementLength; i++) {
+		var animElementItem = animElement.eq(i);
+        var itemThreshold = animElementItem.offset().top + vh / 2 - parseInt(animElementItem.height());
+
+        var arrScrollFunctionIndex = arrScrollParallaxFunction.length;
+        (function(item, threshold, index) {
+			var scrollFunction = function() {
+                var selisih = -1 * (threshold - container.scrollTop()) / 3;
+                item[0].style.marginTop = selisih + "px";
+			};
+			container.on("scroll", scrollFunction);
+			arrScrollFunction.push(scrollFunction);
+        })(animElementItem.find("img"), itemThreshold, arrScrollFunctionIndex);
 	}
 }
 

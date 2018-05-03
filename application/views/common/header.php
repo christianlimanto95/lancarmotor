@@ -10,9 +10,10 @@
         echo "<meta name='description' content='" . $meta_description . "' />";
         echo "<meta name='og:description' content='" . $meta_description . "' />";
     } ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=8"); ?>" />
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=11"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=9"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=12"); ?>" />
     <?php echo $additional_css; ?>
     <style>
         @font-face {
@@ -65,6 +66,11 @@
             </div>
         </div>
         <a href="<?php echo base_url("register"); ?>" class="header-register-text">REGISTER</a>
+    </div>
+    <div class="header-menu-icon">
+        <div class="menu-icon-line menu-icon-line-1"></div>
+        <div class="menu-icon-line menu-icon-line-2"></div>
+        <div class="menu-icon-line menu-icon-line-3"></div>
     </div>
 </div>
 <div class="cart">

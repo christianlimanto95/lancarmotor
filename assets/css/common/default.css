@@ -59,13 +59,9 @@ body.show-cart .dark-background, body.show-login .dark-background {
 
 .logo {
     display: block;
-    width: 45px;
-    height: 45px;
     background-size: 100%;
     background-repeat: no-repeat;
     position: absolute;
-    top: 15px;
-    left: 40px;
     opacity: 1;
     -webkit-transition: opacity 0.3s;
     transition: opacity 0.3s;
@@ -126,13 +122,6 @@ body.show-cart .dark-background, body.show-login .dark-background {
     right: 270px;
     width: 20px;
     height: 20px;
-}
-
-.header-cart {
-    top: 20px;
-    right: 210px;
-    width: 25px;
-    height: 25px;
 }
 
 .header-register {
@@ -403,6 +392,20 @@ pre {
 	width: 100%;
     height: 100%;
     background-color: #DDD;
+}
+
+.image-container[data-parallax-image="true"] {
+    overflow-y: hidden;
+}
+
+.image-container[data-parallax-image="true"] img {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 :not(img)[data-src]:not([data-wrapper-anim="false"]) {
@@ -684,8 +687,8 @@ pre {
 .footer {
     overflow-y: auto;
     margin-top: 100px;
-    margin-bottom: 30px;
-    padding: 0 20px;
+    padding: 0 20px 30px;
+    border-bottom: 10px solid black;
     text-align: center;
 }
 
@@ -723,8 +726,31 @@ pre {
 }
 
 @media all and (max-width: 767px) {
-    .div-mobile {
-        display: block;
+    .header-menu-container, .header-search, .header-register {
+        display: none;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+        top: 17px;
+        left: 20px;
+    }
+
+    .header-menu-icon {
+        position: fixed;
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 16pt;
+    }
+
+    .header-cart {
+        top: 20px;
+        right: 20px;
+        width: 30px;
+        height: 30px;
     }
 
     .section {
@@ -733,7 +759,23 @@ pre {
 }
 
 @media all and (min-width: 768px) {
+    .logo {
+        width: 45px;
+        height: 45px;
+        top: 15px;
+        left: 40px;
+    }
 
+    .header-cart {
+        top: 20px;
+        right: 210px;
+        width: 25px;
+        height: 25px;
+    }
+
+    .header-menu-icon {
+        display: none;
+    }
 }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
