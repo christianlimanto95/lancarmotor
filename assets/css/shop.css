@@ -12,23 +12,12 @@
     overflow-y: auto;
 }
 
-.section-filter {
-    position: absolute;
-    bottom: 60px;
-    left: 5vw;
-    width: 220px;
-    height: 500px;
-    border: 2px solid black;
-}
-
 .filter-title {
     background-color: black;
     color: white;
-    padding: 10px 10px;
 }
 
 .filter-content {
-    padding: 10px;
     font-size: 10pt;
 }
 
@@ -62,18 +51,6 @@
     cursor: pointer;
 }
 
-.section-filter.fixed {
-    position: fixed;
-    top: 90px;
-    left: 5vw;
-}
-
-.section-result {
-    width: calc(90vw - 250px);
-    margin-top: 20px;
-    float: right;
-}
-
 .search-result-text {
     margin-top: 10px;
 }
@@ -88,17 +65,8 @@
     font-weight: bold;
 }
 
-.item {
-    width: 150px;
-    float: left;
-    margin-right: 20px;
-    margin-bottom: 60px;
-}
-
 .item-image {
     display: block;
-    width: 150px;
-    height: 150px;
     background-size: 100%;
     background-repeat: no-repeat;
     margin-bottom: 10px;
@@ -144,4 +112,108 @@
 
 .footer {
     margin-top: 40px;
+}
+
+@media all and (max-width: 767px) {
+    .section-filter {
+        position: fixed;
+        bottom: 25px;
+        left: 20px;
+        border-radius: 50px;
+        width: 150px;
+        height: 50px;
+        z-index: 1000;
+        background-color: black;
+    }
+
+    .filter-title {
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        padding-top: 15px;
+        text-align: center;
+    }
+
+    .filter-content {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100vw;
+        height: calc(100vh - 70px);
+        padding: 5vw 5vw;
+        background-color: white;
+        display: none;
+    }
+
+    .section-result {
+        width: 100vw;
+        margin-top: 30px;
+    }
+
+    .item {
+        width: 42vw;
+        float: left;
+        margin-right: 6vw;
+        margin-bottom: 60px;
+    }
+
+    .item:nth-child(even) {
+        margin-right: 0;
+    }
+
+    .item-image {
+        width: 42vw;
+        height: 42vw;
+    }
+}
+
+@media all and (min-width: 768px) {
+    .section-filter {
+        position: absolute;
+        bottom: 60px;
+        left: 5vw;
+        width: 220px;
+        height: 500px;
+        border: 2px solid black;
+    }
+
+    .section-filter.fixed {
+        position: fixed;
+        top: 90px;
+        left: 5vw;
+    }
+
+    .filter-title {
+        padding: 10px 10px;
+    }
+
+    .filter-content {
+        padding: 10px;
+    }
+
+    .section-result {
+        width: calc(90vw - 250px);
+        margin-top: 20px;
+        float: right;
+    }
+
+    .item {
+        width: 150px;
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 60px;
+    }
+
+    .item-image {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+@media all and (min-width: 1025px) {
+
 }

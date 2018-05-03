@@ -1062,6 +1062,10 @@ pre {
         height: 160vw;
     }
 
+    .button {
+        padding: 5px 0 7px;
+    }
+
     .footer {
         padding: 0 5vw 30px;
     }
