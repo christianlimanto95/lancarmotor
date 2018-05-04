@@ -12,6 +12,7 @@ class Checkout extends General_controller {
 	
 	public function index()
 	{
+        parent::do_hide_cart();
 		$data = array(
 			"title" => "Shipping Information &mdash; Lancar Motor"
 		);
@@ -20,6 +21,7 @@ class Checkout extends General_controller {
     }
     
     public function payment() {
+        parent::do_hide_cart();
         $data = array(
 			"title" => "Payment &mdash; Lancar Motor"
 		);

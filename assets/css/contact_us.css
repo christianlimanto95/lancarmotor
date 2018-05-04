@@ -5,12 +5,7 @@
 }
 
 .section-title {
-    margin-top: 30px;
-    margin-left: 50px;
-    margin-bottom: 30px;
-    font-size: 32pt;
     letter-spacing: 0;
-    width: 350px;
     padding-bottom: 5px;
     border-bottom: 1px solid black;
     font-family: helvetica-thin;
@@ -18,24 +13,67 @@
 
 .content {
     width: 100vw;
-    padding: 0 50px;
-}
-
-.image-container {
-    float: left;
-    display: block;
-}
-
-.maps-image {
-    width: 50vw;
-}
-
-.form-container {
-    float: left;
-    width: 400px;
-    padding-left: 50px;
 }
 
 .btn-submit-contact {
     width: 150px;
+}
+
+@media all and (max-width: 767px) {
+    .section-title {
+        margin-top: 30px;
+        margin-left: 5vw;
+        margin-bottom: 30px;
+        font-size: 28pt;
+        width: 250px;
+    }
+
+    .content {
+        padding: 0 5vw;
+    }
+
+    .maps-image {
+        width: 100%;
+    }
+
+    .form-container {
+        margin-top: 30px;
+    }
+}
+
+@media all and (min-width: 768px) {
+    .section-title {
+        margin-top: 30px;
+        margin-left: 50px;
+        margin-bottom: 30px;
+        font-size: 32pt;
+        width: 350px;
+    }
+
+    .image-container {
+        float: left;
+        display: block;
+    }
+
+    .content {
+        padding: 0 50px;
+    }
+
+    .maps-image {
+        width: 50vw;
+    }
+
+    .form-container {
+        float: left;
+        width: 400px;
+        padding-left: 50px;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+@media all and (min-width: 1025px) {
+
 }

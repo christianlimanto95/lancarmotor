@@ -12,8 +12,8 @@
     } ?>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=17"); ?>" />
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=23"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=18"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=24"); ?>" />
     <?php echo $additional_css; ?>
     <style>
         @font-face {
@@ -37,10 +37,12 @@
         <a href="<?php echo base_url("contact-us"); ?>" class="header-menu<?php echo $header_menu["contact"]; ?>" >CONTACT US</a>
     </div>
     <div class="header-search" style="background-image: url(<?php echo base_url("assets/icons/search_icon.png"); ?>);"></div>
-    <div class="header-cart">
-        <div class="header-cart-image-white" style="background-image: url(<?php echo base_url("assets/icons/cart_icon.png"); ?>);"></div>
-        <div class="header-cart-image-black" style="background-image: url(<?php echo base_url("assets/icons/cart_icon_black.png"); ?>);"></div>
-    </div>
+    <?php if (!$hide_cart) { ?>
+        <div class="header-cart">
+            <div class="header-cart-image-white" style="background-image: url(<?php echo base_url("assets/icons/cart_icon.png"); ?>);"></div>
+            <div class="header-cart-image-black" style="background-image: url(<?php echo base_url("assets/icons/cart_icon_black.png"); ?>);"></div>
+        </div>
+    <?php } ?>
     <div class="header-register">
         <div class="header-login-text">
             <div class="header-login-text-login">LOGIN</div>
@@ -76,10 +78,12 @@
         <div class="menu-icon-line menu-icon-line-3"></div>
     </div>
 </div>
+<?php if (!$hide_cart) { ?>
 <div class="header-cart-mobile">
     <div class="header-cart-image-white" style="background-image: url(<?php echo base_url("assets/icons/cart_icon.png"); ?>);"></div>
     <div class="header-cart-image-black" style="background-image: url(<?php echo base_url("assets/icons/cart_icon_black.png"); ?>);"></div>
 </div>
+<?php } ?>
 <div class="menu-mobile-container">
     <div class="menu-mobile-inner-container">
         <a href="<?php echo base_url(); ?>" class="header-menu-mobile<?php echo $header_menu["home"]; ?>" >HOME</a>
@@ -87,7 +91,12 @@
         <a href="<?php echo base_url("about"); ?>" class="header-menu-mobile<?php echo $header_menu["about"]; ?>" >ABOUT</a>
         <a href="<?php echo base_url("contact-us"); ?>" class="header-menu-mobile<?php echo $header_menu["contact"]; ?>" >CONTACT US</a>
     </div>
+    <div class="header-register-mobile">
+        <a href="<?php echo base_url("register"); ?>" class="header-register-text-mobile">REGISTER</a>
+        <a href="<?php echo base_url("login"); ?>" class="header-login-text-mobile">LOGIN</a>
+    </div>
 </div>
+<?php if (!$hide_cart) { ?>
 <div class="cart">
     <div class="cart-close-icon">
         <svg width="30" height="30" viewBox="0 0 50 50">
@@ -130,6 +139,7 @@
     <div class="cart-subtotal"><span class="cart-subtotal-text">SUBTOTAL : </span>Rp 93.000,-</div>
     <div class="button btn-cart-checkout">CHECKOUT</div>
 </div>
+<?php } ?>
 <div class="dark-background"></div>
 <script>
 var checkout_url = "<?php echo base_url("checkout"); ?>";

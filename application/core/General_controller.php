@@ -18,6 +18,8 @@ class General_controller extends CI_Controller
         "about" => "",
         "contact" => ""
     );
+
+    protected $hide_cart = false;
    
     public function __construct()
     {
@@ -44,13 +46,18 @@ class General_controller extends CI_Controller
 	
 	public function load_additional_js($file_name) {
 		$this->additional_js .= "<script src='" . base_url("assets/js/template/" . $file_name . ".js") . "' defer></script>";
-	}
+    }
+    
+    public function do_hide_cart() {
+        $this->hide_cart = true;
+    }
 
     public function view($file, $data){
         $data["additional_css"] = $this->additional_css;
         $data["additional_js"] = $this->additional_js;
         $data["header_additional_class"] = $this->header_additional_class;
         $data["header_menu"] = $this->header_menu;
+        $data["hide_cart"] = $this->hide_cart;
         $data["page_name"] = $file;
 		
         $this->load->view('common/header', $data);

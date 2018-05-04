@@ -38,7 +38,7 @@ body.show-cart .dark-background, body.show-login .dark-background {
     display: block;
 }
 
-.checkbox-container, .radio-container, .button {
+.header, .checkbox-container, .radio-container, .button {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -129,12 +129,6 @@ body.show-cart .dark-background, body.show-login .dark-background {
     height: 100%;
     background-size: 100%;
     background-repeat: no-repeat;
-}
-
-.header-register {
-    position: absolute;
-    top: 25px;
-    right: 50px;
 }
 
 .header-register-text, .header-login-text {
@@ -313,7 +307,6 @@ body.show-cart .cart {
 
 .cart-item-container {
     width: 100%;
-    height: calc(100vh - 220px);
 }
 
 .cart-item {
@@ -358,7 +351,6 @@ body.show-cart .cart {
 
 .btn-cart-checkout {
     font-size: 12pt !important;
-    padding: 10px 0 !important;
 }
 
 .notification {
@@ -1054,6 +1046,36 @@ pre {
         z-index: 400;
     }
 
+    .cart-item-container {
+        height: calc(100vh - 270px);
+    }
+
+    .btn-cart-checkout {
+        padding: 14px 0 10px !important;
+    }
+
+    .header-register-mobile {
+        position: absolute;
+        bottom: 100px;
+        width: 100vw;
+        text-align: center;
+    }
+
+    .header-register-text-mobile, .header-login-text-mobile {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 14pt;
+    }
+
+    .header-register-text-mobile {
+        color: #CCC;
+        margin-right: 20px;
+    }
+
+    .header-login-text-mobile {
+        color: white;
+    }
+
     .section {
         height: 160vw;
     }
@@ -1104,6 +1126,20 @@ pre {
         right: 210px;
         width: 25px;
         height: 25px;
+    }
+
+    .cart-item-container {
+        height: calc(100vh - 220px);
+    }
+
+    .btn-cart-checkout {
+        padding: 10px 0 !important;
+    }
+
+    .header-register {
+        position: absolute;
+        top: 25px;
+        right: 50px;
     }
 
     .header-menu-icon, .header-cart-image-black, .header-cart-mobile, .menu-mobile-container {

@@ -5,12 +5,7 @@
 }
 
 .section-title {
-    margin-top: 30px;
-    margin-left: 50px;
-    margin-bottom: 30px;
-    font-size: 32pt;
     letter-spacing: 0;
-    width: 350px;
     padding-bottom: 5px;
     border-bottom: 1px solid black;
     font-family: helvetica-thin;
@@ -18,7 +13,6 @@
 
 .description {
     width: 100vw;
-    padding: 0 75px;
     font-size: 11pt;
     line-height: 25px;
     margin-bottom: 30px;
@@ -26,13 +20,61 @@
 
 .images {
     width: 100vw;
-    padding: 0 75px;
 }
 
-.about-image-container {
-    display: inline-block;
+@media all and (max-width: 767px) {
+    .section-title {
+        margin-top: 30px;
+        margin-left: 5vw;
+        margin-bottom: 30px;
+        font-size: 28pt;
+        width: 250px;
+    }
+
+    .description {
+        padding: 0 5vw;
+    }
+
+    .images {
+        padding: 0 5vw;
+    }
+
+    .about-image {
+        width: 90vw;
+        margin-bottom: 20px;
+    }
 }
 
-.about-image {
-    width: 300px;
+@media all and (min-width: 768px) {
+    .section-title {
+        margin-top: 30px;
+        margin-left: 50px;
+        margin-bottom: 30px;
+        font-size: 32pt;
+        width: 350px;
+    }
+
+    .description {
+        padding: 0 75px;
+    }
+
+    .images {
+        padding: 0 75px;
+    }
+
+    .about-image-container {
+        display: inline-block;
+    }
+
+    .about-image {
+        width: 300px;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+@media all and (min-width: 1025px) {
+
 }

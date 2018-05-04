@@ -297,13 +297,7 @@ body.hide-preloading .preloader, body.hide-preloading .preloader-percentage {
 
 .section-1-logo {
     position: absolute;
-    top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -45%);
-    -moz-transform: translate(-50%, -45%);
-    -ms-transform: translate(-50%, -45%);
-    -o-transform: translate(-50%, -45%);
-    transform: translate(-50%, -45%);
     background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -460,6 +454,12 @@ body.hide-preloading .preloader, body.hide-preloading .preloader-percentage {
     .section-1-logo {
         width: 70vw;
         height: 70vw;
+        top: calc(50% - 25px);
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     }
 
     .section-2-title {
@@ -535,6 +535,12 @@ body.hide-preloading .preloader, body.hide-preloading .preloader-percentage {
     .section-1-logo {
         width: 400px;
         height: 400px;
+        top: 50%;
+        -webkit-transform: translate(-50%, -45%);
+        -moz-transform: translate(-50%, -45%);
+        -ms-transform: translate(-50%, -45%);
+        -o-transform: translate(-50%, -45%);
+        transform: translate(-50%, -45%);
     }
 
     .section-2-title {
