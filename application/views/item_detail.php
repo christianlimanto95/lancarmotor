@@ -3,6 +3,14 @@
         <div class="section-filter fixed">
             <div class="filter-title">Filter Search</div>
             <div class="filter-content">
+                <div class="filter-close-icon">
+                    <svg width="30" height="30" viewBox="0 0 50 50">
+                        <line x1="10" y1="25" x2="50" y2="25" stroke="black" stroke-width="2" />
+                        <line x1="10" y1="25" x2="30" y2="7" stroke="black" stroke-width="2" />
+                        <line x1="10" y1="25" x2="30" y2="43" stroke="black" stroke-width="2" />
+                    </svg>
+                    <div class="filter-close-text">Close Filter</div>
+                </div>
                 <div class="filter-item">
                     <div class="filter-label">NAME</div>
                     <input type="text" class="filter-input" />
@@ -62,7 +70,7 @@
             </div>
         </div>
         <div class="section-result">
-            <div class="breadcrumb">< Return to Shop</div>
+            <a class="breadcrumb" href="<?php echo base_url("shop"); ?>">< Return to Shop</a>
             <div class="detail-item">DETAIL <strong>ITEM</strong></div>
             <div class="detail-item-container">
                 <div class="image-container item-image-container">
@@ -84,9 +92,13 @@
                     </div>
                     <div class="item-quantity">
                         <div class="quantity-label">Quantity</div>
-                        <div class="btn-qty btn-qty-minus">-</div>
+                        <div class="btn-qty btn-qty-minus">
+                            <div class="btn-qty-text">-</div>
+                        </div>
                         <input type="number" class="input-qty" min="1" max="999" value="1" />
-                        <div class="btn-qty btn-qty-plus">+</div>
+                        <div class="btn-qty btn-qty-plus">
+                            <div class="btn-qty-text">+</div>
+                        </div>
                     </div>
                     <div class="button btn-add-to-cart">ADD TO CART</div>
                     <div class="button btn-buy-now">BUY NOW</div>
