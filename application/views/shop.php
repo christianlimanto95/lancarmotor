@@ -3,9 +3,17 @@
         <div class="section-filter fixed">
             <div class="filter-title">Filter Search</div>
             <div class="filter-content">
+                <div class="filter-close-icon">
+                    <svg width="30" height="30" viewBox="0 0 50 50">
+                        <line x1="10" y1="25" x2="50" y2="25" stroke="black" stroke-width="2" />
+                        <line x1="10" y1="25" x2="30" y2="7" stroke="black" stroke-width="2" />
+                        <line x1="10" y1="25" x2="30" y2="43" stroke="black" stroke-width="2" />
+                    </svg>
+                    <div class="filter-close-text">Close Filter</div>
+                </div>
                 <div class="filter-item">
                     <div class="filter-label">NAME</div>
-                    <input type="text" class="filter-input" />
+                    <input type="text" class="filter-input input-name" />
                 </div>
                 <div class="filter-item">
                     <div class="filter-label">BRAND</div>
@@ -265,7 +273,7 @@
     </div>
 </div>
 <div class="dialog dialog-category">
-    <div class="dialog-background">
+    <div class="dialog-background" data-allow-background-close="true">
         <div class="dialog-box">
             <div class="dialog-close-icon">
                 <svg width="20" height="20" viewBox="0 0 20 20">

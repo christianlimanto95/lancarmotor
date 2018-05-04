@@ -87,7 +87,7 @@ $(function() {
         }
     });
 
-    $(".header-cart").on("click", function() {
+    $(".header-cart, .header-cart-mobile").on("click", function() {
         $("body").addClass("show-cart");
     });
 
@@ -108,7 +108,11 @@ $(function() {
         $("body").removeClass("show-cart show-login");
     });
 
-    $(document).on("click", ".dialog-close-icon", function() {
+    $(document).on("click", ".dialog-box", function(e) {
+        e.stopPropagation();
+    });
+
+    $(document).on("click", ".dialog-close-icon, .dialog-background[data-allow-background-close='true']", function() {
         closeDialog($(this).closest(".dialog"));
     });
 

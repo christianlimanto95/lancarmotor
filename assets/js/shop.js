@@ -4,6 +4,21 @@ $(function() {
     filterBottom = 150 + parseInt(filter.height());
     itemContainerBottom = parseInt($(".section-result").offset().top) + parseInt($(".section-result").height());
 
+    $(".section-filter").on("click", function() {
+        if (isMobile) {
+            $("body").addClass("show-filter-content");
+        }
+    });
+
+    $(".filter-close-icon").on("click", function(e) {
+        $("body").removeClass("show-filter-content");
+        e.stopPropagation();
+    });
+
+    $(".filter-content").on("click", function(e) {
+        e.stopPropagation();
+    });
+
     $(".more-category").on("click", function() {
         showDialog($(".dialog-category"));
     });

@@ -423,16 +423,6 @@ body.hide-preloading .preloader, body.hide-preloading .preloader-percentage {
     margin-bottom: 10px;
 }
 
-.item-button {
-    width: 100%;
-    padding: 5px 0;
-    background-color: black;
-    color: white;
-    text-align: center;
-    font-size: 11pt;
-    cursor: pointer;
-}
-
 .btn-add-to-cart {
     margin-bottom: 10px;
 }

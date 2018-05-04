@@ -712,7 +712,7 @@ pre {
 }
 
 @media all and (max-width: 767px) {
-    .header-menu-container, .header-search, .header-register, .header-cart-image-white {
+    .header-menu-container, .header-search, .header-cart, .header-register, .header-cart-image-white {
         display: none;
     }
 
@@ -1046,7 +1046,7 @@ pre {
         animation-name: menu-icon-line-2-closing;
     }
 
-    .header-cart {
+    .header-cart-mobile {
         position: fixed;
         border: 1px solid black;
         border-radius: 100%;
@@ -1056,6 +1056,7 @@ pre {
         width: 60px;
         height: 60px;
         padding: 12px;
+        z-index: 400;
     }
 
     .section {
@@ -1105,7 +1106,7 @@ pre {
         height: 25px;
     }
 
-    .header-menu-icon, .header-cart-image-black, .menu-mobile-container {
+    .header-menu-icon, .header-cart-image-black, .header-cart-mobile, .menu-mobile-container {
         display: none;
     }
 
