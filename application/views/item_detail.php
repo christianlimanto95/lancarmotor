@@ -79,17 +79,6 @@
                 <div class="text-container">
                     <div class="detail-item-title">NGK BUSI</div>
                     <div class="detail-item-price">Rp 18.000,-</div>
-                    <div class="detail-item-description">
-                        <pre>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat ullamcorper nunc non faucibus. Fusce luctus, nulla eget sagittis pellentesque, eros leo lacinia ipsum, nec tincidunt ante purus eget dolor. Sed eget pulvinar neque. Nulla laoreet neque quis mauris pellentesque sodales. Morbi tincidunt tempor velit, ut fringilla leo euismod a. Aenean fringilla, ligula id tincidunt mollis, magna libero sollicitudin erat, non bibendum purus magna id massa. Fusce eleifend orci eros, ac malesuada tortor semper in. Sed varius elit eu congue hendrerit. Aliquam aliquet, dolor in pretium semper, nulla mauris dignissim sapien, at egestas augue elit ut justo. Donec egestas ex at turpis porta commodo. Etiam accumsan tortor commodo tellus rutrum interdum. Morbi placerat at augue et interdum.</pre>
-                    </div>
-                    <div class="spec">
-                        <div class="spec-label">Dimensions : </div>
-                        <div class="spec-value">10 cm x 10 cm x 2 cm</div>
-                    </div>
-                    <div class="spec">
-                        <div class="spec-label">Weight : </div>
-                        <div class="spec-value">< 1 kg</div>
-                    </div>
                     <div class="item-quantity">
                         <div class="quantity-label">Quantity</div>
                         <div class="btn-qty btn-qty-minus">
@@ -102,6 +91,17 @@
                     </div>
                     <div class="button btn-add-to-cart">ADD TO CART</div>
                     <div class="button btn-buy-now">BUY NOW</div>
+                    <div class="detail-item-description">
+                        <pre>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat ullamcorper nunc non faucibus. Fusce luctus, nulla eget sagittis pellentesque, eros leo lacinia ipsum, nec tincidunt ante purus eget dolor. Sed eget pulvinar neque. Nulla laoreet neque quis mauris pellentesque sodales. Morbi tincidunt tempor velit, ut fringilla leo euismod a. Aenean fringilla, ligula id tincidunt mollis, magna libero sollicitudin erat, non bibendum purus magna id massa. Fusce eleifend orci eros, ac malesuada tortor semper in. Sed varius elit eu congue hendrerit. Aliquam aliquet, dolor in pretium semper, nulla mauris dignissim sapien, at egestas augue elit ut justo. Donec egestas ex at turpis porta commodo. Etiam accumsan tortor commodo tellus rutrum interdum. Morbi placerat at augue et interdum.</pre>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-label">Dimensions : </div>
+                        <div class="spec-value">10 cm x 10 cm x 2 cm</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-label">Weight : </div>
+                        <div class="spec-value">< 1 kg</div>
+                    </div>
                 </div>
             </div>
         </div>

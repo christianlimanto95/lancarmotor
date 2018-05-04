@@ -61,6 +61,7 @@
 .detail-item-container {
     overflow-y: auto;
     overflow-x: hidden;
+    padding-bottom: 5px;
     margin-bottom: 60px;
 }
 
@@ -74,13 +75,11 @@
 }
 
 .detail-item-title {
-    font-size: 24pt;
     font-weight: bold;
     font-family: helvetica-thin;
 }
 
 .detail-item-price {
-    font-size: 16pt;
     margin-bottom: 30px;
 }
 
@@ -124,7 +123,6 @@
     display: inline-block;
     vertical-align: middle;
     width: 50px;
-    padding: 5px 0;
     border: 1px solid black;
     text-align: center;
 }
@@ -220,20 +218,36 @@
         margin-top: 20px;
     }
 
-    .btn-add-to-cart {
-        margin-top: 60px;
-        margin-bottom: 10px;
+    .detail-item-title {
+        font-size: 20pt;
+    }
+
+    .detail-item-price {
+        font-size: 16pt;
+    }
+
+    .detail-item-description {
+        font-size: 11pt;
     }
 
     .btn-add-to-cart, .btn-buy-now {
-        width: 100%;
-        padding: 13px 0 10px;
+        width: 200px;
+        padding: 14px 0 10px;
+    }
+
+    .btn-add-to-cart {
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    .btn-buy-now {
+        margin-bottom: 30px;
     }
 
     .btn-qty {
         font-size: 22pt;
-        width: 27px;
-        height: 27px;
+        width: 29px;
+        height: 29px;
     }
 
     .btn-qty:active {
@@ -241,11 +255,12 @@
     }
 
     .btn-qty-text {
-        margin-top: -7px;
+        margin-top: -3px;
     }
 
     .input-qty {
         margin: 0 10px;
+        padding: 7px 0 5px;
     }
 }
 
@@ -295,9 +310,12 @@
         padding-left: 30px;
     }
 
-    .btn-add-to-cart {
-        margin-top: 30px;
-        margin-bottom: 10px;
+    .detail-item-title {
+        font-size: 24pt;
+    }
+
+    .detail-item-price {
+        font-size: 16pt;
     }
 
     .btn-add-to-cart, .btn-buy-now {
@@ -305,10 +323,23 @@
         padding: 10px 0;
     }
 
+    .btn-add-to-cart {
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    .btn-buy-now {
+        margin-bottom: 30px;
+    }
+
     .btn-qty {
         font-size: 14pt;
         width: 27px;
         height: 27px;
+    }
+
+    .input-qty {
+        padding: 5px 0;
     }
 }
 

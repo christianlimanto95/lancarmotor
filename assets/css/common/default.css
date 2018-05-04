@@ -19,7 +19,7 @@ body {
     overflow-x: hidden;
 }
 
-body.show-cart, body.fixed {
+body.show-cart, body.fixed, body.show-filter-content {
     overflow-y: hidden;
 }
 
@@ -615,11 +615,6 @@ pre {
     transition: all 0.2s;
 }
 
-.button:hover {
-    color: black;
-    background-color: white;
-}
-
 .dialog {
     display: none;
     position: fixed;
@@ -1064,7 +1059,12 @@ pre {
     }
 
     .button {
-        padding: 8px 0 5px;
+        padding: 9px 0 5px;
+    }
+
+    .button:active {
+        color: black;
+        background-color: white;
     }
 
     .footer {
@@ -1131,7 +1131,10 @@ pre {
 }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
-
+    .button:active {
+        color: black;
+        background-color: white;
+    }
 }
 
 @media all and (min-width: 1025px) {
@@ -1155,6 +1158,11 @@ pre {
 
     .section {
         height: 100vh;
+    }
+
+    .button:hover {
+        color: black;
+        background-color: white;
     }
 }
 
