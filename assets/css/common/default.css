@@ -69,45 +69,6 @@ body.show-cart .dark-background, body.show-login .dark-background {
 
 .header-menu-container {
     margin-top: 25px;
-    text-align: center;
-}
-
-.header-menu {
-    display: inline-block;
-    color: white;
-    text-decoration: none;
-    margin-right: 50px;
-    position: relative;
-    padding: 0 10px;
-    font-size: 10pt;
-}
-
-.header-menu:before {
-    content: "";
-    width: 0;
-    height: 1px;
-    background-color: white;
-    position: absolute;
-    top: 8px;
-    left: 100%;
-    -webkit-transition: all 0.2s;
-    transition: all 0.2s;
-}
-
-.header-menu:nth-last-child(1) {
-    margin-right: 0;
-}
-
-.header-menu:hover:before {
-    left: 0;
-    width: 100%;
-    -webkit-transition: width 0.2s;
-    transition: width 0.2s;
-}
-
-.header-menu.active:before {
-    width: 100%;
-    left: 0;
 }
 
 .header-search, .header-cart {
@@ -115,13 +76,6 @@ body.show-cart .dark-background, body.show-login .dark-background {
     background-size: 100%;
     background-repeat: no-repeat;
     cursor: pointer;
-}
-
-.header-search {
-    top: 23px;
-    right: 270px;
-    width: 20px;
-    height: 20px;
 }
 
 .header-cart-image-white, .header-cart-image-black {
@@ -1118,12 +1072,49 @@ pre {
         width: 45px;
         height: 45px;
         top: 15px;
-        left: 40px;
+    }
+
+    .header-menu {
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        position: relative;
+        padding: 0 10px;
+        font-size: 10pt;
+    }
+    
+    .header-menu:before {
+        content: "";
+        width: 0;
+        height: 1px;
+        background-color: white;
+        position: absolute;
+        top: 8px;
+        left: 100%;
+        -webkit-transition: all 0.2s;
+        transition: all 0.2s;
+    }
+    
+    .header-menu:hover:before {
+        left: 0;
+        width: 100%;
+        -webkit-transition: width 0.2s;
+        transition: width 0.2s;
+    }
+    
+    .header-menu.active:before {
+        width: 100%;
+        left: 0;
+    }
+
+    .header-search {
+        top: 23px;
+        width: 20px;
+        height: 20px;
     }
 
     .header-cart {
         top: 20px;
-        right: 210px;
         width: 25px;
         height: 25px;
     }
@@ -1139,7 +1130,6 @@ pre {
     .header-register {
         position: absolute;
         top: 25px;
-        right: 50px;
     }
 
     .header-menu-icon, .header-cart-image-black, .header-cart-mobile, .menu-mobile-container {
@@ -1158,24 +1148,89 @@ pre {
         margin-right: 10px;
         font-size: 10pt;
     }
+}
 
-    .footer-section-separator {
+@media all and (min-width: 768px) and (max-width: 1024px) {
+    .logo {
+        left: 20px;
+    }
+
+    .header-menu-container {
+        margin-left: 100px;
+    }
+
+    .header-menu {
+        margin-right: 20px;
+    }
+
+    .header-menu:nth-last-child(1) {
+        margin-right: 0;
+    }
+
+    .header-search {
+        right: 250px;
+    }
+
+    .header-cart {
+        right: 190px;
+    }
+
+    .header-register {
+        right: 20px;
+    }
+
+    .button:active {
+        color: black;
+        background-color: white;
+    }
+
+    .footer-section:nth-child(5) {
+        margin-top: 5px;
+        margin-bottom: 7px;
+    }
+
+    .footer-section-separator:nth-child(2) {
         height: 20px;
         background-color: black;
         margin: 0 10px;
     }
-}
 
-@media all and (min-width: 768px) and (max-width: 1024px) {
-    .button:active {
-        color: black;
-        background-color: white;
+    .footer-section-separator:nth-child(6) {
+        display: block;
     }
 }
 
 @media all and (min-width: 1025px) {
     .div-mobile {
         display: none;
+    }
+
+    .logo {
+        left: 40px;
+    }
+
+    .header-menu-container {
+        text-align: center;
+    }
+
+    .header-menu {
+        margin-right: 50px;
+    }
+
+    .header-menu:nth-last-child(1) {
+        margin-right: 0;
+    }
+
+    .header-search {
+        right: 270px;
+    }
+
+    .header-cart {
+        right: 210px;
+    }
+
+    .header-register {
+        right: 50px;
     }
 
     .image-container[data-parallax-image="true"] {
@@ -1199,6 +1254,12 @@ pre {
     .button:hover {
         color: black;
         background-color: white;
+    }
+
+    .footer-section-separator {
+        height: 20px;
+        background-color: black;
+        margin: 0 10px;
     }
 }
 

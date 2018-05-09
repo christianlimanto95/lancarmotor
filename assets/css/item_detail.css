@@ -273,7 +273,6 @@
         position: absolute;
         bottom: 60px;
         left: 5vw;
-        width: 220px;
         height: 500px;
         border: 2px solid black;
     }
@@ -281,7 +280,6 @@
     .section-filter.fixed {
         position: fixed;
         top: 90px;
-        left: 5vw;
     }
 
     .filter-title {
@@ -293,21 +291,9 @@
     }
 
     .section-result {
-        width: calc(90vw - 250px);
         min-height: calc(100vh - 70px);
         margin-top: 20px;
         float: right;
-    }
-
-    .item-image-container {
-        float: left;
-        width: 400px;
-    }
-
-    .text-container {
-        float: left;
-        width: calc(100vw - 790px);
-        padding-left: 30px;
     }
 
     .detail-item-title {
@@ -344,12 +330,55 @@
 }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
+    .section-filter {
+        width: 200px;
+    }
+
+    .section-filter.fixed {
+        left: 4vw;
+    }
+
+    .section-result {
+        width: calc(90vw - 220px);
+    }
+
+    .item-image-container {
+        width: 100%;
+    }
+
+    .text-container {
+        margin-top: 30px;
+    }
+    
     .btn-qty:active {
         background-color: #DDD;
     }
 }
 
 @media all and (min-width: 1025px) {
+    .section-filter {
+        width: 220px;
+    }
+
+    .section-filter.fixed {
+        left: 5vw;
+    }
+
+    .section-result {
+        width: calc(90vw - 250px);
+    }
+
+    .item-image-container {
+        float: left;
+        width: 400px;
+    }
+
+    .text-container {
+        float: left;
+        width: calc(100vw - 790px);
+        padding-left: 30px;
+    }
+
     .btn-qty:hover {
         background-color: #DDD;
     }

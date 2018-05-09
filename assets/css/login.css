@@ -22,30 +22,9 @@
 
 .section {
     margin-top: 40px;
-    height: 370px;
-    text-align: center;
-}
-
-.center {
-    display: inline-block;
-    text-align: left;
-}
-
-.section-left, .section-or, .section-right {
-    float: left;
-}
-
-.section-left, .section-right {
-    width: 300px;
-    height: 100%;
 }
 
 .register-with-google {
-    float: right;
-    margin-top: 160px;
-    margin-right: 80px;
-    width: 260px;
-    padding: 15px;
     border: 1px solid black;
     cursor: pointer;
 }
@@ -63,36 +42,6 @@
     background-size: 100%;
     background-repeat: no-repeat;
     margin-right: 40px;
-}
-
-.section-or {
-    height: 100%;
-    position: relative;
-}
-
-.section-or-line {
-    position: absolute;
-    left: 10px;
-    width: 1px;
-    height: 100%;
-    background-color: #AAA;
-}
-
-.or-text {
-    position: relative;
-    padding: 15px 0;
-    margin-top: 160px;
-    margin-left: 5px;
-    font-size: 11pt;
-    color: #AAA;
-    background-color: white;
-}
-
-.register-box {
-    margin-top: 50px;
-    width: 320px;
-    height: 450px;
-    margin-left: 80px;
 }
 
 .register-box-title {
@@ -130,4 +79,101 @@
 
 .btn-login {
     padding: 10px 0;
+}
+
+@media all and (max-width: 767px) {
+    .section {
+        height: auto;
+    }
+
+    .center {
+        width: 100vw;
+        padding: 0 5vw;
+    }
+
+    .register-with-google {
+        width: 260px;
+        padding: 15px;
+        margin: 0 auto;
+    }
+
+    .or-text {
+        font-size: 11pt;
+        color: #AAA;
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    .register-box {
+        width: 100%;
+        padding: 5vw 5vw;
+    }
+}
+
+@media all and (min-width: 768px) {
+    .section {
+        height: 450px;
+        text-align: center;
+    }
+
+    .center {
+        display: inline-block;
+        text-align: left;
+    }
+
+    .section-left, .section-or, .section-right {
+        float: left;
+    }
+
+    .section-left, .section-right {
+        width: 400px;
+        height: 100%;
+    }
+
+    .register-with-google {
+        float: right;
+        margin-top: 190px;
+        margin-right: 80px;
+        width: 260px;
+        padding: 15px;
+    }
+
+    .section-or {
+        height: 100%;
+        position: relative;
+    }
+
+    .or-text {
+        position: relative;
+        padding: 15px 0;
+        margin-top: 200px;
+        margin-left: 5px;
+        font-size: 11pt;
+        color: #AAA;
+        background-color: white;
+    }
+    
+    .section-or-line {
+        position: absolute;
+        left: 10px;
+        width: 1px;
+        height: 100%;
+        background-color: #AAA;
+    }
+
+    .register-box {
+        width: 320px;
+        height: 450px;
+        border: 1px solid black;
+        margin-left: 80px;
+        padding: 20px 30px;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+@media all and (min-width: 1025px) {
+
 }

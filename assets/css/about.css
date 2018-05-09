@@ -53,7 +53,23 @@
         font-size: 32pt;
         width: 350px;
     }
+}
 
+@media all and (min-width: 768px) and (max-width: 1024px) {
+    .description {
+        padding: 0 50px;
+    }
+
+    .images {
+        padding: 0 50px;
+    }
+
+    .about-image {
+        width: 43vw;
+    }
+}
+
+@media all and (min-width: 1025px) {
     .description {
         padding: 0 75px;
     }
@@ -69,12 +85,4 @@
     .about-image {
         width: 300px;
     }
-}
-
-@media all and (min-width: 768px) and (max-width: 1024px) {
-
-}
-
-@media all and (min-width: 1025px) {
-
 }
