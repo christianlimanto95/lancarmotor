@@ -24,10 +24,10 @@ class Admin_login extends General_controller {
 		$username = $this->input->post("username", true);
 		$password = $this->input->post("password", true);
 		if ($username != "" && $password != "") {
-			$data = $this->Login_model->get_data($username);
+			$data = $this->Admin_login_model->get_data($username);
 			if (sizeof($data) > 0) {
 				if (password_verify($password, $data[0]->admin_password)) {
-					$this->session->set_userdata("user_id", $data[0]->admin_id);
+					$this->session->set_userdata("admin_id", $data[0]->admin_id);
 
 					echo json_encode(array(
 						"status" => "success"
@@ -50,7 +50,7 @@ class Admin_login extends General_controller {
     }
     
     public function logout() {
-		$this->session->unset_userdata("user_id");
-		redirect(base_url("login"));
+		$this->session->unset_userdata("admin_id");
+		redirect(base_url("admin_login"));
 	}
 }

@@ -126,6 +126,19 @@ body.fixed {
     background-color: #555;
 }
 
+.menu-notif-count {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: red;
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    padding-top: 4px;
+    font-size: 10pt;
+    margin-left: 15px;
+}
+
 .header {
     position: fixed;
     top: 0;

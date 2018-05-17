@@ -21,14 +21,12 @@ class General_controller extends CI_Controller
 
     protected $admin_menu_active = array(
         "home" => "",
-        "carousel" => "",
-        "tour_highlight" => "",
-        "tour_bonus" => "",
-        "tour_group" => "",
-        "tour_package" => "",
-        "article" => "",
-        "services" => "",
-        "about" => ""
+        "master_satuan" => "",
+        "master_kategori" => "",
+        "master_barang" => "",
+        "konfirmasi_pembayaran" => "",
+        "update_status_pesanan" => "",
+        "laporan" => ""
     );
 
     protected $hide_cart = false;
@@ -92,9 +90,19 @@ class General_controller extends CI_Controller
             redirect(base_url("login"));
         }
     }
+
+    public function redirect_if_not_admin() {
+        if (!$this->session->userdata('admin_id', true)) {
+            redirect(base_url("admin_login"));
+        }
+    }
     
     public function is_logged_in() {
         return $this->session->userdata('user_id', true);
+    }
+
+    public function is_admin_logged_in() {
+        return $this->session->userdata('admin_id', true);
     }
     
     function show_404_if_not_ajax() {

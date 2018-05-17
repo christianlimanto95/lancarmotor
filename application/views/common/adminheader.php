@@ -2,7 +2,7 @@
 <head>
 	<title><?php echo $title; ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <meta name="robots" content="nofollow" />
+    <meta name="robots" content="noindex, nofollow" />
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/admindefault.css?v=12"); ?>" />
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=28"); ?>" />
 	<?php echo $additional_css; ?>
@@ -21,14 +21,13 @@
 </div>
 <div class="menu-container">
 	<div class="logo" style="background-image: url(<?php echo base_url("assets/icons/logo_white.png"); ?>);"></div>
-	<a href="<?php echo base_url("admin"); ?>" class="menu<?php echo $menu_active["home"]; ?>">Daftar Peserta Tour</a>
-    <a href="<?php echo base_url("admin/carousel"); ?>" class="menu<?php echo $menu_active["carousel"]; ?>">Home Carousel</a>
-    <a href="<?php echo base_url("admin/tour_highlight"); ?>" class="menu<?php echo $menu_active["tour_highlight"]; ?>">Tour Highlight</a>
-    <a href="<?php echo base_url("admin/tour_bonus"); ?>" class="menu<?php echo $menu_active["tour_bonus"]; ?>">Tour Bonus</a>
-	<a href="<?php echo base_url("admin/tour_group"); ?>" class="menu<?php echo $menu_active["tour_group"]; ?>">Tour Group</a>
-	<a href="<?php echo base_url("admin/tour_package"); ?>" class="menu<?php echo $menu_active["tour_package"]; ?>">Tour Packages</a>
-	<a href="<?php echo base_url("admin/article"); ?>" class="menu<?php echo $menu_active["article"]; ?>">Article</a>
-    <a href="<?php echo base_url("admin/services"); ?>" class="menu<?php echo $menu_active["services"]; ?>">Services</a>
+	<a href="<?php echo base_url("admin"); ?>" class="menu<?php echo $menu_active["home"]; ?>">Home</a>
+    <a href="<?php echo base_url("admin/master_satuan"); ?>" class="menu<?php echo $menu_active["master_satuan"]; ?>">Master Satuan</a>
+    <a href="<?php echo base_url("admin/master_kategori"); ?>" class="menu<?php echo $menu_active["master_kategori"]; ?>">Master Kategori</a>
+    <a href="<?php echo base_url("admin/master_barang"); ?>" class="menu<?php echo $menu_active["master_barang"]; ?>">Master Barang</a>
+    <a href="<?php echo base_url("admin/konfirmasi_pembayaran"); ?>" class="menu<?php echo $menu_active["konfirmasi_pembayaran"]; ?>">Konfirmasi Pembayaran <span class="menu-notif-count">2</span></a>
+    <a href="<?php echo base_url("admin/update_status_pesanan"); ?>" class="menu<?php echo $menu_active["update_status_pesanan"]; ?>">Update Status Pesanan <span class="menu-notif-count">3</span></a>
+    <a href="<?php echo base_url("admin/laporan"); ?>" class="menu<?php echo $menu_active["laporan"]; ?>">Laporan</a>
 </div>
 <div class="header">
 	<div class="menu-title"><?php echo $menu_title; ?></div>
