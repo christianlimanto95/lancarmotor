@@ -277,8 +277,10 @@ body.fixed {
 }
 
 .btn {
+    display: block;
     width: 150px;
     padding: 10px 0 11px;
+    text-decoration: none;
     color: white;
     text-align: center;
     font-size: 10pt;
@@ -386,7 +388,7 @@ textarea.form-input, textarea.form-input-inline {
     display: none;
     position: absolute;
     width: 100%;
-    top: 45px;
+    top: 35px;
     left: 0;
     max-height: 300px;
     overflow: auto;
@@ -548,7 +550,7 @@ textarea.form-input, textarea.form-input-inline {
     background-color: black;
     color: white;
     font-size: 10pt;
-    padding: 15px 25px 0;
+    padding: 18px 25px 0;
     opacity: 0;
     display: none;
     z-index: 502;

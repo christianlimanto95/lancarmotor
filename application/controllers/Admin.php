@@ -32,6 +32,123 @@ class Admin extends General_controller {
 		parent::adminview("admin_master_satuan", $data);
     }
 
+    function satuan_get() {
+        parent::show_404_if_not_ajax();
+        $satuan = $this->Admin_model->get_satuan();
+        echo json_encode(array(
+            "status" => "success",
+            "data" => $satuan
+        ));
+    }
+
+    function satuan_insert() {
+        parent::show_404_if_not_ajax();
+
+        $satuan_nama = trim($this->input->post("satuan_nama"));
+        $satuan_type = $this->input->post("satuan_type");
+        
+        if ($satuan_nama != "" && $satuan_type != "") {
+            $data = array(
+                "satuan_nama" => $satuan_nama,
+                "satuan_type" => $satuan_type,
+                "user_id" => parent::is_admin_logged_in()
+            );
+
+            $affected_rows = $this->Admin_model->insert_satuan($data);
+            if ($affected_rows > 0) {
+                echo json_encode(array(
+                    "status" => "success"
+                ));
+            } else {
+                echo json_encode(array(
+                    "status" => "error"
+                ));
+            }
+        } else {
+            echo json_encode(array(
+                "status" => "error"
+            ));
+        }
+    }
+
+    function master_satuan_edit() {
+        $id = $this->uri->segment(3);
+        $detail = $this->Admin_model->get_satuan_by_id($id);
+        if (sizeof($detail) > 0) {
+            $detail = $detail[0];
+            $data = array(
+                "title" => "Admin &mdash; Master Satuan Edit",
+                "menu_active" => parent::set_admin_menu_active("master_satuan"),
+                "menu_title" => "Master Satuan > Edit Satuan " . $detail->satuan_nama,
+                "data" => $detail
+            );
+            
+            parent::adminview("admin_master_satuan_edit", $data);
+        } else {
+            redirect(base_url("admin/master_satuan"));
+        }
+    }
+
+    function satuan_update() {
+        parent::show_404_if_not_ajax();
+
+        $satuan_id = $this->input->post("satuan_id", true);
+        $satuan_nama = trim($this->input->post("satuan_nama"));
+        $satuan_type = $this->input->post("satuan_type");
+        
+        if ($satuan_id && $satuan_nama != "" && $satuan_type != "") {
+            $data = array(
+                "satuan_id" => $satuan_id,
+                "satuan_nama" => $satuan_nama,
+                "satuan_type" => $satuan_type,
+                "user_id" => parent::is_admin_logged_in()
+            );
+
+            $affected_rows = $this->Admin_model->update_satuan($data);
+            if ($affected_rows > 0) {
+                echo json_encode(array(
+                    "status" => "success"
+                ));
+            } else {
+                echo json_encode(array(
+                    "status" => "error"
+                ));
+            }
+        } else {
+            echo json_encode(array(
+                "status" => "error"
+            ));
+        }
+    }
+
+    function satuan_delete() {
+        parent::show_404_if_not_ajax();
+
+        $satuan_id = $this->input->post("satuan_id", true);
+        
+        if ($satuan_id) {
+            $data = array(
+                "satuan_id" => $satuan_id,
+                "user_id" => parent::is_admin_logged_in()
+            );
+
+            $affected_rows = $this->Admin_model->delete_satuan($data);
+            if ($affected_rows > 0) {
+                echo json_encode(array(
+                    "status" => "success"
+                ));
+            } else {
+                echo json_encode(array(
+                    "status" => "error"
+                ));
+            }
+        } else {
+            echo json_encode(array(
+                "status" => "error"
+            ));
+        }
+    }
+
     public function master_kategori() {
         $data = array(
 			"title" => "Admin &mdash; Master Kategori",

@@ -68,6 +68,7 @@ $(function() {
         }
         var text = $(this).html();
         select.find(".select-text").html(text);
+        select.find(".select-input").val($(this).attr("data-value"));
         select.trigger("valueChanged");
 
         var dropdownContainer = $(this).parent();
@@ -150,6 +151,7 @@ function setSelectValue(select, value) {
     }
     var text = $(dropdownItem).html();
     select.find(".select-text").html(text);
+    select.find(".select-input").val($(dropdownItem).attr("data-value"));
     select.trigger("valueChanged");
 }
 

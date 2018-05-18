@@ -1,0 +1,37 @@
+.table {
+    border-collapse: collapse;
+}
+
+.table td {
+    padding: 5px 10px;
+}
+
+.table td:nth-child(1) {
+    padding-left: 0;
+}
+
+.table thead td {
+    border-bottom: 1px solid black;
+}
+
+.table thead td[data-col="action"] {
+    text-align: center;
+}
+
+.table .btn {
+    float: left;
+    width: 90px;
+}
+
+.table .btn-edit {
+    margin-right: 10px;
+}
+
+.section-insert {
+    border-top: 1px solid black;
+    padding-top: 10px;
+}
+
+.select-satuan-type {
+    width: 100px;
+}

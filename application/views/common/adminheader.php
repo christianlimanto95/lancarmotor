@@ -3,8 +3,8 @@
 	<title><?php echo $title; ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta name="robots" content="noindex, nofollow" />
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/admindefault.css?v=12"); ?>" />
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=28"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/admindefault.css?v=13"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=29"); ?>" />
 	<?php echo $additional_css; ?>
 	<style>
 		@font-face {
