@@ -262,6 +262,16 @@
         margin: 0 10px;
         padding: 7px 0 5px;
     }
+
+    .dialog-category .dialog-box {
+        width: 100vw;
+        height: 450px;
+    }
+
+    .dialog-category .dialog-content {
+        height: 300px;
+        overflow-y: auto;
+    }
 }
 
 @media all and (min-width: 768px) {

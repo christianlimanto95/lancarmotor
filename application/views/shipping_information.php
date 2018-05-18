@@ -1,27 +1,4 @@
 <div class="section">
-    <div class="section-left">
-        <div class="section-title"><strong>SHIPPING</strong> INFORMATION</div>
-        <div class="form-container">
-            <div class="form-item">
-                <div class="form-label">Name</div>
-                <input type="text" class="form-input" />
-            </div>
-            <div class="form-item">
-                <div class="form-label">Address</div>
-                <input type="text" class="form-input" />
-            </div>
-            <div class="form-item">
-                <div class="form-label">City</div>
-                <input type="text" class="form-input" />
-            </div>
-            <div class="form-item">
-                <div class="form-label">Phone Number</div>
-                <input type="text" class="form-input" data-type="number" />
-            </div>
-            <div class="button btn-confirm-order">Confirm Order</div>
-            <a href="<?php echo base_url("shop"); ?>" class="return-to-shop" >< Return to Shop</a>
-        </div>
-    </div>
     <div class="section-right">
         <div class="shipping-cart-item-container">
             <div class="shipping-cart-item">
@@ -64,6 +41,29 @@
         <div class="total">
             <div class="total-label">Total</div>
             <div class="total-value">Rp 113.000,-</div>
+        </div>
+    </div>
+    <div class="section-left">
+        <div class="section-title"><strong>SHIPPING</strong> INFORMATION</div>
+        <div class="form-container">
+            <div class="form-item">
+                <div class="form-label">Name</div>
+                <input type="text" class="form-input input-name" />
+            </div>
+            <div class="form-item">
+                <div class="form-label">Address</div>
+                <input type="text" class="form-input" />
+            </div>
+            <div class="form-item">
+                <div class="form-label">City</div>
+                <input type="text" class="form-input" />
+            </div>
+            <div class="form-item">
+                <div class="form-label">Phone Number</div>
+                <input type="text" class="form-input input-phone-number" data-type="number" maxlength="20" />
+            </div>
+            <div class="button btn-confirm-order">Confirm Order</div>
+            <a href="<?php echo base_url("shop"); ?>" class="return-to-shop" >< Return to Shop</a>
         </div>
     </div>
 </div>

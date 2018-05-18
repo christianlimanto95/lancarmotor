@@ -146,6 +146,7 @@
 
     .filter-close-icon {
         margin-bottom: 20px;
+        width: 130px;
     }
 
     .filter-close-text {
@@ -176,6 +177,16 @@
     .item-image {
         width: 42vw;
         height: 42vw;
+    }
+
+    .dialog-category .dialog-box {
+        width: 100vw;
+        height: 450px;
+    }
+
+    .dialog-category .dialog-content {
+        height: 300px;
+        overflow-y: auto;
     }
 }
 

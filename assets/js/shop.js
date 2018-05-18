@@ -4,6 +4,10 @@ $(function() {
     filterBottom = 150 + parseInt(filter.height());
     itemContainerBottom = parseInt($(".section-result").offset().top) + parseInt($(".section-result").height());
 
+    $(".checkbox-container").on("click", function() {
+        
+    });
+
     $(".section-filter").on("click", function() {
         if (isMobile) {
             $("body").addClass("show-filter-content");
@@ -12,10 +16,6 @@ $(function() {
 
     $(".filter-close-icon").on("click", function(e) {
         $("body").removeClass("show-filter-content");
-        e.stopPropagation();
-    });
-
-    $(".filter-content").on("click", function(e) {
         e.stopPropagation();
     });
 
