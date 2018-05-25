@@ -21,9 +21,9 @@ $(function() {
                     
                     if (result.status == "success") {
                         $(".menu-title").html("Master Satuan > Edit Satuan " + nama_satuan);
-                        showNotification("Berhasil Tambah Satuan " + nama_satuan);
+                        showNotification("Perubahan Disimpan");
                     } else {
-                        showNotification("Gagal Menambah Satuan " + nama_satuan);
+                        showNotification("Gagal Edit Satuan " + nama_satuan);
                     }
                 });
             } else {

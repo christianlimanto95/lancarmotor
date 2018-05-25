@@ -20,9 +20,9 @@ $(function() {
                     
                     if (result.status == "success") {
                         $(".menu-title").html("Master Kategori > Edit Kategori " + nama_kategori);
-                        showNotification("Berhasil Tambah Kategori " + nama_kategori);
+                        showNotification("Perubahan Disimpan");
                     } else {
-                        showNotification("Gagal Menambah Kategori " + nama_kategori);
+                        showNotification("Gagal Edit Kategori " + nama_kategori);
                     }
                 });
             } else {

@@ -67,9 +67,9 @@ $(function() {
                     
                     if (result.status == "success") {
                         $(".menu-title").html("Master Barang > Edit Barang " + item_name);
-                        showNotification("Berhasil Tambah Barang " + item_name);
+                        showNotification("Perubahan Disimpan");
                     } else {
-                        showNotification("Gagal Menambah Barang " + item_name);
+                        showNotification("Gagal Edit Barang " + item_name);
                     }
                 });
             } else {
