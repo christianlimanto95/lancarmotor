@@ -157,6 +157,28 @@ class Admin_model extends CI_Model
         );
     }
 
+    public function update_item($data) {
+        $this->db->where("item_id", $data["item_id"]);
+        $this->db->set("category_id", $data["category_id"]);
+        $this->db->set("brand_id", $data["brand_id"]);
+        $this->db->set("item_name", $data["item_name"]);
+        $this->db->set("item_image_extension", $data["item_image_extension"]);
+        $this->db->set("item_satuan", $data["item_satuan"]);
+        $this->db->set("item_qty", $data["item_qty"]);
+        $this->db->set("item_price", $data["item_price"]);
+        $this->db->set("item_description", $data["item_description"]);
+        $this->db->set("item_dimensi_satuan", $data["item_dimensi_satuan"]);
+        $this->db->set("item_panjang", $data["item_panjang"]);
+        $this->db->set("item_lebar", $data["item_lebar"]);
+        $this->db->set("item_tinggi", $data["item_tinggi"]);
+        $this->db->set("item_berat", $data["item_berat"]);
+        $this->db->set("item_berat_satuan", $data["item_berat_satuan"]);
+        $this->db->set("modified_date", "NOW()", false);
+        $this->db->set("modified_by", $data["user_id"]);
+        $this->db->update("item");
+        return $this->db->affected_rows();
+    }
+
     public function delete_from_table($data) {
         $this->db->where($data["table_name"] . "_id", $data["id"]);
         $this->db->set("status", 0);

@@ -78,6 +78,7 @@ $(function() {
                 var item_description = $(".input-deskripsi").val();
                 var item_dimensi_satuan = $(".select-satuan-dimensi .select-input").val();
                 var item_berat_satuan = $(".select-satuan-berat .select-input").val();
+                
                 ajaxCall(tambah_item_url, {category_id: category_id, brand_id: brand_id, item_name: item_name, item_image: item_image, item_price: item_price, item_satuan: item_satuan, item_qty: item_qty, item_description: item_description, item_dimensi_satuan: item_dimensi_satuan, item_panjang: item_panjang, item_lebar: item_lebar, item_tinggi: item_tinggi, item_berat: item_berat, item_berat_satuan: item_berat_satuan}, function(json) {
                     var result = jQuery.parseJSON(json);
                     thisButton.removeClass("disabled");

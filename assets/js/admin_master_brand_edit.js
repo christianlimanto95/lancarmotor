@@ -29,9 +29,9 @@ $(function() {
                     
                     if (result.status == "success") {
                         $(".menu-title").html("Master Brand > Edit Brand " + nama_brand);
-                        showNotification("Berhasil Tambah Satuan " + nama_brand);
+                        showNotification("Berhasil Tambah Brand " + nama_brand);
                     } else {
-                        showNotification("Gagal Menambah Satuan " + nama_brand);
+                        showNotification("Gagal Menambah Brand " + nama_brand);
                     }
                 });
             } else {

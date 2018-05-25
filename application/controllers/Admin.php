@@ -582,6 +582,77 @@ class Admin extends General_controller {
         }
     }
 
+    function item_update() {
+        parent::show_404_if_not_ajax();
+
+        $item_id = $this->input->post("item_id", true);
+        $category_id = $this->input->post("category_id");
+        $brand_id = $this->input->post("brand_id");
+        $item_name = trim($this->input->post("item_name"));
+        $item_image = $this->input->post("item_image");
+        $item_price = $this->input->post("item_price");
+        $item_satuan = $this->input->post("item_satuan");
+        $item_qty = $this->input->post("item_qty");
+        $item_description = $this->input->post("item_description");
+        $item_dimensi_satuan = $this->input->post("item_dimensi_satuan");
+        $item_panjang = $this->input->post("item_panjang");
+        $item_lebar = $this->input->post("item_lebar");
+        $item_tinggi = $this->input->post("item_tinggi");
+        $item_berat = $this->input->post("item_berat");
+        $item_berat_satuan = $this->input->post("item_berat_satuan");
+        
+        if ($category_id && $brand_id && $item_name != "" && $item_panjang != "" && $item_lebar != "" && $item_tinggi != "" && $item_berat != "") {
+            $item_image_extension = "";
+            if ($item_image != "") {
+                if (preg_match('/^data:image\/(\w+);base64,/', $item_image, $type)) {
+                    $type = strtolower($type[1]); // jpg, png, gif
+                    $item_image_extension = $type;
+                }
+            }
+
+            $data = array(
+                "item_id" => $item_id,
+                "category_id" => $category_id,
+                "brand_id" => $brand_id,
+                "item_name" => $item_name,
+                "item_image_extension" => $item_image_extension,
+                "item_price" => intval($item_price),
+                "item_satuan" => $item_satuan,
+                "item_qty" => intval($item_qty),
+                "item_description" => $item_description,
+                "item_dimensi_satuan" => $item_dimensi_satuan,
+                "item_panjang" => intval($item_panjang),
+                "item_lebar" => intval($item_lebar),
+                "item_tinggi" => intval($item_tinggi),
+                "item_berat" => intval($item_berat),
+                "item_berat_satuan" => $item_berat_satuan,
+                "user_id" => parent::is_admin_logged_in()
+            );
+            $affected_rows = $this->Admin_model->update_item($data);
+            if ($affected_rows > 0) {
+                if (preg_match('/^data:image\/(\w+);base64,/', $item_image, $type)) {
+                    $data = substr($item_image, strpos($item_image, ',') + 1);
+                    $type = strtolower($type[1]); // jpg, png, gif
+                
+                    $data = base64_decode($data);
+                    file_put_contents("assets/images/item/item_" . $item_id . "." . $type, $data);
+                }
+
+                echo json_encode(array(
+                    "status" => "success"
+                ));
+            } else {
+                echo json_encode(array(
+                    "status" => "error"
+                ));
+            }
+        } else {
+            echo json_encode(array(
+                "status" => "error"
+            ));
+        }
+    }
+
     public function konfirmasi_pembayaran() {
         $data = array(
 			"title" => "Admin &mdash; Konfirmasi Pembayaran",

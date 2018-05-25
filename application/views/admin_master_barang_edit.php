@@ -46,7 +46,7 @@
             }
             ?>
             <div class="form-right<?php echo $imageAdded; ?>">
-                <input type="hidden" name="brand_image" class="image-input" value="" />
+                <input type="hidden" name="item_image" class="image-input" value="" />
                 <div class="upload-container">
                     <div class="upload-button">
                         <div class="upload-text">Choose Image</div>
@@ -136,6 +136,6 @@
     </div>
 </div>
 <script>
-var brand_id = "<?php echo $data->brand_id; ?>";
-var do_edit_brand_url = "<?php echo base_url("admin/brand_update"); ?>";
+var item_id = "<?php echo $data->item_id; ?>";
+var do_edit_item_url = "<?php echo base_url("admin/item_update"); ?>";
 </script>

@@ -11,27 +11,65 @@ $(function() {
             var thisButton = $(this);
             $(".error").html("");
             var valid = true;
-            var nama_brand = $(".input-nama-brand").val().trim();
-            if (nama_brand == "") {
+            var item_name = $(".input-nama-barang").val().trim();
+            if (item_name == "") {
                 valid = false;
-                $(".error-nama-brand").html("harus diisi");
+                $(".error-nama-barang").html("harus diisi");
+            }
+
+            var item_qty = parseInt($(".input-stok").val().trim());
+            if (isNaN(item_qty)) {
+                valid = false;
+                $(".error-stok").html("harus diisi");
+            }
+
+            var item_panjang = parseInt($(".input-panjang").val().trim());
+            if (isNaN(item_panjang)) {
+                valid = false;
+                $(".error-panjang").html("harus diisi");
+            }
+
+            var item_lebar = parseInt($(".input-lebar").val().trim());
+            if (isNaN(item_lebar)) {
+                valid = false;
+                $(".error-lebar").html("harus diisi");
+            }
+
+            var item_tinggi = parseInt($(".input-tinggi").val().trim());
+            if (isNaN(item_tinggi)) {
+                valid = false;
+                $(".error-tinggi").html("harus diisi");
+            }
+
+            var item_berat = parseInt($(".input-berat").val().trim());
+            if (isNaN(item_berat)) {
+                valid = false;
+                $(".error-berat").html("harus diisi");
             }
 
             if (valid) {
                 thisButton.addClass("disabled");
                 showLoader();
 
-                var brand_image = $(".image-input").val();
-                ajaxCall(do_edit_brand_url, {brand_id: brand_id, brand_name: nama_brand, brand_image: brand_image}, function(json) {
+                var category_id = $(".select-kategori .select-input").val();
+                var brand_id = $(".select-brand .select-input").val();
+                var item_price = removeThousandSeparator($(".input-harga").val());
+                var item_satuan = $(".select-satuan-qty .select-input").val();
+                var item_image = $(".image-input").val();
+                var item_description = $(".input-deskripsi").val();
+                var item_dimensi_satuan = $(".select-satuan-dimensi .select-input").val();
+                var item_berat_satuan = $(".select-satuan-berat .select-input").val();
+
+                ajaxCall(do_edit_item_url, {item_id: item_id, category_id: category_id, brand_id: brand_id, item_name: item_name, item_image: item_image, item_price: item_price, item_satuan: item_satuan, item_qty: item_qty, item_description: item_description, item_dimensi_satuan: item_dimensi_satuan, item_panjang: item_panjang, item_lebar: item_lebar, item_tinggi: item_tinggi, item_berat: item_berat, item_berat_satuan: item_berat_satuan}, function(json) {
                     hideLoader();
                     var result = jQuery.parseJSON(json);
                     thisButton.removeClass("disabled");
                     
                     if (result.status == "success") {
-                        $(".menu-title").html("Master Brand > Edit Brand " + nama_brand);
-                        showNotification("Berhasil Tambah Satuan " + nama_brand);
+                        $(".menu-title").html("Master Barang > Edit Barang " + item_name);
+                        showNotification("Berhasil Tambah Barang " + item_name);
                     } else {
-                        showNotification("Gagal Menambah Satuan " + nama_brand);
+                        showNotification("Gagal Menambah Barang " + item_name);
                     }
                 });
             } else {
