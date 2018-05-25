@@ -347,11 +347,12 @@ body.fixed {
 }
 
 .form-item-inline {
-    float: left;
+    display: inline-block;
+    margin-right: 10px;
 }
 
 .form-label-inline, .form-input-inline {
-    float: left;
+    display: inline-block;
 }
 
 .form-label-inline {

@@ -1,35 +1,6 @@
-.table {
-    border-collapse: collapse;
-}
-
-.table td {
-    padding: 5px 10px;
-}
-
-.table td:nth-child(1) {
-    padding-left: 0;
-}
-
-.table thead td {
-    border-bottom: 1px solid black;
-}
-
-.table thead td[data-col="action"] {
-    text-align: center;
-}
-
-.table-image {
-    max-width: 150px;
-    max-height: 150px;
-}
-
-.table .btn {
-    float: left;
-    width: 90px;
-}
-
-.table .btn-edit {
-    margin-right: 10px;
+.btn-back {
+    margin-bottom: 50px;
+    width: 180px;
 }
 
 .section-insert {
@@ -67,5 +38,9 @@ textarea.input-deskripsi {
 }
 
 .btn-tambah-barang {
+    margin-top: 80px;
+}
+
+.btn-simpan-perubahan {
     margin-top: 80px;
 }

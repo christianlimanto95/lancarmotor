@@ -434,14 +434,152 @@ class Admin extends General_controller {
         }
     }
 
+    function item_get() {
+        parent::show_404_if_not_ajax();
+        $item = $this->Admin_model->get_item();
+        echo json_encode(array(
+            "status" => "success",
+            "data" => $item
+        ));
+    }
+
     public function master_barang() {
+        $category = $this->Admin_model->get_category();
+        $brand = $this->Admin_model->get_brand();
+        $satuan = $this->Admin_model->get_satuan();
         $data = array(
 			"title" => "Admin &mdash; Master Barang",
 			"menu_active" => parent::set_admin_menu_active("master_barang"),
-            "menu_title" => "Master Barang"
+            "menu_title" => "Master Barang",
+            "category" => $category,
+            "brand" => $brand,
+            "satuan" => $satuan
 		);
 		
 		parent::adminview("admin_master_barang", $data);
+    }
+
+    function item_insert() {
+        parent::show_404_if_not_ajax();
+
+        $category_id = $this->input->post("category_id");
+        $brand_id = $this->input->post("brand_id");
+        $item_name = trim($this->input->post("item_name"));
+        $item_image = $this->input->post("item_image");
+        $item_price = $this->input->post("item_price");
+        $item_satuan = $this->input->post("item_satuan");
+        $item_qty = $this->input->post("item_qty");
+        $item_description = $this->input->post("item_description");
+        $item_dimensi_satuan = $this->input->post("item_dimensi_satuan");
+        $item_panjang = $this->input->post("item_panjang");
+        $item_lebar = $this->input->post("item_lebar");
+        $item_tinggi = $this->input->post("item_tinggi");
+        $item_berat = $this->input->post("item_berat");
+        $item_berat_satuan = $this->input->post("item_berat_satuan");
+        
+        if ($category_id && $brand_id && $item_name != "" && $item_panjang != "" && $item_lebar != "" && $item_tinggi != "" && $item_berat != "") {
+            $item_image_extension = "";
+            if ($item_image != "") {
+                if (preg_match('/^data:image\/(\w+);base64,/', $item_image, $type)) {
+                    $type = strtolower($type[1]); // jpg, png, gif
+                    $item_image_extension = $type;
+                }
+            }
+
+            $data = array(
+                "category_id" => $category_id,
+                "brand_id" => $brand_id,
+                "item_name" => $item_name,
+                "item_image_extension" => $item_image_extension,
+                "item_price" => intval($item_price),
+                "item_satuan" => $item_satuan,
+                "item_qty" => intval($item_qty),
+                "item_description" => $item_description,
+                "item_dimensi_satuan" => $item_dimensi_satuan,
+                "item_panjang" => intval($item_panjang),
+                "item_lebar" => intval($item_lebar),
+                "item_tinggi" => intval($item_tinggi),
+                "item_berat" => intval($item_berat),
+                "item_berat_satuan" => $item_berat_satuan,
+                "user_id" => parent::is_admin_logged_in()
+            );
+
+            $result = $this->Admin_model->insert_item($data);
+            if ($result["affected_rows"] > 0) {
+                if (preg_match('/^data:image\/(\w+);base64,/', $item_image, $type)) {
+                    $data = substr($item_image, strpos($item_image, ',') + 1);
+                    $type = strtolower($type[1]); // jpg, png, gif
+                
+                    $data = base64_decode($data);
+                    file_put_contents("assets/images/item/item_" . $result["id"] . "." . $type, $data);
+                }
+
+                echo json_encode(array(
+                    "status" => "success"
+                ));
+            } else {
+                echo json_encode(array(
+                    "status" => "error"
+                ));
+            }
+        } else {
+            echo json_encode(array(
+                "status" => "error"
+            ));
+        }
+    }
+
+    function item_delete() {
+        parent::show_404_if_not_ajax();
+
+        $item_id = $this->input->post("item_id", true);
+        
+        if ($item_id) {
+            $data = array(
+                "table_name" => "item",
+                "id" => $item_id,
+                "user_id" => parent::is_admin_logged_in()
+            );
+
+            $affected_rows = $this->Admin_model->delete_from_table($data);
+            if ($affected_rows > 0) {
+                echo json_encode(array(
+                    "status" => "success"
+                ));
+            } else {
+                echo json_encode(array(
+                    "status" => "error"
+                ));
+            }
+        } else {
+            echo json_encode(array(
+                "status" => "error"
+            ));
+        }
+    }
+
+    function master_item_edit() {
+        $id = $this->uri->segment(3);
+        $detail = $this->Admin_model->get_item_by_id($id);
+        if (sizeof($detail) > 0) {
+            $detail = $detail[0];
+            $category = $this->Admin_model->get_category();
+            $brand = $this->Admin_model->get_brand();
+            $satuan = $this->Admin_model->get_satuan();
+            $data = array(
+                "title" => "Admin &mdash; Master Barang Edit",
+                "menu_active" => parent::set_admin_menu_active("master_barang"),
+                "menu_title" => "Master Barang > Edit Barang " . $detail->item_name,
+                "data" => $detail,
+                "category" => $category,
+                "brand" => $brand,
+                "satuan" => $satuan
+            );
+            
+            parent::adminview("admin_master_barang_edit", $data);
+        } else {
+            redirect(base_url("admin/master_satuan"));
+        }
     }
 
     public function konfirmasi_pembayaran() {

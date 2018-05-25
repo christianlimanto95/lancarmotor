@@ -111,6 +111,52 @@ class Admin_model extends CI_Model
         return $this->db->affected_rows();
     }
 
+    public function get_item() {
+        $query = $this->db->query("
+            SELECT i.*, c.category_name, b.brand_name
+            FROM item i, category c, brand b
+            WHERE i.status = 1 AND i.category_id = c.category_id AND i.brand_id = b.brand_id
+        ");
+        return $query->result();
+    }
+
+    public function get_item_by_id($id) {
+        $query = $this->db->query("
+            SELECT i.*, c.category_name, b.brand_name
+            FROM item i, category c, brand b
+            WHERE i.item_id = " . $id . " AND i.status = 1 AND i.category_id = c.category_id AND i.brand_id = b.brand_id
+            LIMIT 1
+        ");
+        return $query->result();
+    }
+
+    public function insert_item($data)  {
+        $insertData = array(
+            "category_id" => $data["category_id"],
+            "brand_id" => $data["brand_id"],
+            "item_name" => $data["item_name"],
+            "item_image_extension" => $data["item_image_extension"],
+            "item_satuan" => $data["item_satuan"],
+            "item_qty" => $data["item_qty"],
+            "item_price" => $data["item_price"],
+            "item_description" => $data["item_description"],
+            "item_dimensi_satuan" => $data["item_dimensi_satuan"],
+            "item_panjang" => $data["item_panjang"],
+            "item_lebar" => $data["item_lebar"],
+            "item_tinggi" => $data["item_tinggi"],
+            "item_berat" => $data["item_berat"],
+            "item_berat_satuan" => $data["item_berat_satuan"],
+            "created_by" => $data["user_id"],
+            "modified_by" => $data["user_id"]
+        );
+        $this->db->insert("item", $insertData);
+        $id = $this->db->insert_id();
+        return array(
+            "affected_rows" => $this->db->affected_rows(),
+            "id" => $id
+        );
+    }
+
     public function delete_from_table($data) {
         $this->db->where($data["table_name"] . "_id", $data["id"]);
         $this->db->set("status", 0);

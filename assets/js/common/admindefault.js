@@ -42,8 +42,9 @@ $(function() {
         var selectedDropdown = $(this).find(".dropdown-container");
         
         if (selectedDropdown.hasClass("show")) {
-            selectedDropdown.removeClass("show");
+            $(".dropdown-container").removeClass("show");
         } else {
+            $(".dropdown-container").removeClass("show");
             selectedDropdown.addClass("show");
         }
         
