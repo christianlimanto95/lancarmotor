@@ -128,12 +128,173 @@ class Admin extends General_controller {
         
         if ($satuan_id) {
             $data = array(
-                "satuan_id" => $satuan_id,
+                "table_name" => "satuan",
+                "id" => $satuan_id,
                 "user_id" => parent::is_admin_logged_in()
             );
 
-            $affected_rows = $this->Admin_model->delete_satuan($data);
+            $affected_rows = $this->Admin_model->delete_from_table($data);
             if ($affected_rows > 0) {
+                echo json_encode(array(
+                    "status" => "success"
+                ));
+            } else {
+                echo json_encode(array(
+                    "status" => "error"
+                ));
+            }
+        } else {
+            echo json_encode(array(
+                "status" => "error"
+            ));
+        }
+    }
+
+    public function master_brand() {
+        $data = array(
+			"title" => "Admin &mdash; Master Brand",
+			"menu_active" => parent::set_admin_menu_active("master_brand"),
+            "menu_title" => "Master Brand"
+		);
+		
+		parent::adminview("admin_master_brand", $data);
+    }
+
+    function brand_get() {
+        parent::show_404_if_not_ajax();
+        $brand = $this->Admin_model->get_brand();
+        echo json_encode(array(
+            "status" => "success",
+            "data" => $brand
+        ));
+    }
+
+    function brand_insert() {
+        parent::show_404_if_not_ajax();
+
+        $brand_name = trim($this->input->post("brand_name"));
+        
+        if ($brand_name != "") {
+            $brand_image = $this->input->post("brand_image");
+            $brand_image_extension = "";
+            if ($brand_image != "") {
+                if (preg_match('/^data:image\/(\w+);base64,/', $brand_image, $type)) {
+                    $type = strtolower($type[1]); // jpg, png, gif
+                    $brand_image_extension = $type;
+                }
+            }
+
+            $data = array(
+                "brand_name" => $brand_name,
+                "brand_image_extension" => $brand_image_extension,
+                "user_id" => parent::is_admin_logged_in()
+            );
+
+            $result = $this->Admin_model->insert_brand($data);
+            if ($result["affected_rows"] > 0) {
+                if (preg_match('/^data:image\/(\w+);base64,/', $brand_image, $type)) {
+                    $data = substr($brand_image, strpos($brand_image, ',') + 1);
+                    $type = strtolower($type[1]); // jpg, png, gif
+                
+                    $data = base64_decode($data);
+                    file_put_contents("assets/images/brands/brands_" . $result["id"] . "." . $type, $data);
+                }
+
+                echo json_encode(array(
+                    "status" => "success"
+                ));
+            } else {
+                echo json_encode(array(
+                    "status" => "error"
+                ));
+            }
+        } else {
+            echo json_encode(array(
+                "status" => "error"
+            ));
+        }
+    }
+
+    function brand_delete() {
+        parent::show_404_if_not_ajax();
+
+        $brand_id = $this->input->post("brand_id", true);
+        
+        if ($brand_id) {
+            $data = array(
+                "table_name" => "brand",
+                "id" => $brand_id,
+                "user_id" => parent::is_admin_logged_in()
+            );
+
+            $affected_rows = $this->Admin_model->delete_from_table($data);
+            if ($affected_rows > 0) {
+                echo json_encode(array(
+                    "status" => "success"
+                ));
+            } else {
+                echo json_encode(array(
+                    "status" => "error"
+                ));
+            }
+        } else {
+            echo json_encode(array(
+                "status" => "error"
+            ));
+        }
+    }
+
+    function master_brand_edit() {
+        $id = $this->uri->segment(3);
+        $detail = $this->Admin_model->get_brand_by_id($id);
+        if (sizeof($detail) > 0) {
+            $detail = $detail[0];
+            $data = array(
+                "title" => "Admin &mdash; Master Brand Edit",
+                "menu_active" => parent::set_admin_menu_active("master_brand"),
+                "menu_title" => "Master Brand > Edit Brand " . $detail->brand_name,
+                "data" => $detail
+            );
+            
+            parent::adminview("admin_master_brand_edit", $data);
+        } else {
+            redirect(base_url("admin/master_satuan"));
+        }
+    }
+
+    function brand_update() {
+        parent::show_404_if_not_ajax();
+
+        $brand_id = $this->input->post("brand_id", true);
+        $brand_name = trim($this->input->post("brand_name"));
+        
+        if ($brand_id && $brand_name != "") {
+            $brand_image = $this->input->post("brand_image");
+            $brand_image_extension = "";
+            if ($brand_image != "") {
+                if (preg_match('/^data:image\/(\w+);base64,/', $brand_image, $type)) {
+                    $type = strtolower($type[1]); // jpg, png, gif
+                    $brand_image_extension = $type;
+                }
+            }
+
+            $data = array(
+                "brand_id" => $brand_id,
+                "brand_name" => $brand_name,
+                "brand_image_extension" => $brand_image_extension,
+                "user_id" => parent::is_admin_logged_in()
+            );
+
+            $affected_rows = $this->Admin_model->update_brand($data);
+            if ($affected_rows > 0) {
+                if (preg_match('/^data:image\/(\w+);base64,/', $brand_image, $type)) {
+                    $data = substr($brand_image, strpos($brand_image, ',') + 1);
+                    $type = strtolower($type[1]); // jpg, png, gif
+                
+                    $data = base64_decode($data);
+                    file_put_contents("assets/images/brands/brands_" . $brand_id . "." . $type, $data);
+                }
+
                 echo json_encode(array(
                     "status" => "success"
                 ));
@@ -157,6 +318,120 @@ class Admin extends General_controller {
 		);
 		
 		parent::adminview("admin_master_kategori", $data);
+    }
+
+    function category_get() {
+        parent::show_404_if_not_ajax();
+        $category = $this->Admin_model->get_category();
+        echo json_encode(array(
+            "status" => "success",
+            "data" => $category
+        ));
+    }
+
+    function category_insert() {
+        parent::show_404_if_not_ajax();
+
+        $category_name = trim($this->input->post("category_name"));
+        
+        if ($category_name != "") {
+            $data = array(
+                "category_name" => $category_name,
+                "user_id" => parent::is_admin_logged_in()
+            );
+
+            $affected_rows = $this->Admin_model->insert_category($data);
+            if ($affected_rows > 0) {
+                echo json_encode(array(
+                    "status" => "success"
+                ));
+            } else {
+                echo json_encode(array(
+                    "status" => "error"
+                ));
+            }
+        } else {
+            echo json_encode(array(
+                "status" => "error"
+            ));
+        }
+    }
+
+    function category_delete() {
+        parent::show_404_if_not_ajax();
+
+        $category_id = $this->input->post("category_id", true);
+        
+        if ($category_id) {
+            $data = array(
+                "table_name" => "category",
+                "id" => $category_id,
+                "user_id" => parent::is_admin_logged_in()
+            );
+
+            $affected_rows = $this->Admin_model->delete_from_table($data);
+            if ($affected_rows > 0) {
+                echo json_encode(array(
+                    "status" => "success"
+                ));
+            } else {
+                echo json_encode(array(
+                    "status" => "error"
+                ));
+            }
+        } else {
+            echo json_encode(array(
+                "status" => "error"
+            ));
+        }
+    }
+
+    function master_category_edit() {
+        $id = $this->uri->segment(3);
+        $detail = $this->Admin_model->get_category_by_id($id);
+        if (sizeof($detail) > 0) {
+            $detail = $detail[0];
+            $data = array(
+                "title" => "Admin &mdash; Master Kategori Edit",
+                "menu_active" => parent::set_admin_menu_active("master_kategori"),
+                "menu_title" => "Master Kategori > Edit Kategori " . $detail->category_name,
+                "data" => $detail
+            );
+            
+            parent::adminview("admin_master_category_edit", $data);
+        } else {
+            redirect(base_url("admin/master_satuan"));
+        }
+    }
+
+    function category_update() {
+        parent::show_404_if_not_ajax();
+
+        $category_id = $this->input->post("category_id", true);
+        $category_name = trim($this->input->post("category_name"));
+        
+        if ($category_id && $category_name != "") {
+            $data = array(
+                "category_id" => $category_id,
+                "category_name" => $category_name,
+                "user_id" => parent::is_admin_logged_in()
+            );
+
+            $affected_rows = $this->Admin_model->update_category($data);
+            if ($affected_rows > 0) {
+                echo json_encode(array(
+                    "status" => "success"
+                ));
+            } else {
+                echo json_encode(array(
+                    "status" => "error"
+                ));
+            }
+        } else {
+            echo json_encode(array(
+                "status" => "error"
+            ));
+        }
     }
 
     public function master_barang() {

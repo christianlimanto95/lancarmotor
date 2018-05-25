@@ -18,6 +18,11 @@
     text-align: center;
 }
 
+.table-image {
+    max-width: 150px;
+    max-height: 150px;
+}
+
 .table .btn {
     float: left;
     width: 90px;
@@ -32,6 +37,10 @@
     padding-top: 10px;
 }
 
-.input-nama-kategori {
+.input-nama-brand {
     width: 200px;
+}
+
+.btn-tambah-brand {
+    margin-top: 80px;
 }

@@ -438,6 +438,62 @@ textarea.form-input, textarea.form-input-inline {
     vertical-align: middle;
 }
 
+.upload-container {
+    position: relative;
+    width: 150px;
+    height: 40px;
+    border-radius: 2px;
+    box-shadow: 0 0 5px #777;
+}
+
+.form-right.image-added .upload-container {
+    display: none;
+}
+
+.upload-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.upload-button {
+    background-color: #1976D2;
+}
+
+.upload-text {
+    width: 100%;
+    text-align: center;
+    color: white;
+    padding-top: 11px;
+}
+
+.image-input-upload {
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.image-preview {
+    max-width: 450px;
+    max-height: 400px;
+}
+
+.btn-delete-image {
+    display: none;
+    margin-top: -55px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+}
+
+.form-right.image-added .btn-delete-image {
+    position: relative;
+    display: block;
+    z-index: 10;
+}
+
 .dialog {
     position: fixed;
     width: calc(100vw - 250px);

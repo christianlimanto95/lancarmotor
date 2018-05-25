@@ -23,6 +23,7 @@ class General_controller extends CI_Controller
         "home" => "",
         "master_satuan" => "",
         "master_kategori" => "",
+        "master_brand" => "",
         "master_barang" => "",
         "konfirmasi_pembayaran" => "",
         "update_status_pesanan" => "",

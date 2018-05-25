@@ -392,6 +392,7 @@ body.hide-preloading .preloader, body.hide-preloading .preloader-percentage {
 .subsection-item {
     background-size: 100%;
     background-repeat: no-repeat;
+    background-position: center;
     float: left;
 }
 

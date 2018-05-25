@@ -12,10 +12,12 @@ class Home extends General_controller {
 	
 	public function index()
 	{
+        $brands = $this->Home_model->get_brands();
         parent::set_header_menu_active("home");
         parent::set_header_additional_class("transparent");
 		$data = array(
-			"title" => "Lancar Motor"
+            "title" => "Lancar Motor",
+            "brands" => $brands
 		);
 		
 		parent::view("home", $data);

@@ -59,11 +59,12 @@
     <div class="subsection">
         <div class="subsection-title">TOP BRAND</div>
         <div class="subsection-item-container">
-            <div class="subsection-item" data-anim="show-up" data-anim-threshold="self" data-src="<?php echo base_url("assets/images/mitsuboshi.jpg"); ?>"></div>
-            <div class="subsection-item" data-anim="show-up" data-anim-threshold="self" data-src="<?php echo base_url("assets/images/hino.jpg"); ?>"></div>
-            <div class="subsection-item" data-anim="show-up" data-anim-threshold="self" data-src="<?php echo base_url("assets/images/mitsubishi.jpg"); ?>"></div>
-            <div class="subsection-item" data-anim="show-up" data-anim-threshold="self" data-src="<?php echo base_url("assets/images/toyota.jpg"); ?>"></div>
-            <div class="subsection-item" data-anim="show-up" data-anim-threshold="self" data-src="<?php echo base_url("assets/images/daihatsu.jpg"); ?>"></div>
+            <?php
+            $iLength = sizeof($brands);
+            for ($i = 0; $i < $iLength; $i++) {
+                echo "<div class='subsection-item' data-anim='show-up' data-anim-threshold='self' data-src='" . base_url("assets/images/brands/brands_" . $brands[$i]->brand_id . "." . $brands[$i]->brand_image_extension . "?d=" . strtotime($brands[$i]->modified_date)) . "'></div>";
+            }
+            ?>
         </div>
     </div>
     <div class="subsection">
