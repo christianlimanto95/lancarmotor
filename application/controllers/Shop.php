@@ -12,9 +12,11 @@ class Shop extends General_controller {
 	
 	public function index()
 	{
+        $items = $this->Shop_model->get_items();
         parent::set_header_menu_active("shop");
 		$data = array(
-			"title" => "Shop &mdash; Lancar Motor"
+            "title" => "Shop &mdash; Lancar Motor",
+            "items" => $items
 		);
 		
 		parent::view("shop", $data);

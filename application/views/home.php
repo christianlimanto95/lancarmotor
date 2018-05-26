@@ -70,98 +70,37 @@
     <div class="subsection">
         <div class="subsection-title">TOP ITEM</div>
         <div class="subsection-item-container">
-            <div class="item" data-anim="show-up" data-anim-threshold="self">
-                <a href="<?php echo base_url("item-detail/1"); ?>" class="item-image" data-src="<?php echo base_url("assets/images/busi.jpg"); ?>"></a>
-                <div class="item-name">NGK Busi</div>
-                <div class="item-price">Rp 18.000,-</div>
-                <div class="item-button-container">
-                    <div class="button item-button btn-add-to-cart">Add to Cart</div>
-                    <div class="button item-button btn-buy-now">Buy Now</div>
-                </div>
-            </div>
-            <div class="item" data-anim="show-up" data-anim-threshold="self">
-                <a href="<?php echo base_url("item-detail/1"); ?>" class="item-image" data-src="<?php echo base_url("assets/images/775563_x800.jpg"); ?>"></a>
-                <div class="item-name">NGK Busi</div>
-                <div class="item-price">Rp 18.000,-</div>
-                <div class="item-button-container">
-                    <div class="button item-button btn-add-to-cart">Add to Cart</div>
-                    <div class="button item-button btn-buy-now">Buy Now</div>
-                </div>
-            </div>
-            <div class="item" data-anim="show-up" data-anim-threshold="self">
-                <a href="<?php echo base_url("item-detail/1"); ?>" class="item-image" data-src="<?php echo base_url("assets/images/busi.jpg"); ?>"></a>
-                <div class="item-name">NGK Busi</div>
-                <div class="item-price">Rp 18.000,-</div>
-                <div class="item-button-container">
-                    <div class="button item-button btn-add-to-cart">Add to Cart</div>
-                    <div class="button item-button btn-buy-now">Buy Now</div>
-                </div>
-            </div>
-            <div class="item" data-anim="show-up" data-anim-threshold="self">
-                <a href="<?php echo base_url("item-detail/1"); ?>" class="item-image" data-src="<?php echo base_url("assets/images/775563_x800.jpg"); ?>"></a>
-                <div class="item-name">NGK Busi</div>
-                <div class="item-price">Rp 18.000,-</div>
-                <div class="item-button-container">
-                    <div class="button item-button btn-add-to-cart">Add to Cart</div>
-                    <div class="button item-button btn-buy-now">Buy Now</div>
-                </div>
-            </div>
-            <div class="item" data-anim="show-up" data-anim-threshold="self">
-                <a href="<?php echo base_url("item-detail/1"); ?>" class="item-image" data-src="<?php echo base_url("assets/images/busi.jpg"); ?>"></a>
-                <div class="item-name">NGK Busi</div>
-                <div class="item-price">Rp 18.000,-</div>
-                <div class="item-button-container">
-                    <div class="button item-button btn-add-to-cart">Add to Cart</div>
-                    <div class="button item-button btn-buy-now">Buy Now</div>
-                </div>
-            </div>
-            <div class="item" data-anim="show-up" data-anim-threshold="self">
-                <a href="<?php echo base_url("item-detail/1"); ?>" class="item-image" data-src="<?php echo base_url("assets/images/775563_x800.jpg"); ?>"></a>
-                <div class="item-name">NGK Busi</div>
-                <div class="item-price">Rp 18.000,-</div>
-                <div class="item-button-container">
-                    <div class="button item-button btn-add-to-cart">Add to Cart</div>
-                    <div class="button item-button btn-buy-now">Buy Now</div>
-                </div>
-            </div>
-            <div class="item" data-anim="show-up" data-anim-threshold="self">
-                <a href="<?php echo base_url("item-detail/1"); ?>" class="item-image" data-src="<?php echo base_url("assets/images/busi.jpg"); ?>"></a>
-                <div class="item-name">NGK Busi</div>
-                <div class="item-price">Rp 18.000,-</div>
-                <div class="item-button-container">
-                    <div class="button item-button btn-add-to-cart">Add to Cart</div>
-                    <div class="button item-button btn-buy-now">Buy Now</div>
-                </div>
-            </div>
+            <?php
+            $iLength = sizeof($items);
+            for ($i = 0; $i < $iLength; $i++) {
+                $url_name = str_replace(" ", "-", str_replace("-", "", $items[$i]->item_name));
+                $url = base_url("item-detail/" . $url_name . "-" . $items[$i]->item_id);
+                echo "<div class='item' data-anim='show-up' data-anim-threshold='self'>";
+                echo "<a href='" . $url . "' class='item-image' data-src='" . base_url("assets/images/item/item_" . $items[$i]->item_id . "." . $items[$i]->item_image_extension . "?d=" . strtotime($items[$i]->modified_date)) . "'></a>";
+                echo "<div class='item-name'>" . $items[$i]->item_name . "</div>";
+                echo "<div class='item-price'>Rp " . number_format($items[$i]->item_price, 0, ", ", ".") . ",-</div>";
+                echo "<div class='item-button-container'>";
+                echo "<div class='button item-button btn-add-to-cart'>";
+                echo "<div class='button-text'>Add to Cart</div>";
+                echo "</div>";
+                echo "<div class='button item-button btn-buy-now'>";
+                echo "<div class='button-text'>Buy Now</div>";
+                echo "</div>";
+                echo "</div>";
+                echo "</div>";
+            }
+            ?>
         </div>
     </div>
     <div class="subsection">
         <div class="subsection-title">CATEGORY</div>
         <div class="category-container">
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
-            <a href="#" class="category-item" data-anim="show-up" data-anim-threshold="self">CATEGORY 1</a>
+            <?php
+            $iLength = sizeof($categories);
+            for ($i = 0; $i < $iLength; $i++) {
+                echo "<a href='#' class='category-item' data-anim='show-up' data-anim-threshold='self'>" . $categories[$i]->category_name . "</a>";
+            }
+            ?>
         </div>
     </div>
     <div class="subsection">

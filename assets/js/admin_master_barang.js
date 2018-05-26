@@ -89,10 +89,10 @@ $(function() {
                         $(".form-input").val("");
                         $(".input-nama-barang").val("");
                         get_data();
-                        showNotification("Perubahan Disimpan");
+                        showNotification("Berhasil Tambah Barang " + item_name);
                     } else {
                         hideLoader();
-                        showNotification("Gagal Edit Item " + item_name);
+                        showNotification("Gagal Menambah Barang " + item_name);
                     }
                 });
             } else {

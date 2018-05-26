@@ -135,6 +135,7 @@
         <div class="btn btn-simpan-perubahan">Simpan Perubahan</div>
     </div>
 </div>
+<a href="<?php echo base_url("admin/master_barang"); ?>" class="btn btn-update btn-back">< Kembali ke Master Barang</a>
 <script>
 var item_id = "<?php echo $data->item_id; ?>";
 var do_edit_item_url = "<?php echo base_url("admin/item_update"); ?>";

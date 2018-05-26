@@ -44,6 +44,7 @@ class Admin_model extends CI_Model
     public function get_brand() {
         $this->db->select("brand_id, brand_name, brand_image_extension, modified_date");
         $this->db->where("status", 1);
+        $this->db->order_by("brand_name", "asc");
         return $this->db->get("brand")->result();
     }
 
@@ -82,6 +83,7 @@ class Admin_model extends CI_Model
     public function get_category() {
         $this->db->select("category_id, category_name");
         $this->db->where("status", 1);
+        $this->db->order_by("category_name", "asc");
         return $this->db->get("category")->result();
     }
 
