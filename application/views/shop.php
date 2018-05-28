@@ -18,52 +18,32 @@
                 <div class="filter-item">
                     <div class="filter-label">BRAND</div>
                     <div class="checkbox-outer-container">
-                        <div class='checkbox-container brand-checkbox-container' data-name='brand' data-value='1'>
-                            <div class='checkbox'></div>
-                            <div class='checkbox-text'>BRAND 1</div>
-                        </div>
-                        <div class='checkbox-container brand-checkbox-container' data-name='brand' data-value='1'>
-                            <div class='checkbox'></div>
-                            <div class='checkbox-text'>BRAND 2</div>
-                        </div>
-                        <div class='checkbox-container brand-checkbox-container' data-name='brand' data-value='1'>
-                            <div class='checkbox'></div>
-                            <div class='checkbox-text'>BRAND 3</div>
-                        </div>
-                        <div class='checkbox-container brand-checkbox-container' data-name='brand' data-value='1'>
-                            <div class='checkbox'></div>
-                            <div class='checkbox-text'>BRAND 4</div>
-                        </div>
-                        <div class='checkbox-container brand-checkbox-container' data-name='brand' data-value='1'>
-                            <div class='checkbox'></div>
-                            <div class='checkbox-text'>BRAND 5</div>
-                        </div>
+                        <?php
+                        $iLength = (sizeof($brands) >= 5) ? 5 : sizeof($brands);
+                        for ($i = 0; $i < $iLength; $i++) {
+                            echo "
+                            <div class='checkbox-container brand-checkbox-container' data-name='brand' data-value='" . $brands[$i]->brand_id . "'>
+                                <div class='checkbox'></div>
+                                <div class='checkbox-text'>" . $brands[$i]->brand_name . "</div>
+                            </div>";
+                        }
+                        ?>
                     </div>
                     <div class="more more-brands">More Brands...</div>
                 </div>
                 <div class="filter-item">
                     <div class="filter-label">CATEGORY</div>
                     <div class="checkbox-outer-container">
-                        <div class='checkbox-container category-checkbox-container' data-name='category' data-value='1'>
-                            <div class='checkbox'></div>
-                            <div class='checkbox-text'>CATEGORY 1</div>
-                        </div>
-                        <div class='checkbox-container category-checkbox-container' data-name='category' data-value='1'>
-                            <div class='checkbox'></div>
-                            <div class='checkbox-text'>CATEGORY 2</div>
-                        </div>
-                        <div class='checkbox-container category-checkbox-container' data-name='category' data-value='1'>
-                            <div class='checkbox'></div>
-                            <div class='checkbox-text'>CATEGORY 3</div>
-                        </div>
-                        <div class='checkbox-container category-checkbox-container' data-name='category' data-value='1'>
-                            <div class='checkbox'></div>
-                            <div class='checkbox-text'>CATEGORY 4</div>
-                        </div>
-                        <div class='checkbox-container category-checkbox-container' data-name='category' data-value='1'>
-                            <div class='checkbox'></div>
-                            <div class='checkbox-text'>CATEGORY 5</div>
-                        </div>
+                        <?php
+                        $iLength = (sizeof($categories) >= 5) ? 5 : sizeof($categories);
+                        for ($i = 0; $i < $iLength; $i++) {
+                            echo "
+                            <div class='checkbox-container category-checkbox-container' data-name='category' data-value='" . $categories[$i]->category_id . "'>
+                                <div class='checkbox'></div>
+                                <div class='checkbox-text'>" . $categories[$i]->category_name . "</div>
+                            </div>";
+                        }
+                        ?>
                     </div>
                     <div class="more more-category">More Category...</div>
                 </div>
@@ -97,6 +77,39 @@
         </div>
     </div>
 </div>
+<div class="dialog dialog-brand">
+    <div class="dialog-background" data-allow-background-close="true">
+        <div class="dialog-box">
+            <div class="dialog-close-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20">
+                    <line x1="0" y1="0" x2="20" y2="20" stroke="black" />
+                    <line x1="20" y1="0" x2="0" y2="20" stroke="black" />
+                </svg>
+            </div>
+            <div class="dialog-title">BRAND</div>
+            <div class="dialog-content">
+                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='0'>
+                    <div class='checkbox'></div>
+                    <div class='checkbox-text'>ALL</div>
+                </div>
+                <?php
+                $iLength = sizeof($brands);
+                for ($i = 0; $i < $iLength; $i++) {
+                    echo "
+                    <div class='checkbox-container dialog-brand-checkbox-container' data-name='dialog-brand' data-value='" . $brands[$i]->brand_id . "'>
+                        <div class='checkbox'></div>
+                        <div class='checkbox-text'>" . $brands[$i]->brand_name . "</div>
+                    </div>
+                    ";
+                }
+                ?>
+            </div>
+            <div class="dialog-button-container">
+                <div class="button dialog-button">Done</div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="dialog dialog-category">
     <div class="dialog-background" data-allow-background-close="true">
         <div class="dialog-box">
@@ -108,146 +121,21 @@
             </div>
             <div class="dialog-title">CATEGORY</div>
             <div class="dialog-content">
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
+                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='0'>
                     <div class='checkbox'></div>
                     <div class='checkbox-text'>ALL</div>
                 </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='1'>
-                    <div class='checkbox'></div>
-                    <div class='checkbox-text'>CATEGORY 1</div>
-                </div>
+                <?php
+                $iLength = sizeof($categories);
+                for ($i = 0; $i < $iLength; $i++) {
+                    echo "
+                    <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='" . $categories[$i]->category_id . "'>
+                        <div class='checkbox'></div>
+                        <div class='checkbox-text'>" . $categories[$i]->category_name . "</div>
+                    </div>
+                    ";
+                }
+                ?>
             </div>
             <div class="dialog-button-container">
                 <div class="button dialog-button">Done</div>

@@ -84,16 +84,16 @@
     margin-bottom: 10px;
 }
 
-.dialog-category .dialog-box {
+.dialog-category .dialog-box, .dialog-brand .dialog-box {
     width: 700px;
 }
 
-.dialog-category .dialog-content {
+.dialog-category .dialog-content, .dialog-brand .dialog-content {
     overflow-y: auto;
     margin-bottom: 30px;
 }
 
-.dialog-category-checkbox-container {
+.dialog-category-checkbox-container, .dialog-brand-checkbox-container {
     width: 130px;
     float: left;
     font-size: 10pt;
@@ -179,12 +179,12 @@
         height: 42vw;
     }
 
-    .dialog-category .dialog-box {
+    .dialog-category .dialog-box, .dialog-brand .dialog-box {
         width: 100vw;
         height: 450px;
     }
 
-    .dialog-category .dialog-content {
+    .dialog-category .dialog-content, .dialog-brand .dialog-content {
         height: 300px;
         overflow-y: auto;
     }

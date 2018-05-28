@@ -24,7 +24,7 @@ $(function() {
     });
 
     $(".more-brands").on("click", function() {
-        showDialog($(".dialog-category"));
+        showDialog($(".dialog-brand"));
     });
 
     if (container.scrollTop() + filterBottom >= itemContainerBottom) {
