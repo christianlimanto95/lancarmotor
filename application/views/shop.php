@@ -15,7 +15,7 @@
                 </div>
                 <div class="filter-item">
                     <div class="filter-label">NAME</div>
-                    <input type="text" class="filter-input input-name" />
+                    <input type="text" class="filter-input input-name" value="<?php echo $query_keyword; ?>" />
                 </div>
                 <div class="filter-item">
                     <div class="filter-label">BRAND</div>
@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="section-result">
-            <div class="search-result-text">Search Result of <i>"Busi"</i></div>
+            <div class="search-result-text"></div>
             <div class="shop-title">SHOP</div>
             <div class="item-container">
                 <?php

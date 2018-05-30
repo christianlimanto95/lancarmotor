@@ -17,10 +17,12 @@ class Shop extends General_controller {
 
         $query_category = $this->input->get("category");
         $query_brand = $this->input->get("brand");
-        if ($query_category != null || $query_brand != null) {
+        $query_keyword = $this->input->get("keyword");
+        if ($query_category != null || $query_brand != null || $query_keyword != null) {
             $query_data = array(
                 "brand" => $query_brand,
-                "category" => $query_category
+                "category" => $query_category,
+                "keyword" => $query_keyword
             );
             $items = $this->Shop_model->get_items_query($query_data);
         } else {
@@ -33,7 +35,8 @@ class Shop extends General_controller {
             "brands" => $brands,
             "categories" => $categories,
             "query_category" => $query_category,
-            "query_brand" => $query_brand
+            "query_brand" => $query_brand,
+            "query_keyword" => $query_keyword
 		);
 		
 		parent::view("shop", $data);
@@ -43,9 +46,11 @@ class Shop extends General_controller {
         parent::show_404_if_not_ajax();
         $brand = $this->input->post("brand");
         $category = $this->input->post("category");
+        $keyword = $this->input->post("keyword");
         $data = array(
             "brand" => $brand,
-            "category" => $category
+            "category" => $category,
+            "keyword" => $keyword
         );
         $items = $this->Shop_model->get_items_query($data);
         $iLength = sizeof($items);

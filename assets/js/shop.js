@@ -4,6 +4,16 @@ $(function() {
     filterBottom = 150 + parseInt(filter.height());
     itemContainerBottom = parseInt($(".section-result").offset().top) + parseInt($(".section-result").height());
 
+    $(".input-name").on("blur", function() {
+        get_item();
+    });
+
+    $(".input-name").on("keydown", function(e) {
+        if (e.which == 13) {
+            $(this).blur();
+        }
+    });
+
     var chosen_category = $(".chosen-category").attr("data-value");
     var each = chosen_category.split(",");
     var iLength = each.length;
@@ -226,8 +236,18 @@ function get_item() {
         query_url += "category=" + category;
     }
 
+    var keyword = $(".input-name").val().trim();
+    if (keyword != "") {
+        if (query_url == "") {
+            query_url += "?";
+        } else {
+            query_url += "&";
+        }
+        query_url += "keyword=" + keyword;
+    }
+
     history.replaceState(null, null, "shop" + query_url);
-    ajaxCall(get_item_url, {brand: brands, category: category}, function(json) {
+    ajaxCall(get_item_url, {brand: brands, category: category, keyword: keyword}, function(json) {
         hideLoader();
         var result = jQuery.parseJSON(json);
         if (result.status == "success") {
@@ -251,6 +271,8 @@ function get_item() {
             }
 
             $(".item-container").html(element);
+            itemContainerBottom = parseInt($(".section-result").offset().top) + parseInt($(".section-result").height());
+            container.scroll();
             imagePreloader();
         }
     });

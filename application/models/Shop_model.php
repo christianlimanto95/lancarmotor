@@ -56,10 +56,15 @@ class Shop_model extends CI_Model
             $where_category .= $where_category_detail . ")";
         }
 
+        $where_keyword = "";
+        if ($data["keyword"] != "") {
+            $where_keyword = " AND item_name LIKE '%" . $data["keyword"] . "%'";
+        }
+
         $query = $this->db->query("
             SELECT item_id, item_name, item_image_extension, item_price, modified_date
             FROM item
-            WHERE status = 1" . $where_brand . $where_category . "
+            WHERE status = 1" . $where_keyword . $where_brand . $where_category . "
         ");
         return $query->result();
     }
