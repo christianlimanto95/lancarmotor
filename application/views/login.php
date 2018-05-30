@@ -15,12 +15,12 @@
         <div class="section-right">
             <div class="register-box">
                 <div class="form-item">
-                    <div class="form-label">Email</div>
-                    <input type="text" class="form-input" />
+                    <div class="form-label">Email <span class="error error-email"></span></div>
+                    <input type="text" class="form-input input-email" />
                 </div>
                 <div class="form-item">
-                    <div class="form-label">Password</div>
-                    <input type="password" class="form-input" />
+                    <div class="form-label">Password <span class="error error-password"></span></div>
+                    <input type="password" class="form-input input-password" />
                 </div>
                 <div class="login-remember-me">
                     <div class='checkbox-container login-remember-me-checkbox-container' data-name='login-remember-me' data-value='1'>

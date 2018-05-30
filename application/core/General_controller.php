@@ -70,6 +70,11 @@ class General_controller extends CI_Controller
         $data["header_menu"] = $this->header_menu;
         $data["hide_cart"] = $this->hide_cart;
         $data["page_name"] = $file;
+        $data["is_logged_in"] = $this->is_logged_in();
+        $data["cart"] = "";
+        if (!$this->hide_cart) {
+            $data["cart"] = $this->General_model->get_cart($data["is_logged_in"]);
+        }
 		
         $this->load->view('common/header', $data);
         $this->load->view($file, $data);

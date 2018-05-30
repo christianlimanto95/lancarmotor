@@ -115,6 +115,20 @@ $(function() {
         showDialog($(".dialog-brand"));
     });
 
+    $(".btn-add-to-cart").on("click", function() {
+        var item = $(this).closest(".item");
+        var id = item.attr("data-id");
+        var name = item.attr("data-name");
+        var price = item.attr("data-price");
+        var image = item.find(".item-image").attr("data-src");
+
+        var dialog = $(".dialog-add-to-cart");
+        dialog.find(".dialog-cart-image").css("background-image", "url(" + image + ")");
+        dialog.find(".dialog-cart-name").html(name);
+        dialog.find(".dialog-cart-price").html("Rp " + addThousandSeparator(price) + ",-");
+        showDialog(dialog);
+    });
+
     if (container.scrollTop() + filterBottom >= itemContainerBottom) {
         filter.removeClass("fixed");
         $(window).on("scroll", filterScrollUp);
@@ -255,7 +269,7 @@ function get_item() {
             var iLength = data.length;
             var element = "";
             for (var i = 0; i < iLength; i++) {
-                element += "<div class='item'>";
+                element += "<div class='item' data-id='" + data[i].item_id + "' data-name='" + data[i].item_name + "' data-price='" + data[i].item_price + "' data-satuan='" + data[i].item_satuan + "' data-image-url='" + data[i].src + "'>";
                 element += "<a href='" + data[i].item_url + "' class='item-image' data-src='" + data[i].src + "'></a>";
                 element += "<div class='item-name'>" + data[i].item_name + "</div>";
                 element += "<div class='item-price'>Rp " + addThousandSeparator(data[i].item_price + "") + ",-</div>";

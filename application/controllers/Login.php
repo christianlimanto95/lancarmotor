@@ -12,11 +12,15 @@ class Login extends General_controller {
 	
 	public function index()
 	{
-        parent::set_header_additional_class("hide");
-		$data = array(
-			"title" => "Login &mdash; Lancar Motor"
-		);
-		
-		parent::view("login", $data);
+        if (!parent::is_logged_in()) {
+            parent::set_header_additional_class("hide");
+            $data = array(
+                "title" => "Login &mdash; Lancar Motor"
+            );
+            
+            parent::view("login", $data);
+        } else {
+            redirect(base_url("shop"));
+        }
 	}
 }

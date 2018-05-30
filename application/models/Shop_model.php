@@ -20,7 +20,7 @@ class Shop_model extends CI_Model
     }
 
     public function get_items() {
-        $this->db->select("item_id, item_name, item_image_extension, item_price, modified_date");
+        $this->db->select("item_id, item_name, item_satuan, item_image_extension, item_price, modified_date");
         $this->db->where("status", 1);
         return $this->db->get("item")->result();
     }
@@ -62,7 +62,7 @@ class Shop_model extends CI_Model
         }
 
         $query = $this->db->query("
-            SELECT item_id, item_name, item_image_extension, item_price, modified_date
+            SELECT item_id, item_name, item_satuan, item_image_extension, item_price, modified_date
             FROM item
             WHERE status = 1" . $where_keyword . $where_brand . $where_category . "
         ");

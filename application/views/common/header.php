@@ -12,7 +12,7 @@
     } ?>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=2"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=3"); ?>" />
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=32"); ?>" />
     <?php echo $additional_css; ?>
     <style>
@@ -33,6 +33,7 @@
         <circle class="loader-circular-path" cx="50" cy="50" r="30" fill="none" stroke-width="6" stroke-miterlimit="10"/>
     </svg>
 </div>
+<div class="notification"></div>
 <div class="header<?php echo $header_additional_class; ?>">
     <a href="<?php echo base_url(); ?>" class="logo" style="background-image: url(<?php echo base_url("assets/icons/logo_white.png"); ?>);"></a>
     <div class="header-menu-container">
@@ -48,17 +49,18 @@
             <div class="header-cart-image-black" style="background-image: url(<?php echo base_url("assets/icons/cart_icon_black.png"); ?>);"></div>
         </div>
     <?php } ?>
+    <?php if (!$is_logged_in) { ?>
     <div class="header-register">
         <div class="header-login-text">
             <div class="header-login-text-login">LOGIN</div>
             <div class="login-box">
                 <div class="form-item">
-                    <div class="form-label">Email</div>
+                    <div class="form-label">Email <span class="error error-login-email"></span></div>
                     <input type="text" class="form-input input-login-email" />
                 </div>
                 <div class="form-item">
-                    <div class="form-label">Password</div>
-                    <input type="password" class="form-input" />
+                    <div class="form-label">Password <span class="error error-login-password"></span></div>
+                    <input type="password" class="form-input input-login-password" />
                 </div>
                 <div class="remember-me-container">
                     <div class='checkbox-container remember-me-checkbox-container' data-name='remember-me' data-value='1'>
@@ -77,6 +79,9 @@
         </div>
         <a href="<?php echo base_url("register"); ?>" class="header-register-text">REGISTER</a>
     </div>
+    <?php } else { ?>
+        <a class="header-logout" href="<?php echo base_url("home/logout?redirect=" . (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>">Logout</a>
+    <?php } ?>
     <div class="header-menu-icon">
         <div class="menu-icon-line menu-icon-line-1"></div>
         <div class="menu-icon-line menu-icon-line-2"></div>
@@ -96,10 +101,14 @@
         <a href="<?php echo base_url("about"); ?>" class="header-menu-mobile<?php echo $header_menu["about"]; ?>" >ABOUT</a>
         <a href="<?php echo base_url("contact-us"); ?>" class="header-menu-mobile<?php echo $header_menu["contact"]; ?>" >CONTACT US</a>
     </div>
+    <?php if (!$is_logged_in) { ?>
     <div class="header-register-mobile">
         <a href="<?php echo base_url("register"); ?>" class="header-register-text-mobile">REGISTER</a>
         <a href="<?php echo base_url("login"); ?>" class="header-login-text-mobile">LOGIN</a>
     </div>
+    <?php } else { ?>
+        <a class="header-logout-mobile" href="<?php echo base_url("home/logout"); ?>">Logout</a>
+    <?php } ?>
 </div>
 <?php if (!$hide_cart) { ?>
 <div class="cart">
@@ -146,7 +155,35 @@
 </div>
 <?php } ?>
 <div class="dark-background"></div>
+<div class="dialog dialog-add-to-cart">
+    <div class="dialog-background" data-allow-background-close="true">
+        <div class="dialog-box">
+            <div class="dialog-close-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20">
+                    <line x1="0" y1="0" x2="20" y2="20" stroke="black" />
+                    <line x1="20" y1="0" x2="0" y2="20" stroke="black" />
+                </svg>
+            </div>
+            <div class="dialog-title">Add to Cart</div>
+            <div class="dialog-content">
+                <div class="dialog-content-left">
+                    <div class="dialog-cart-image"></div>
+                </div>
+                <div class="dialog-content-right">
+                    <div class="dialog-cart-name"></div>
+                    <div class="dialog-cart-price"></div>
+                    <div class="dialog-cart-qty">Qty</div>
+                    <input type="text" class="dialog-cart-input-qty" maxlength="5" value="1" />
+                </div>
+            </div>
+            <div class="dialog-button-container">
+                <div class="button dialog-btn-add-to-cart">Add to Cart</div>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
+var login_url = "<?php echo base_url("home/do_login"); ?>";
 var checkout_url = "<?php echo base_url("checkout"); ?>";
 var vw = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 var vh = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;

@@ -8,6 +8,18 @@ $(function() {
     setScrollAnimFunction();
     setParallaxImage();
     container.scroll();
+
+    $(".btn-login").on("click", function() {
+        do_login();
+    });
+
+    $(".input-login-email, .input-login-password").on("keydown", function(e) {
+        if (e.which == 13) {
+            e.preventDefault();
+            e.stopPropagation();
+            do_login();
+        }
+    });
     
     $(document).on("keydown", "input[data-type='number']", function(e) {
         isNumber(e);
@@ -182,6 +194,40 @@ function showLoader() {
 
 function hideLoader() {
     $(".loader").removeClass("show");
+}
+
+function do_login() {
+    if (!$(".btn-login").hasClass("disabled")) {
+        var thisButton = $(".btn-login");
+        var email = $(".input-login-email").val();
+        var password = $(".input-login-password").val();
+        var valid = true;
+        $(".error").html("");
+        if (email == "") {
+            valid = false;
+            $(".error-login-email").html("required");
+        }
+        if (password == "") {
+            valid = false;
+            $(".error-login-password").html("required");
+        }
+
+        if (valid) {
+            thisButton.addClass("disabled");
+            showLoader();
+
+            ajaxCall(login_url, {email: email, password: password}, function(json) {
+                hideLoader();
+                var result = jQuery.parseJSON(json);
+                if (result.status == "success") {
+                    window.location.reload();
+                } else {
+                    thisButton.removeClass("disabled");
+                    showNotification("Gagal Login");
+                }
+            });
+        }
+    }
 }
 
 function setCheckboxChecked(element) {

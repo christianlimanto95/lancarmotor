@@ -62,7 +62,7 @@
             <?php
             $iLength = sizeof($brands);
             for ($i = 0; $i < $iLength; $i++) {
-                echo "<div class='subsection-item' data-anim='show-up' data-anim-threshold='self' data-src='" . base_url("assets/images/brands/brands_" . $brands[$i]->brand_id . "." . $brands[$i]->brand_image_extension . "?d=" . strtotime($brands[$i]->modified_date)) . "'></div>";
+                echo "<a href='" . base_url("shop?brand=" . $brands[$i]->brand_id) . "' class='subsection-item' data-anim='show-up' data-anim-threshold='self' data-src='" . base_url("assets/images/brands/brands_" . $brands[$i]->brand_id . "." . $brands[$i]->brand_image_extension . "?d=" . strtotime($brands[$i]->modified_date)) . "'></a>";
             }
             ?>
         </div>
@@ -98,7 +98,7 @@
             <?php
             $iLength = sizeof($categories);
             for ($i = 0; $i < $iLength; $i++) {
-                echo "<a href='#' class='category-item' data-anim='show-up' data-anim-threshold='self'>" . $categories[$i]->category_name . "</a>";
+                echo "<a href='" . base_url("shop?category=" . $categories[$i]->category_id) . "' class='category-item' data-anim='show-up' data-anim-threshold='self'>" . $categories[$i]->category_name . "</a>";
             }
             ?>
         </div>

@@ -157,6 +157,11 @@ body.show-cart .dark-background, body.show-login .dark-background {
     background-repeat: no-repeat;
 }
 
+.header-logout {
+    color: white;
+    text-decoration: none;
+}
+
 .header-register-text, .header-login-text {
     float: right;
     cursor: pointer;
@@ -389,14 +394,65 @@ body.show-cart .cart {
     background-color: black;
     color: white;
     font-size: 10pt;
-    padding: 15px 25px 0;
+    padding: 18px 25px 0;
     opacity: 0;
     display: none;
     z-index: 502;
 }
 
+@-webkit-keyframes notification-showing-anim {
+    0% {
+      opacity: 0;
+    }
+  
+    5% {
+      opacity: 1;
+    }
+  
+    95% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+    }
+}
+  
+@keyframes notification-showing-anim {
+    0% {
+      opacity: 0;
+    }
+  
+    5% {
+      opacity: 1;
+    }
+  
+    95% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+    }
+}
+  
+.notification.showing {
+    display: block;
+    -webkit-animation: 4s linear 0s 1 normal forwards running notification-showing-anim;
+    -moz-animation: 4s linear 0s 1 normal forwards running notification-showing-anim;
+    -ms-animation: 4s linear 0s 1 normal forwards running notification-showing-anim;
+    -o-animation: 4s linear 0s 1 normal forwards running notification-showing-anim;
+    animation: 4s linear 0s 1 normal forwards running notification-showing-anim;
+}
+
 pre {
     white-space: pre-wrap;
+}
+
+.error {
+    color: red;
+    font-size: 10pt;
+    letter-spacing: 0;
 }
 
 .section {
@@ -633,6 +689,13 @@ pre {
     transition: all 0.2s;
 }
 
+.button.disabled, .button.disabled:hover, .button.disabled:active {
+    background-color: #CCC;
+    border: 1px solid #CCC;
+    color: #777;
+    cursor: default;
+}
+
 .dialog {
     display: none;
     position: fixed;
@@ -691,6 +754,47 @@ pre {
     width: 150px;
 }
 
+.dialog-add-to-cart .dialog-box {
+    width: 400px;
+}
+
+.dialog-add-to-cart .dialog-content {
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.dialog-add-to-cart .dialog-content-left, .dialog-add-to-cart .dialog-content-right {
+    float: left;
+}
+
+.dialog-add-to-cart .dialog-cart-image {
+    width: 150px;
+    height: 150px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 20px;
+}
+
+.dialog-add-to-cart .dialog-content-right {
+    line-height: 25px;
+}
+
+.dialog-add-to-cart .dialog-cart-name {
+    font-weight: bold;
+}
+
+.dialog-add-to-cart .dialog-cart-price {
+    margin-bottom: 20px;
+}
+
+.dialog-add-to-cart .dialog-cart-input-qty {
+    padding: 5px;
+    border: 1px solid black;
+    width: 50px;
+    text-align: center;
+}
+
 .footer {
     overflow-y: auto;
     margin-top: 100px;
@@ -726,7 +830,7 @@ pre {
 }
 
 @media all and (max-width: 767px) {
-    .header-menu-container, .header-search, .header-cart, .header-register, .header-cart-image-white {
+    .header-menu-container, .header-search, .header-cart, .header-register, .header-logout, .header-cart-image-white {
         display: none;
     }
 
@@ -1205,6 +1309,11 @@ pre {
         top: 25px;
     }
 
+    .header-logout {
+        position: absolute;
+        top: 25px;
+    }
+
     .header-menu-icon, .header-cart-image-black, .header-cart-mobile, .menu-mobile-container {
         display: none;
     }
@@ -1248,7 +1357,7 @@ pre {
         right: 190px;
     }
 
-    .header-register {
+    .header-register, .header-logout {
         right: 20px;
     }
 
@@ -1304,6 +1413,10 @@ pre {
 
     .header-register {
         right: 50px;
+    }
+
+    .header-logout {
+        right: 70px;
     }
 
     .image-container[data-parallax-image="true"] {

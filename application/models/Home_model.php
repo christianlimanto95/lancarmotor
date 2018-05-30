@@ -7,6 +7,17 @@ class Home_model extends CI_Model
         parent::__construct();
     }
 
+    public function add_to_cart($data) {
+
+    }
+
+    public function get_data($email) {
+        $this->db->where("user_email", $email);
+        $this->db->select("user_id, user_password");
+        $this->db->limit(1);
+        return $this->db->get("user")->result();
+    }
+
     public function get_brands() {
         $this->db->where("status", 1);
         $this->db->limit(5);
