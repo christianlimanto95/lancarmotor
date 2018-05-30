@@ -34,9 +34,11 @@ $(function() {
         if (!$(this).hasClass("active")) {
             $(this).addClass("active");
             $(this).find(".checkbox-text-additional-input").prop("readonly", false).focus();
+            $(this).trigger("checkboxChecked");
         } else {
             $(this).removeClass("active");
             $(this).find(".checkbox-text-additional-input").prop("readonly", true);
+            $(this).trigger("checkboxUnchecked");
         }
     });
 
@@ -131,22 +133,7 @@ $(function() {
         }
     });
 
-    [].forEach.call(document.querySelectorAll("[data-src]"), function(element) {
-        var image = new Image();
-        
-		if (element.tagName != "IMG") {
-			image.onload = function() {
-                element.style.backgroundImage = "url('" + image.src + "')";
-                $(element).addClass("hide-wrapper");
-            };
-            image.src = element.getAttribute("data-src");
-		} else {
-			image.onload = function() {
-                $(element).parent().addClass("hide-wrapper");
-            };
-            image.src = element.getAttribute("src");
-		}
-    });
+    imagePreloader();
 
     $(window).resize(function() {
         initializeDefault();
@@ -168,6 +155,43 @@ function initializeDefault() {
     } else {
         isMobile = false;
     }
+}
+
+function imagePreloader() {
+    [].forEach.call(document.querySelectorAll("[data-src]"), function(element) {
+        var image = new Image();
+        
+		if (element.tagName != "IMG") {
+			image.onload = function() {
+                element.style.backgroundImage = "url('" + image.src + "')";
+                $(element).addClass("hide-wrapper");
+            };
+            image.src = element.getAttribute("data-src");
+		} else {
+			image.onload = function() {
+                $(element).parent().addClass("hide-wrapper");
+            };
+            image.src = element.getAttribute("src");
+		}
+    });
+}
+
+function showLoader() {
+    $(".loader").addClass("show");
+}
+
+function hideLoader() {
+    $(".loader").removeClass("show");
+}
+
+function setCheckboxChecked(element) {
+    element.addClass("active");
+    element.find(".checkbox-text-additional-input").prop("readonly", false).focus();
+}
+
+function setCheckboxUnchecked(element) {
+    element.removeClass("active");
+    element.find(".checkbox-text-additional-input").prop("readonly", true);
 }
 
 function showDialog(dialogElement) {

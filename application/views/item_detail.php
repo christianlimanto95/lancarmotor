@@ -1,3 +1,5 @@
+<div class="chosen-brand" data-value="<?php echo $query_brand; ?>"></div>
+<div class="chosen-category" data-value="<?php echo $query_category; ?>"></div>
 <div class="section">
     <div class="center">
         <div class="section-filter fixed">
@@ -153,3 +155,6 @@
         </div>
     </div>
 </div>
+<script>
+var get_item_url = "<?php echo base_url("shop/get_item_query"); ?>";
+</script>

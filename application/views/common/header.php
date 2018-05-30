@@ -12,8 +12,8 @@
     } ?>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=20"); ?>" />
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=30"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=21"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=31"); ?>" />
     <?php echo $additional_css; ?>
     <style>
         @font-face {
@@ -28,6 +28,11 @@
     </style>
 </head>
 <body class="preloading">
+<div class="loader">
+    <svg class="loader-circular">
+        <circle class="loader-circular-path" cx="50" cy="50" r="30" fill="none" stroke-width="6" stroke-miterlimit="10"/>
+    </svg>
+</div>
 <div class="header<?php echo $header_additional_class; ?>">
     <a href="<?php echo base_url(); ?>" class="logo" style="background-image: url(<?php echo base_url("assets/icons/logo_white.png"); ?>);"></a>
     <div class="header-menu-container">

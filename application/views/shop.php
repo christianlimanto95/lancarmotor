@@ -1,3 +1,5 @@
+<div class="chosen-brand" data-value="<?php echo $query_brand; ?>"></div>
+<div class="chosen-category" data-value="<?php echo $query_category; ?>"></div>
 <div class="section">
     <div class="center">
         <div class="section-filter fixed">
@@ -88,7 +90,7 @@
             </div>
             <div class="dialog-title">BRAND</div>
             <div class="dialog-content">
-                <div class='checkbox-container dialog-category-checkbox-container' data-name='dialog-category' data-value='0'>
+                <div class='checkbox-container dialog-brand-checkbox-container' data-name='dialog-brand' data-value='0'>
                     <div class='checkbox'></div>
                     <div class='checkbox-text'>ALL</div>
                 </div>
@@ -143,3 +145,6 @@
         </div>
     </div>
 </div>
+<script>
+var get_item_url = "<?php echo base_url("shop/get_item_query"); ?>";
+</script>

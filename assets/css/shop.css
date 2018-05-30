@@ -221,6 +221,10 @@
         float: right;
     }
 
+    .item-container {
+        min-height: 460px;
+    }
+
     .item {
         width: 150px;
         float: left;
