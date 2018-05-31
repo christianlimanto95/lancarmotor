@@ -1,34 +1,33 @@
 <div class="section">
     <div class="section-right">
         <div class="shipping-cart-item-container">
-            <div class="shipping-cart-item">
-                <div class="shipping-cart-image" data-src="<?php echo base_url("assets/images/busi.png"); ?>"></div>
-                <div class="shipping-cart-text">
-                    <div class="shipping-cart-name">NGK Busi</div>
-                    <div class="shipping-cart-price">Rp 57.000,-</div>
-                    <div class="shipping-cart-qty">Qty : 2</div>
+            <?php
+            $iLength = sizeof($data);
+            for ($i = 0; $i < $iLength; $i++) {
+                echo "
+                <div class='shipping-cart-item'>
+                    <div class='shipping-cart-image' data-src='" . base_url("assets/images/item/item_" . $data[$i]->item_id . "." . $data[$i]->item_image_extension . "?d=" . strtotime($data[$i]->modified_date)) . "'></div>
+                    <div class='shipping-cart-text'>
+                        <div class='shipping-cart-name'>" . $data[$i]->item_name . "</div>
+                        <div class='shipping-cart-price'>Rp " . number_format($data[$i]->item_price, 0, ",", ".") . ",-</div>
+                        <div class='shipping-cart-qty'>Qty : " . $data[$i]->item_qty . "</div>
+                    </div>
                 </div>
-            </div>
-            <div class="shipping-cart-item">
-                <div class="shipping-cart-image" data-src="<?php echo base_url("assets/images/busi.png"); ?>"></div>
-                <div class="shipping-cart-text">
-                    <div class="shipping-cart-name">NGK Busi</div>
-                    <div class="shipping-cart-price">Rp 57.000,-</div>
-                    <div class="shipping-cart-qty">Qty : 2</div>
-                </div>
-            </div>
+                ";
+            }
+            ?>
         </div>
         <div class="subtotal">
             <div class="subtotal-label">Subtotal</div>
-            <div class="subtotal-value">Rp 93.000,-</div>
+            <div class="subtotal-value">Rp <?php echo ($iLength > 0) ? number_format($data[0]->hcart_total_price, 0, ",", ".") : "0"; ?>,-</div>
         </div>
         <div class="shipping">
             <div class="shipping-label">Shipping</div>
-            <div class="subtotal-value">Rp 20.000,-</div>
+            <div class="subtotal-value">Rp 0,-</div>
         </div>
         <div class="total">
             <div class="total-label">Total</div>
-            <div class="total-value">Rp 113.000,-</div>
+            <div class="total-value">Rp <?php echo ($iLength > 0) ? number_format($data[0]->hcart_total_price, 0, ",", ".") : "0"; ?>,-</div>
         </div>
     </div>
     <div class="section-left">

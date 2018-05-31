@@ -20,7 +20,13 @@ class Login extends General_controller {
             
             parent::view("login", $data);
         } else {
-            redirect(base_url("shop"));
+            $redirect = $this->input->get("redirect");
+            if ($redirect != null) {
+                $redirect = rawurldecode($redirect);
+                redirect($redirect);
+            } else {
+                redirect(base_url("shop"));
+            }
         }
 	}
 }

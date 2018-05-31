@@ -9,7 +9,9 @@ $(function() {
     setParallaxImage();
     container.scroll();
 
-    get_cart();
+    if ($(".header-cart, .header-cart-mobile").length > 0) {
+        get_cart();
+    }
 
     $(".btn-login").on("click", function() {
         do_login();

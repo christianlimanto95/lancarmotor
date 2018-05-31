@@ -62,6 +62,7 @@ class Home extends General_controller {
         $redirect = $this->input->get("redirect");
         $this->session->unset_userdata("user_id");
         if ($redirect) {
+            $redirect = rawurldecode($redirect);
             redirect($redirect);
         } else {
             redirect(base_url());

@@ -102,6 +102,7 @@
 .shipping-cart-item-container {
     border-bottom: 1px solid black;
     margin-bottom: 15px;
+    overflow-y: auto;
 }
 
 .shipping-cart-item {

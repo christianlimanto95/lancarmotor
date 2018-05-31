@@ -12,8 +12,8 @@
     } ?>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=5"); ?>" />
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=32"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=6"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=33"); ?>" />
     <?php echo $additional_css; ?>
     <style>
         @font-face {
@@ -80,7 +80,7 @@
         <a href="<?php echo base_url("register"); ?>" class="header-register-text">REGISTER</a>
     </div>
     <?php } else { ?>
-        <a class="header-logout" href="<?php echo base_url("home/logout?redirect=" . (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>">Logout</a>
+        <a class="header-logout" href="<?php echo base_url("home/logout?redirect=" . rawurlencode((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])); ?>">Logout</a>
     <?php } ?>
     <div class="header-menu-icon">
         <div class="menu-icon-line menu-icon-line-1"></div>

@@ -31,6 +31,7 @@ input.input-phone-number {
 .shipping-cart-item-container {
     border-bottom: 1px solid black;
     margin-bottom: 15px;
+    overflow-y: auto;
 }
 
 .shipping-cart-item {
@@ -134,8 +135,16 @@ input.input-phone-number {
         padding: 0 5vw;
     }
 
-    input.input-name {
-        width: 400px;
+    input.input-shipping-name {
+        width: 300px;
+    }
+
+    input.input-shipping-city {
+        width: 250px;
+    }
+
+    input.input-shipping-phone {
+        width: 180px;
     }
 
     .section-right {
@@ -184,6 +193,18 @@ input.input-phone-number {
     .form-container {
         width: 350px;
         margin-left: 100px;
+    }
+
+    input.input-shipping-name {
+        width: 300px;
+    }
+
+    input.input-shipping-city {
+        width: 250px;
+    }
+
+    input.input-shipping-phone {
+        width: 180px;
     }
     
     .section-right {

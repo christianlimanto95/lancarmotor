@@ -87,9 +87,9 @@ class General_controller extends CI_Controller
         $this->load->view('common/adminfooter');
     }
 
-	public function redirect_if_not_logged_in() {
+	public function redirect_if_not_logged_in($redirect) {
         if (!$this->session->userdata('user_id', true)) {
-            redirect(base_url("login"));
+            redirect(base_url("login" . $redirect));
         }
     }
 
