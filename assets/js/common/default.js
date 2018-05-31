@@ -9,6 +9,8 @@ $(function() {
     setParallaxImage();
     container.scroll();
 
+    get_cart();
+
     $(".btn-login").on("click", function() {
         do_login();
     });
@@ -18,6 +20,45 @@ $(function() {
             e.preventDefault();
             e.stopPropagation();
             do_login();
+        }
+    });
+
+    $(".dialog-cart-min-qty").on("click", function() {
+        var value = parseInt($(".dialog-cart-input-qty").val());
+        if (value > 1) {
+            value--;
+        }
+        $(".dialog-cart-input-qty").val(value);
+    });
+
+    $(".dialog-cart-plus-qty").on("click", function() {
+        var value = parseInt($(".dialog-cart-input-qty").val());
+        if (value < 99999) {
+            value++;
+        }
+        $(".dialog-cart-input-qty").val(value);
+    });
+
+    $(".dialog-btn-add-to-cart").on("click", function() {
+        if (!$(this).hasClass("disabled")) {
+            var thisButton = $(this);
+            showLoader();
+            var id = $(".dialog-add-to-cart").attr("data-id");
+            var qty = $(".dialog-cart-input-qty").val();
+            var name = $(".dialog-cart-name").html();
+
+            ajaxCall(add_to_cart_url, {item_id: id, item_qty: qty}, function(json) {
+                hideLoader();
+                thisButton.removeClass("disabled");
+                var result = jQuery.parseJSON(json);
+                if (result.status == "success") {
+                    get_cart();
+                    showNotification(qty + " " + name + " ditambahkan ke Cart");
+                    closeDialog($(".dialog-add-to-cart"));
+                } else {
+                    showNotification("Gagal menambah item ke Cart");
+                }
+            });
         }
     });
     
@@ -89,12 +130,12 @@ $(function() {
             $(".menu-icon-line-1").off("webkitAnimationEnd oanimationend msAnimationEnd animationend");
             $("body").addClass("menu-opened menu-inner-opened").removeClass("menu-opening menu-inner-opening").addClass("menu-closing");
             $(".menu-icon-line-1").one("webkitAnimationEnd oanimationend msAnimationEnd animationend", function(e) {
-                $("body").removeClass("menu-closing menu-opened menu-inner-opened show-menu fixed");
+                $("body").removeClass("menu-closing menu-opened menu-inner-opened show-menu");
             });
         } else {
             menuOpen = true;
             $(".menu-icon-line-1").off("webkitAnimationEnd oanimationend msAnimationEnd animationend");
-            $("body").removeClass().addClass("menu-opening show-menu fixed");
+            $("body").removeClass().addClass("menu-opening show-menu");
             $(".menu-icon-line-1").one("webkitAnimationEnd oanimationend msAnimationEnd animationend", function(e) {
                 $("body").addClass("menu-opened menu-inner-opening").removeClass("menu-opening");
             });
@@ -110,7 +151,9 @@ $(function() {
     });
 
     $(".btn-cart-checkout").on("click", function() {
-        window.location.href = checkout_url;
+        if (!$(this).hasClass("disabled")) {
+            window.location.href = checkout_url;
+        }
     });
 
     $(".header-login-text-login").on("click", function() {
@@ -134,6 +177,7 @@ $(function() {
         switch (e.which) {
             case 27:
                 closeDialog();
+                $("body").removeClass("show-cart");
                 break;
         }
     });
@@ -228,6 +272,39 @@ function do_login() {
             });
         }
     }
+}
+
+function get_cart() {
+    ajaxCall(get_cart_url, null, function(json) {
+        var result = jQuery.parseJSON(json);
+        if (result.status == "success") {
+            var data = result.data;
+            var iLength = data.length;
+            var element = "";
+            for (var i = 0; i < iLength; i++) {
+                element += "<div class='cart-item'>";
+                element += "<div class='cart-item-delete'>";
+                element += "<svg width='13' height='13' viewBox='0 0 13 13'><line x1='0' y1='0' x2='13' y2='13' stroke='black' /><line x1='13' y1='0' x2='0' y2='13' stroke='black' /></svg>";
+                element += "</div>";
+                element += "<div class='cart-item-image' data-src='" + data[i].image_url + "'></div>";
+                element += "<div class='cart-item-text'>";
+                element += "<div class='cart-item-nama'>" + data[i].item_name + "</div>";
+                element += "<div class='cart-item-harga'>Rp " + addThousandSeparator(data[i].dcart_subtotal) + ",-</div>";
+                element += "<div class='cart-item-qty'>Qty : " + data[i].item_qty + "</div>";
+                element += "</div>";
+                element += "</div>";
+            }
+            $(".cart-item-container").html(element);
+            if (iLength > 0) {
+                var subtotal = addThousandSeparator(data[0].hcart_total_price);
+                $(".cart-subtotal-value").html(subtotal);
+                $(".btn-cart-checkout").removeClass("disabled");
+            } else {
+                $(".btn-cart-checkout").addClass("disabled");
+            }
+            imagePreloader();
+        }
+    });
 }
 
 function setCheckboxChecked(element) {

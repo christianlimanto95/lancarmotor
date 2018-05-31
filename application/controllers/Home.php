@@ -36,8 +36,8 @@ class Home extends General_controller {
             $data = $this->Home_model->get_data($email);
 			if (sizeof($data) > 0) {
 				if (password_verify($password, $data[0]->user_password)) {
-					$this->session->set_userdata("user_id", $data[0]->user_id);
-
+                    $this->session->set_userdata("user_id", $data[0]->user_id);
+                    
 					echo json_encode(array(
 						"status" => "success"
 					));
@@ -68,8 +68,40 @@ class Home extends General_controller {
         }
     }
 
+    public function get_cart() {
+        $user_id = parent::is_logged_in();
+        $cart = array();
+        if ($user_id != null) {
+            $cart = $this->Home_model->get_cart($user_id);
+            $iLength = sizeof($cart);
+            for ($i = 0; $i < $iLength; $i++) {
+                $cart[$i]->image_url = base_url("assets/images/item/item_" . $cart[$i]->item_id . "." . $cart[$i]->item_image_extension . "?d=" . strtotime($cart[$i]->modified_date));
+            }
+        }
+        echo json_encode(array(
+            "status" => "success",
+            "data" => $cart
+        ));
+    }
+
     public function add_to_cart() {
         parent::show_404_if_not_ajax();
         $item_id = $this->input->post("item_id");
+        $item_qty = $this->input->post("item_qty");
+        $data = array(
+            "item_id" => $item_id,
+            "item_qty" => $item_qty,
+            "user_id" => parent::is_logged_in()
+        );
+        $result = $this->Home_model->add_to_cart($data);
+        if ($result) {
+            echo json_encode(array(
+                "status" => "success"
+            ));
+        } else {
+            echo json_encode(array(
+                "status" => "error"
+            ));
+        }
     }
 }

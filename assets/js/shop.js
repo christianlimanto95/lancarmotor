@@ -123,6 +123,7 @@ $(function() {
         var image = item.find(".item-image").attr("data-src");
 
         var dialog = $(".dialog-add-to-cart");
+        dialog.attr("data-id", id);
         dialog.find(".dialog-cart-image").css("background-image", "url(" + image + ")");
         dialog.find(".dialog-cart-name").html(name);
         dialog.find(".dialog-cart-price").html("Rp " + addThousandSeparator(price) + ",-");

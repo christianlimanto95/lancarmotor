@@ -12,7 +12,7 @@
     } ?>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=3"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=4"); ?>" />
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=32"); ?>" />
     <?php echo $additional_css; ?>
     <style>
@@ -119,39 +119,12 @@
             <line x1="50" y1="25" x2="30" y2="43" stroke="black" stroke-width="1" />
         </svg>
     </div>
-    <div class="cart-title">Your Cart</div>
+    <div class="cart-title">Your Cart <span class="cart-title-qty">(0 items)</span></div>
     <div class="cart-item-container">
-        <div class="cart-item">
-            <div class="cart-item-delete">
-                <svg width="13" height="13" viewBox="0 0 13 13">
-                    <line x1="0" y1="0" x2="13" y2="13" stroke="black" />
-                    <line x1="13" y1="0" x2="0" y2="13" stroke="black" />
-                </svg>
-            </div>
-            <div class="cart-item-image" data-src="<?php echo base_url("assets/images/775563_x800.jpg"); ?>"></div>
-            <div class="cart-item-text">
-                <div class="cart-item-nama">NGK Busi</div>
-                <div class="cart-item-harga">Rp 57.000,-</div>
-                <div class="cart-item-qty">Qty : 3</div>
-            </div>
-        </div>
-        <div class="cart-item">
-            <div class="cart-item-delete">
-                <svg width="13" height="13" viewBox="0 0 13 13">
-                    <line x1="0" y1="0" x2="13" y2="13" stroke="black" />
-                    <line x1="13" y1="0" x2="0" y2="13" stroke="black" />
-                </svg>
-            </div>
-            <div class="cart-item-image" data-src="<?php echo base_url("assets/images/775563_x800.jpg"); ?>"></div>
-            <div class="cart-item-text">
-                <div class="cart-item-nama">NGK Busi</div>
-                <div class="cart-item-harga">Rp 57.000,-</div>
-                <div class="cart-item-qty">Qty : 3</div>
-            </div>
-        </div>
+        
     </div>
-    <div class="cart-subtotal"><span class="cart-subtotal-text">SUBTOTAL : </span>Rp 93.000,-</div>
-    <div class="button btn-cart-checkout">CHECKOUT</div>
+    <div class="cart-subtotal"><span class="cart-subtotal-text">SUBTOTAL : </span>Rp <span class="cart-subtotal-value">0</span>,-</div>
+    <div class="button btn-cart-checkout disabled">CHECKOUT</div>
 </div>
 <?php } ?>
 <div class="dark-background"></div>
@@ -173,7 +146,9 @@
                     <div class="dialog-cart-name"></div>
                     <div class="dialog-cart-price"></div>
                     <div class="dialog-cart-qty">Qty</div>
+                    <div class="dialog-cart-min-qty">-</div>
                     <input type="text" class="dialog-cart-input-qty" maxlength="5" value="1" />
+                    <div class="dialog-cart-plus-qty">+</div>
                 </div>
             </div>
             <div class="dialog-button-container">
@@ -184,6 +159,8 @@
 </div>
 <script>
 var login_url = "<?php echo base_url("home/do_login"); ?>";
+var get_cart_url = "<?php echo base_url("home/get_cart"); ?>";
+var add_to_cart_url = "<?php echo base_url("home/add_to_cart"); ?>";
 var checkout_url = "<?php echo base_url("checkout"); ?>";
 var vw = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 var vh = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
