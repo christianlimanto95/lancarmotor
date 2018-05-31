@@ -39,16 +39,36 @@ class Home_model extends CI_Model
 
             $this->db->trans_start();
 
-            $insertData = array(
-                "hcart_id" => $hcart_id,
-                "item_id" => $data["item_id"],
-                "item_name" => $item->item_name,
-                "item_satuan" => $item->item_satuan,
-                "item_price" => $item->item_price,
-                "item_qty" => $data["item_qty"],
-                "dcart_subtotal" => $item_subtotal
-            );
-            $this->db->insert("dcart", $insertData);
+            $query = $this->db->query("
+                SELECT d.dcart_id, d.item_qty
+                FROM dcart d, hcart h
+                WHERE h.user_id = '" . $data["user_id"] . "' AND h.hcart_id = d.hcart_id AND d.item_id = '" . $data["item_id"] . "'
+                LIMIT 1
+            ");
+            $dcart = $query->result();
+            if (sizeof($dcart) > 0) {
+                $dcart_id = $dcart[0]->dcart_id;
+                $current_qty = $dcart[0]->item_qty;
+                $dcart_subtotal = (intval($current_qty) + intval($data["item_qty"])) * intval($item->item_price);
+
+                $this->db->where("dcart_id", $dcart_id);
+                $this->db->set("item_qty", "item_qty + " . $data["item_qty"], false);
+                $this->db->set("item_price", $item->item_price);
+                $this->db->set("dcart_subtotal", $dcart_subtotal);
+                $this->db->set("modified_date", "NOW()", false);
+                $this->db->update("dcart");
+            } else {
+                $insertData = array(
+                    "hcart_id" => $hcart_id,
+                    "item_id" => $data["item_id"],
+                    "item_name" => $item->item_name,
+                    "item_satuan" => $item->item_satuan,
+                    "item_price" => $item->item_price,
+                    "item_qty" => $data["item_qty"],
+                    "dcart_subtotal" => $item_subtotal
+                );
+                $this->db->insert("dcart", $insertData);
+            }
 
             $this->db->where("hcart_id", $hcart_id);
             $this->db->set("hcart_total_price", "hcart_total_price + " . $item_subtotal, false);
@@ -62,6 +82,38 @@ class Home_model extends CI_Model
         } else {
             return false;
         }
+    }
+
+    public function delete_from_cart($data) {
+        if ($data["dcart_id"] != "") {
+            $this->db->trans_start();
+
+            $query = $this->db->query("
+                SELECT item_qty, dcart_subtotal
+                FROM dcart
+                WHERE dcart_id = '" . $data["dcart_id"] . "'
+                LIMIT 1
+            ");
+            $dcart = $query->result();
+            if (sizeof($dcart) > 0) {
+                $dcart = $dcart[0];
+                $qty = $dcart->item_qty;
+                $subtotal = $dcart->dcart_subtotal;
+
+                $this->db->where("dcart_id", $data["dcart_id"]);
+                $this->db->delete("dcart");
+
+                $this->db->where("user_id", $data["user_id"]);
+                $this->db->set("hcart_total_qty", "hcart_total_qty - " . $qty, false);
+                $this->db->set("hcart_total_price", "hcart_total_price - " . $subtotal, false);
+                $this->db->set("modified_date", "NOW()", false);
+                $this->db->update("hcart");
+
+                $this->db->trans_complete();
+                return true;
+            }
+        }
+        return false;
     }
 
     public function get_data($email) {

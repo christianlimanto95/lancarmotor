@@ -12,7 +12,7 @@
     } ?>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=4"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=5"); ?>" />
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=32"); ?>" />
     <?php echo $additional_css; ?>
     <style>
@@ -107,7 +107,7 @@
         <a href="<?php echo base_url("login"); ?>" class="header-login-text-mobile">LOGIN</a>
     </div>
     <?php } else { ?>
-        <a class="header-logout-mobile" href="<?php echo base_url("home/logout"); ?>">Logout</a>
+        <a class="header-logout-mobile" href="<?php echo base_url("home/logout?redirect=" . (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>">Logout</a>
     <?php } ?>
 </div>
 <?php if (!$hide_cart) { ?>
@@ -161,6 +161,7 @@
 var login_url = "<?php echo base_url("home/do_login"); ?>";
 var get_cart_url = "<?php echo base_url("home/get_cart"); ?>";
 var add_to_cart_url = "<?php echo base_url("home/add_to_cart"); ?>";
+var delete_from_cart_url = "<?php echo base_url("home/delete_from_cart"); ?>";
 var checkout_url = "<?php echo base_url("checkout"); ?>";
 var vw = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 var vh = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;

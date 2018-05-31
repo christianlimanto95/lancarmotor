@@ -26,7 +26,7 @@ body.show-cart, body.fixed {
 .loader {
     display: none;
     position: fixed;
-    z-index: 2000;
+    z-index: 2500;
 	width: 100px;
 	height: 100px;
 	right: 30px;
@@ -308,8 +308,6 @@ body.show-login .login-box {
 .cart {
     position: fixed;
     top: 0;
-    right: -300px;
-    width: 300px;
     height: 100vh;
     background-color: white;
     z-index: 1005;
@@ -342,6 +340,7 @@ body.show-cart .cart {
 
 .cart-item-container {
     width: 100%;
+    overflow-y: auto;
 }
 
 .cart-item {
@@ -355,6 +354,11 @@ body.show-cart .cart {
     top: 0;
     right: 15px;
     cursor: pointer;
+}
+
+.cart-item-delete.disabled {
+    cursor: default;
+    opacity: 0.5;
 }
 
 .cart-item-image {
@@ -1185,8 +1189,14 @@ pre {
         z-index: 400;
     }
 
+    .cart {
+        width: 100vw;
+        right: -100vw;
+    }
+
     .cart-item-container {
-        height: calc(100vh - 270px);
+        height: calc(100vh - 260px);
+        margin-bottom: 10px;
     }
 
     .btn-cart-checkout {
@@ -1213,6 +1223,16 @@ pre {
 
     .header-login-text-mobile {
         color: white;
+    }
+
+    .header-logout-mobile {
+        position: absolute;
+        bottom: 100px;
+        width: 100vw;
+        text-align: center;
+        color: white;
+        text-decoration: none;
+        font-size: 14pt;
     }
 
     .dialog-box {
@@ -1322,8 +1342,9 @@ pre {
         height: 25px;
     }
 
-    .cart-item-container {
-        height: calc(100vh - 220px);
+    .cart {
+        width: 350px;
+        right: -350px;
     }
 
     .btn-cart-checkout {
@@ -1397,6 +1418,11 @@ pre {
         right: 20px;
     }
 
+    .cart-item-container {
+        height: calc(100vh - 260px);
+        margin-bottom: 10px;
+    }
+
     .dialog-add-to-cart .dialog-cart-min-qty:active, .dialog-add-to-cart .dialog-cart-plus-qty:active {
         background-color: #DDD;
     }
@@ -1457,6 +1483,11 @@ pre {
 
     .header-logout {
         right: 70px;
+    }
+
+    .cart-item-container {
+        height: calc(100vh - 210px);
+        margin-bottom: 10px;
     }
 
     .image-container[data-parallax-image="true"] {

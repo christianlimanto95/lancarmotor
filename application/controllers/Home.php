@@ -95,9 +95,24 @@ class Home extends General_controller {
         );
         $result = $this->Home_model->add_to_cart($data);
         if ($result) {
+            $this->get_cart();
+        } else {
             echo json_encode(array(
-                "status" => "success"
+                "status" => "error"
             ));
+        }
+    }
+
+    public function delete_from_cart() {
+        parent::show_404_if_not_ajax();
+        $dcart_id = $this->input->post("dcart_id");
+        $data = array(
+            "dcart_id" => $dcart_id,
+            "user_id" => parent::is_logged_in()
+        );
+        $result = $this->Home_model->delete_from_cart($data);
+        if ($result) {
+            $this->get_cart();
         } else {
             echo json_encode(array(
                 "status" => "error"

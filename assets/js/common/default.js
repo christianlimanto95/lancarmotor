@@ -52,11 +52,36 @@ $(function() {
                 thisButton.removeClass("disabled");
                 var result = jQuery.parseJSON(json);
                 if (result.status == "success") {
-                    get_cart();
+                    process_get_cart(result);
                     showNotification(qty + " " + name + " ditambahkan ke Cart");
                     closeDialog($(".dialog-add-to-cart"));
                 } else {
                     showNotification("Gagal menambah item ke Cart");
+                }
+            });
+        }
+    });
+
+    $(".dialog-add-to-cart").on("dialogClosed", function() {
+        $(".dialog-cart-input-qty").val("1");
+    });
+
+    $(document).on("click", ".cart-item-delete", function() {
+        if (!$(this).hasClass("disabled")) {
+            $(".cart-item-delete").addClass("disabled");
+            showLoader();
+            var cart_item = $(this).closest(".cart-item");
+            var id = cart_item.attr("data-id");
+            var name = cart_item.attr("data-name");
+            ajaxCall(delete_from_cart_url, {dcart_id: id}, function(json) {
+                hideLoader();
+                $(".cart-item-delete").removeClass("disabled");
+                var result = jQuery.parseJSON(json);
+                if (result.status == "success") {
+                    process_get_cart(result);
+                    showNotification(name + " dihapus dari Cart");
+                } else {
+                    showNotification("Gagal menghapus item dari Cart");
                 }
             });
         }
@@ -277,34 +302,41 @@ function do_login() {
 function get_cart() {
     ajaxCall(get_cart_url, null, function(json) {
         var result = jQuery.parseJSON(json);
-        if (result.status == "success") {
-            var data = result.data;
-            var iLength = data.length;
-            var element = "";
-            for (var i = 0; i < iLength; i++) {
-                element += "<div class='cart-item'>";
-                element += "<div class='cart-item-delete'>";
-                element += "<svg width='13' height='13' viewBox='0 0 13 13'><line x1='0' y1='0' x2='13' y2='13' stroke='black' /><line x1='13' y1='0' x2='0' y2='13' stroke='black' /></svg>";
-                element += "</div>";
-                element += "<div class='cart-item-image' data-src='" + data[i].image_url + "'></div>";
-                element += "<div class='cart-item-text'>";
-                element += "<div class='cart-item-nama'>" + data[i].item_name + "</div>";
-                element += "<div class='cart-item-harga'>Rp " + addThousandSeparator(data[i].dcart_subtotal) + ",-</div>";
-                element += "<div class='cart-item-qty'>Qty : " + data[i].item_qty + "</div>";
-                element += "</div>";
-                element += "</div>";
-            }
-            $(".cart-item-container").html(element);
-            if (iLength > 0) {
-                var subtotal = addThousandSeparator(data[0].hcart_total_price);
-                $(".cart-subtotal-value").html(subtotal);
-                $(".btn-cart-checkout").removeClass("disabled");
-            } else {
-                $(".btn-cart-checkout").addClass("disabled");
-            }
-            imagePreloader();
-        }
+        process_get_cart(result);
     });
+}
+
+function process_get_cart(result) {
+    if (result.status == "success") {
+        var data = result.data;
+        var iLength = data.length;
+        var element = "";
+        for (var i = 0; i < iLength; i++) {
+            element += "<div class='cart-item' data-id='" + data[i].dcart_id + "' data-name='" + data[i].item_name + "'>";
+            element += "<div class='cart-item-delete'>";
+            element += "<svg width='13' height='13' viewBox='0 0 13 13'><line x1='0' y1='0' x2='13' y2='13' stroke='black' /><line x1='13' y1='0' x2='0' y2='13' stroke='black' /></svg>";
+            element += "</div>";
+            element += "<div class='cart-item-image' data-src='" + data[i].image_url + "'></div>";
+            element += "<div class='cart-item-text'>";
+            element += "<div class='cart-item-nama'>" + data[i].item_name + "</div>";
+            element += "<div class='cart-item-harga'>Rp " + addThousandSeparator(data[i].item_price) + ",-</div>";
+            element += "<div class='cart-item-qty'>Qty : " + data[i].item_qty + "</div>";
+            element += "</div>";
+            element += "</div>";
+        }
+        $(".cart-item-container").html(element);
+        if (iLength > 0) {
+            var subtotal = addThousandSeparator(data[0].hcart_total_price);
+            $(".cart-subtotal-value").html(subtotal);
+            $(".cart-title-qty").html("(" + data[0].hcart_total_qty + " items)");
+            $(".btn-cart-checkout").removeClass("disabled");
+        } else {
+            $(".cart-subtotal-value").html("0");
+            $(".cart-title-qty").html("(0 items)");
+            $(".btn-cart-checkout").addClass("disabled");
+        }
+        imagePreloader();
+    }
 }
 
 function setCheckboxChecked(element) {
@@ -369,11 +401,17 @@ function ajaxCall(url, data, callback) {
 	return $.ajax({
 		url: url,
 		data: data,
-		type: 'POST',
+        type: 'POST',
+        timeout: 20000,
 		error: function(jqXHR, exception) {
 			if (exception != "abort") {
-				console.log(jqXHR + " : " + jqXHR.responseText);
-			}
+                console.log(jqXHR + " : " + jqXHR.responseText);
+                var result = {
+                    status: "error",
+                    message: jqXHR + " : " + jqXHR.responseText
+                };
+                callback(result);
+            }
 		},
 		success: function(result) {
 			callback(result);
@@ -460,14 +498,13 @@ function setParallaxImage() {
 function showNotification(text) {
     var notification = $(".notification");
     notification.html(text);
-    notification.off("webkitAnimationEnd oanimationend msAnimationEnd animationend");
-    notification.one("webkitAnimationEnd oanimationend msAnimationEnd animationend", function(e) {
-        notification.removeClass("showing");
-    });
-
     notification.removeClass("showing");
+    notification.off("webkitAnimationEnd oanimationend msAnimationEnd animationend");
     setTimeout(function() {
         notification.addClass("showing");
+        notification.one("webkitAnimationEnd oanimationend msAnimationEnd animationend", function(e) {
+            notification.removeClass("showing");
+        });
     }, 1);
 }
 
