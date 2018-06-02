@@ -13,6 +13,7 @@ class Register extends General_controller {
 	public function index()
 	{
         parent::set_header_additional_class("hide");
+        parent::do_hide_cart();
 		$data = array(
 			"title" => "Register &mdash; Lancar Motor"
 		);
@@ -66,6 +67,7 @@ class Register extends General_controller {
             redirect(base_url("login"));
         } else {
             parent::set_header_additional_class("hide");
+            parent::do_hide_cart();
             $data = array(
                 "title" => "Thank You &mdash; Lancar Motor",
                 "email" => $email
@@ -84,6 +86,7 @@ class Register extends General_controller {
         }
 
         parent::set_header_additional_class("hide");
+        parent::do_hide_cart();
         $data = array(
             "title" => "Thank You &mdash; Lancar Motor",
             "valid" => $valid
