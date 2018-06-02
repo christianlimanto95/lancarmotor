@@ -36,19 +36,12 @@ class Home extends General_controller {
             $data = $this->Home_model->get_data($email);
 			if (sizeof($data) > 0) {
 				if (password_verify($password, $data[0]->user_password)) {
-
-                    if ($data[0]->status == "2") {
-                        $this->session->set_userdata("user_id", $data[0]->user_id);
-                        
-                        echo json_encode(array(
-                            "status" => "success"
-                        ));
-                    } else {
-                        echo json_encode(array(
-                            "status" => "error",
-                            "message" => "Account belum diverifikasi"
-                        ));
-                    }
+                    $this->session->set_userdata("user_id", $data[0]->user_id);
+                    $this->Home_model->import_cart_from_temp(parent::is_logged_in(), parent::get_temp_user());
+                    
+                    echo json_encode(array(
+                        "status" => "success"
+                    ));
 				} else {
 					echo json_encode(array(
                         "status" => "error",
