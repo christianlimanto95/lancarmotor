@@ -71,6 +71,26 @@ class General_controller extends CI_Controller
         $data["hide_cart"] = $this->hide_cart;
         $data["page_name"] = $file;
         $data["is_logged_in"] = $this->is_logged_in();
+        if (!$data["is_logged_in"]) {
+            if (!$this->input->cookie("temp_user", true)) {
+                $temp_user_id = $this->General_model->add_temp_user();
+                /*$cookie = array(
+                    "name" => "temp_user",
+                    "value" => $temp_user_id,
+                    "expire" => "86400000"
+                );*/
+                setcookie("temp_user", $temp_user_id, time() + 86400000, '/', "lancarmotor.dnp-project.com", true, true);
+                /*$cookie = array(
+                    "name" => "temp_user",
+                    "value" => $temp_user_id,
+                    "expire" => "86400000",
+                    "secure" => TRUE,
+                    "domain" => "lancarmotor.dnp-project.com",
+                    "path" => "/"
+                );*/
+                //$this->input->set_cookie($cookie);
+            }
+        }
 		
         $this->load->view('common/header', $data);
         $this->load->view($file, $data);
@@ -97,6 +117,10 @@ class General_controller extends CI_Controller
         if (!$this->session->userdata('admin_id', true)) {
             redirect(base_url("admin_login"));
         }
+    }
+
+    public function get_temp_user() {
+        return $this->input->cookie("temp_user", true);
     }
     
     public function is_logged_in() {
