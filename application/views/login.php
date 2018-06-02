@@ -16,7 +16,7 @@
             <div class="register-box">
                 <div class="form-item">
                     <div class="form-label">Email <span class="error error-email"></span></div>
-                    <input type="text" class="form-input input-email" />
+                    <input type="text" class="form-input input-email" autofocus />
                 </div>
                 <div class="form-item">
                     <div class="form-label">Password <span class="error error-password"></span></div>

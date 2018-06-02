@@ -118,7 +118,7 @@ class Home_model extends CI_Model
 
     public function get_data($email) {
         $this->db->where("user_email", $email);
-        $this->db->select("user_id, user_password");
+        $this->db->select("user_id, user_password, status");
         $this->db->limit(1);
         return $this->db->get("user")->result();
     }
@@ -136,7 +136,7 @@ class Home_model extends CI_Model
     }
 
     public function get_items() {
-        $this->db->select("item_id, item_name, item_image_extension, item_price, modified_date");
+        $this->db->select("item_id, item_name, item_image_extension, item_price, item_satuan, modified_date");
         $this->db->where("status", 1);
         $this->db->limit(7);
         return $this->db->get("item")->result();

@@ -42,7 +42,7 @@ class Register extends General_controller {
                 $this->email->from("admin@lancarmotor.dnp-project.com", "Admin Lancar Motor");
                 $this->email->to($user_email);
                 $this->email->subject("Email Verification");
-                $this->email->message("Thank you for your registration. <br />Please click on the link below to verify your account at lancarmotor.com<br /><br />" . base_url("register/verify_email/" . $result["verification_token"]));
+                $this->email->message("Thank you for your registration. <br />Please click on the link below to verify your account at lancarmotor.com<br /><br />" . base_url("register/verify_email?verification_token=" . $result["verification_token"]));
                 $this->email->send();
 
                 $result = array(

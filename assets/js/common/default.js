@@ -294,7 +294,7 @@ function do_login() {
                     window.location.reload();
                 } else {
                     thisButton.removeClass("disabled");
-                    showNotification("Gagal Login");
+                    showNotification(result.message);
                 }
             });
         }

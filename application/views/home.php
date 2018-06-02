@@ -75,7 +75,7 @@
             for ($i = 0; $i < $iLength; $i++) {
                 $url_name = str_replace(" ", "-", str_replace("-", "", $items[$i]->item_name));
                 $url = base_url("item-detail/" . $url_name . "-" . $items[$i]->item_id);
-                echo "<div class='item' data-anim='show-up' data-anim-threshold='self'>";
+                echo "<div class='item' data-anim='show-up' data-anim-threshold='self'' data-id='" . $items[$i]->item_id . "' data-name='" . $items[$i]->item_name . "' data-price='" . $items[$i]->item_price . "' data-satuan='" . $items[$i]->item_satuan . "'>";
                 echo "<a href='" . $url . "' class='item-image' data-src='" . base_url("assets/images/item/item_" . $items[$i]->item_id . "." . $items[$i]->item_image_extension . "?d=" . strtotime($items[$i]->modified_date)) . "'></a>";
                 echo "<div class='item-name'>" . $items[$i]->item_name . "</div>";
                 echo "<div class='item-price'>Rp " . number_format($items[$i]->item_price, 0, ", ", ".") . ",-</div>";

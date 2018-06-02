@@ -17,7 +17,7 @@
                 <div class="register-box-title">Register Account</div>
                 <div class="form-item">
                     <div class="form-label">Name <span class="error error-register-name"></span></div>
-                    <input type="text" class="form-input input-register-name" maxlength="50" />
+                    <input type="text" class="form-input input-register-name" maxlength="50" autofocus />
                 </div>
                 <div class="form-item">
                     <div class="form-label">Phone Number <span class="error error-register-phone"></span></div>

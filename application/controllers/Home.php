@@ -36,24 +36,35 @@ class Home extends General_controller {
             $data = $this->Home_model->get_data($email);
 			if (sizeof($data) > 0) {
 				if (password_verify($password, $data[0]->user_password)) {
-                    $this->session->set_userdata("user_id", $data[0]->user_id);
-                    
-					echo json_encode(array(
-						"status" => "success"
-					));
+
+                    if ($data[0]->status == "2") {
+                        $this->session->set_userdata("user_id", $data[0]->user_id);
+                        
+                        echo json_encode(array(
+                            "status" => "success"
+                        ));
+                    } else {
+                        echo json_encode(array(
+                            "status" => "error",
+                            "message" => "Account belum diverifikasi"
+                        ));
+                    }
 				} else {
 					echo json_encode(array(
-						"status" => "error"
+                        "status" => "error",
+                        "message" => "Email / Password salah"
 					));
 				}
 			} else {
 				echo json_encode(array(
-					"status" => "error"
+                    "status" => "error",
+                    "message" => "Email / Password salah"
 				));
 			}
         } else {
             echo json_encode(array(
-                "status" => "error"
+                "status" => "error",
+                "message" => "Email / Password salah"
             ));
         }
     }
