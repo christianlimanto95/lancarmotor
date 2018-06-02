@@ -1,0 +1,59 @@
+.register-logo {
+    width: 120px;
+    height: 120px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 30px auto 10px;
+}
+
+.section {
+    margin-top: 40px;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.btn-back-to-shop, .btn-go-to-login {
+    display: block;
+    text-decoration: none;
+    color: white;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.btn-back-to-shop {
+    margin-bottom: 20px;
+}
+
+@media all and (max-width: 767px) {
+    .section {
+        height: auto;
+    }
+
+    .center {
+        width: 100vw;
+        padding: 0 5vw;
+    }
+}
+
+@media all and (min-width: 768px) {
+    .section {
+        height: 450px;
+        text-align: center;
+    }
+
+    .center {
+        display: inline-block;
+        text-align: left;
+    }
+
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+@media all and (min-width: 1025px) {
+
+}

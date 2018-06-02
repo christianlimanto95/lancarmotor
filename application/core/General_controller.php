@@ -115,6 +115,17 @@ class General_controller extends CI_Controller
         }
     }
 
+    public function get_default_email_config() {
+        $config["protocol"] = "smtp";
+		$config["smtp_host"] = "lancarmotor.dnp-project.com";
+		$config["smtp_user"] = "admin@lancarmotor.dnp-project.com";
+        $config["smtp_pass"] = "admin";
+		$config["smtp_port"] = 465;
+        $config["smtp_crypto"] = "ssl";
+        $config["mailtype"] = "html";
+        return $config;
+    }
+
     public function upload_file_settings($path = '', $max_size = '', $file_name = "") {
         $config['upload_path'] = $path;
         $config['allowed_types'] = '*';
