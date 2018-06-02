@@ -118,6 +118,7 @@ class Home_model extends CI_Model
 
     public function get_data($email) {
         $this->db->where("user_email", $email);
+        $this->db->where("status", 2);
         $this->db->select("user_id, user_password, status");
         $this->db->limit(1);
         return $this->db->get("user")->result();
