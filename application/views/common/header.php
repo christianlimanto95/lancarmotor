@@ -10,9 +10,10 @@
         echo "<meta name='description' content='" . $meta_description . "' />";
         echo "<meta name='og:description' content='" . $meta_description . "' />";
     } ?>
+    <meta name="google-signin-client_id" content="702991525631-258gshg35oef1lfhnt21hohro5rjito9.apps.googleusercontent.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=7"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=8"); ?>" />
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=33"); ?>" />
     <?php echo $additional_css; ?>
     <style>
@@ -71,10 +72,7 @@
                 </div>
                 <div class="button btn-login">Login</div>
                 <div class="login-or">or</div>
-                <div class="btn-login-with-google">
-                    <div class="google-icon" style="background-image: url(<?php echo base_url("assets/icons/google_g.png"); ?>);"></div>
-                    <div class="login-with-google-text">Masuk dengan Google</div>
-                </div>
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
             </div>
         </div>
         <a href="<?php echo base_url("register"); ?>" class="header-register-text">REGISTER</a>
@@ -174,6 +172,14 @@ if (vw < 1025) {
     }
 } else {
     isMobile = false;
+}
+
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
 </script>
 <div class="container">

@@ -30,5 +30,6 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 </body>
 </html>
