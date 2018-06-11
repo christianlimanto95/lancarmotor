@@ -178,6 +178,8 @@ if (vw < 1025) {
 }
 
 var signInOnce = false;
+var alreadyLoggedIn = <?php echo ($is_logged_in) ? "true" : "false"; ?>;
+var google_login_redirect = "";
 
 function onSignIn(googleUser) {
     if (!signInOnce) {
@@ -190,11 +192,17 @@ function onSignIn(googleUser) {
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onload = function() {
             var result = jQuery.parseJSON(xhr.responseText);
-            if (result.status == "success") {
-                window.location.reload();
-            } else {
-                thisButton.removeClass("disabled");
-                showNotification(result.message);
+            if (!alreadyLoggedIn) {
+                if (result.status == "success") {
+                    if (google_login_redirect == "") {
+                        window.location.reload();
+                    } else {
+                        window.location = google_login_redirect;
+                    }
+                } else {
+                    thisButton.removeClass("disabled");
+                    showNotification(result.message);
+                }
             }
         };
         xhr.send('idtoken=' + id_token + '&email=' + profile.getEmail() + '&name=' + profile.getName());

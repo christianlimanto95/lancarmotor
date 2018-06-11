@@ -36,4 +36,5 @@
 <script>
 var do_register_url = "<?php echo base_url("register/do_register"); ?>";
 var thank_you_url = "<?php echo base_url("register/thank_you"); ?>";
+google_login_redirect = "<?php echo base_url("shop"); ?>";
 </script>
