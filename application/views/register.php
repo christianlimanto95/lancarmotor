@@ -3,10 +3,7 @@
 <div class="section">
     <div class="center">
         <div class="section-left">
-            <div class="register-with-google">
-                <div class="register-with-google-icon" style="background-image: url(<?php echo base_url("assets/icons/google_g.png"); ?>);"></div>
-                <div class="register-with-google-text">Daftar dengan Google</div>
-            </div>
+            <div class="g-signin2 register-with-google" data-onsuccess="onSignIn" data-width="260" data-height="50" data-longtitle="true"></div>
         </div>
         <div class="section-or">
             <div class="section-or-line"></div>

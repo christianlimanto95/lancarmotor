@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=9"); ?>" />
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=33"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=34"); ?>" />
     <?php echo $additional_css; ?>
     <style>
         @font-face {

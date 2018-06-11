@@ -25,23 +25,12 @@
 }
 
 .register-with-google {
-    border: 1px solid black;
     cursor: pointer;
 }
 
-.register-with-google-icon, .register-with-google-text {
-    display: inline-block;
-    vertical-align: middle;
-    letter-spacing: 0;
-    color: #555;
-}
-
-.register-with-google-icon {
-    width: 20px;
-    height: 20px;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    margin-right: 40px;
+.g-signin2 .abcRioButton, .g-signin2 .abcRioButton:hover {
+    border: 1px solid black !important;
+    box-shadow: none !important;
 }
 
 .register-box-title {
@@ -67,8 +56,7 @@
     }
 
     .register-with-google {
-        width: 260px;
-        padding: 15px;
+        width: 260px !important;
         margin: 0 auto;
     }
 
@@ -106,12 +94,10 @@
         height: 100%;
     }
 
-    .register-with-google {
+    .register-with-google.g-signin2 .abcRioButton {
         float: right;
-        margin-top: 190px;
+        margin-top: 200px;
         margin-right: 80px;
-        width: 260px;
-        padding: 15px;
     }
 
     .section-or {
