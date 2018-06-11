@@ -65,7 +65,7 @@ class Home extends General_controller {
     public function do_login_with_google($data = null) {
         if ($data != null) {
             $result = $this->Home_model->do_login_with_google($data);
-            $this->session->set_userdata("user_id", $result[0]->user_id);
+            $this->session->set_userdata("user_id", $result["user_id"]);
             $this->Home_model->import_cart_from_temp(parent::is_logged_in(), parent::get_temp_user());
             
             echo json_encode(array(
@@ -91,8 +91,8 @@ class Home extends General_controller {
             $userid = $payload['sub'];
             $data = array(
                 "user_google_id" => $id_token,
-                "user_email" => $user_email,
-                "user_name" => $user_name
+                "user_email" => $email,
+                "user_name" => $name
             );
             $this->do_login_with_google($data);
         } else {
@@ -106,12 +106,8 @@ class Home extends General_controller {
     public function logout() {
         $redirect = $this->input->get("redirect");
         $this->session->unset_userdata("user_id");
-        if ($redirect) {
-            $redirect = rawurldecode($redirect);
-            redirect($redirect);
-        } else {
-            redirect(base_url());
-        }
+
+        redirect("https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=" . $redirect);
     }
 
     public function get_cart() {

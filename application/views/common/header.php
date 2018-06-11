@@ -177,17 +177,28 @@ if (vw < 1025) {
     isMobile = false;
 }
 
-function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    var id_token = googleUser.getAuthResponse().id_token;
+var signInOnce = false;
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', '<?php echo base_url("home/verify_google_id_token"); ?>');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
-        var result = xhr.responseText;
-    };
-    xhr.send('idtoken=' + id_token + '&email=' + profile.getEmail() + '&name=' + profile.getName());
+function onSignIn(googleUser) {
+    if (!signInOnce) {
+        signInOnce = true;
+        var profile = googleUser.getBasicProfile();
+        var id_token = googleUser.getAuthResponse().id_token;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '<?php echo base_url("home/verify_google_id_token"); ?>');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {
+            var result = jQuery.parseJSON(xhr.responseText);
+            if (result.status == "success") {
+                window.location.reload();
+            } else {
+                thisButton.removeClass("disabled");
+                showNotification(result.message);
+            }
+        };
+        xhr.send('idtoken=' + id_token + '&email=' + profile.getEmail() + '&name=' + profile.getName());
+    }
 }
 </script>
 <div class="container">
