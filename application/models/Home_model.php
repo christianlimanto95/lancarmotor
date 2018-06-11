@@ -210,11 +210,49 @@ class Home_model extends CI_Model
     }
 
     public function get_data($email) {
-        $this->db->where("user_email", $email);
-        $this->db->where("status", 2);
-        $this->db->select("user_id, user_password, status");
+        $this->db->where("user_email = '" . $email . "' AND status = '2' AND (user_login_as = 1 OR user_login_as = 3)");
+        $this->db->select("user_id, user_google_id, user_password, status");
         $this->db->limit(1);
         return $this->db->get("user")->result();
+    }
+
+    public function do_login_with_google($data) {
+        $query = $this->db->query("
+            SELECT user_id, user_google_id, user_email
+            FROM user
+            WHERE (user_google_id = '" . $data["user_google_id"] . "' OR user_email = '" . $data["user_email"] . "') AND status = '2'
+            LIMIT 1
+        ");
+        $google_id = $query->result();
+        if (sizeof($google_id) > 0) {
+            if ($google_id[0]->user_email == $data["user_email"] && $google_id[0]->user_google_id == "") {
+                $this->db->where("user_id", $google_id[0]->user_id);
+                $this->db->set("user_google_id", $data["user_google_id"]);
+                $this->db->set("user_login_as", 3);
+                $this->db->set("modified_date", "NOW()", false);
+                $this->db->update("user");
+            }
+
+            return array(
+                "status" => "success",
+                "user_id" => $google_id[0]->user_id
+            );
+        } else {
+            $insertData = array(
+                "user_google_id" => $data["user_google_id"],
+                "user_email" => $data["user_email"],
+                "user_name" => $data["user_name"],
+                "status" => 2,
+                "user_login_as" => 2
+            );
+            $this->db->insert("user", $insertData);
+            $user_id = $this->db->insert_id();
+
+            return array(
+                "status" => "success",
+                "user_id" => $user_id
+            );
+        }
     }
 
     public function import_cart_from_temp($user_id, $temp_user_id) {

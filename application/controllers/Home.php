@@ -34,7 +34,7 @@ class Home extends General_controller {
 
         if ($email != "" && $password != "") {
             $data = $this->Home_model->get_data($email);
-			if (sizeof($data) > 0) {
+			if (sizeof($data) > 0 && $data[0]->user_google_id == "") {
 				if (password_verify($password, $data[0]->user_password)) {
                     $this->session->set_userdata("user_id", $data[0]->user_id);
                     $this->Home_model->import_cart_from_temp(parent::is_logged_in(), parent::get_temp_user());
@@ -62,17 +62,44 @@ class Home extends General_controller {
         }
     }
 
+    public function do_login_with_google($data = null) {
+        if ($data != null) {
+            $result = $this->Home_model->do_login_with_google($data);
+            $this->session->set_userdata("user_id", $result[0]->user_id);
+            $this->Home_model->import_cart_from_temp(parent::is_logged_in(), parent::get_temp_user());
+            
+            echo json_encode(array(
+                "status" => "success"
+            ));
+        } else {
+            echo json_encode(array(
+                "status" => "error",
+                "message" => ""
+            ));
+        }
+    }
+
     function verify_google_id_token() {
         require_once("vendor/autoload.php");
         $CLIENT_ID = "702991525631-258gshg35oef1lfhnt21hohro5rjito9.apps.googleusercontent.com";
         $client = new Google_Client(['client_id' => $CLIENT_ID]);
-        $id_token = $this->input->post("idtoken");
+        $id_token = $this->input->post("idtoken", true);
+        $email = $this->input->post("email", true);
+        $name = $this->input->post("name", true);
         $payload = $client->verifyIdToken($id_token);
         if ($payload) {
             $userid = $payload['sub'];
-            echo $userid;
+            $data = array(
+                "user_google_id" => $id_token,
+                "user_email" => $user_email,
+                "user_name" => $user_name
+            );
+            $this->do_login_with_google($data);
         } else {
-
+            echo json_encode(array(
+                "status" => "error",
+                "message" => "Google Login Error"
+            ));
         }
     }
 
