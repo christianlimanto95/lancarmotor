@@ -62,6 +62,20 @@ class Home extends General_controller {
         }
     }
 
+    function verify_google_id_token() {
+        require_once("vendor/autoload.php");
+        $CLIENT_ID = "702991525631-258gshg35oef1lfhnt21hohro5rjito9.apps.googleusercontent.com";
+        $client = new Google_Client(['client_id' => $CLIENT_ID]);
+        $id_token = $this->input->post("idtoken");
+        $payload = $client->verifyIdToken($id_token);
+        if ($payload) {
+            $userid = $payload['sub'];
+            echo $userid;
+        } else {
+
+        }
+    }
+
     public function logout() {
         $redirect = $this->input->get("redirect");
         $this->session->unset_userdata("user_id");

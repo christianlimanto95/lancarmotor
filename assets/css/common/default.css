@@ -1207,6 +1207,17 @@ pre {
         color: white;
     }
 
+    .login-or-mobile {
+        color: #999;
+        text-align: center;
+        margin: 15px 0;
+    }
+
+    .header-register-mobile .g-signin2 .abcRioButton {
+        width: 80vw !important;
+        margin: 0 auto;
+    }
+
     .header-logout-mobile {
         position: absolute;
         bottom: 100px;
@@ -1336,6 +1347,11 @@ pre {
     .header-register {
         position: absolute;
         top: 25px;
+    }
+
+    .header-register .g-signin2 .abcRioButton, .header-register .g-signin2 .abcRioButton:hover {
+        border: 1px solid black !important;
+        box-shadow: none !important;
     }
 
     .header-logout {

@@ -10,10 +10,11 @@
         echo "<meta name='description' content='" . $meta_description . "' />";
         echo "<meta name='og:description' content='" . $meta_description . "' />";
     } ?>
+    <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="702991525631-258gshg35oef1lfhnt21hohro5rjito9.apps.googleusercontent.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=8"); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/common/default.css?v=9"); ?>" />
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/" . $page_name . ".css?v=33"); ?>" />
     <?php echo $additional_css; ?>
     <style>
@@ -72,7 +73,7 @@
                 </div>
                 <div class="button btn-login">Login</div>
                 <div class="login-or">or</div>
-                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                <div class="g-signin2" data-onsuccess="onSignIn" data-width="260" data-height="40" data-longtitle="true"></div>
             </div>
         </div>
         <a href="<?php echo base_url("register"); ?>" class="header-register-text">REGISTER</a>
@@ -103,6 +104,8 @@
     <div class="header-register-mobile">
         <a href="<?php echo base_url("register"); ?>" class="header-register-text-mobile">REGISTER</a>
         <a href="<?php echo base_url("login"); ?>" class="header-login-text-mobile">LOGIN</a>
+        <div class="login-or-mobile">or</div>
+        <div class="g-signin2" data-onsuccess="onSignIn" data-width="260" data-height="40" data-longtitle="true"></div>
     </div>
     <?php } else { ?>
         <a class="header-logout-mobile" href="<?php echo base_url("home/logout?redirect=" . (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>">Logout</a>
@@ -175,11 +178,22 @@ if (vw < 1025) {
 }
 
 function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+    var id_token = googleUser.getAuthResponse().id_token;
+    console.log("ID Token : " + id_token);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://lancarmotor.dnp-project.com/home/verify_google_id_token');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+        console.log('Signed in as: ' + xhr.responseText);
+    };
+    xhr.send('idtoken=' + id_token);
 }
 </script>
 <div class="container">
